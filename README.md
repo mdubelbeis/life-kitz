@@ -37,7 +37,8 @@ Life-Kitz will be your go to multi-tool from simple to advanced tasks!
 - Django/DRF - BE
   - ...
   
-## STRETCH
+## STRETCH GOALS
 
 - Update the CP RUBRIC to proper url  :)
 - Add more kits by abusing the API-NINJAS api
+- Drag and drop features within kits
