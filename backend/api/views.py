@@ -1,5 +1,7 @@
 from rest_framework.decorators import api_view, permission_classes
+from rest_framework.decorators import authentication_classes
 from rest_framework.request import Request
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
@@ -14,12 +16,14 @@ def index(request: Request):
 
 
 @api_view(['GET'])
+@authentication_classes((TokenAuthentication,))
 @permission_classes([IsAuthenticated])
 def get_todos(request: Request):
     return Response({"message": "GET"}, status=status.HTTP_200_OK)
 
 
 @ api_view(['GET', 'POST', 'DELETE', 'PUT'])
+@authentication_classes((TokenAuthentication,))
 @permission_classes([IsAuthenticated])
 def todo_action(request: Request, pk=None):
     if request.method == 'GET':
@@ -33,12 +37,14 @@ def todo_action(request: Request, pk=None):
 
 
 @api_view(['GET'])
+@authentication_classes((TokenAuthentication,))
 @permission_classes([IsAuthenticated])
 def get_expenses(request: Request):
     return Response({"message": "GET"}, status=status.HTTP_200_OK)
 
 
 @api_view(['GET', 'POST', 'DELETE', 'PUT'])
+@authentication_classes((TokenAuthentication,))
 @permission_classes([IsAuthenticated])
 def expense_action(request: Request, pk=None):
     if request.method == 'GET':
@@ -52,12 +58,14 @@ def expense_action(request: Request, pk=None):
 
 
 @api_view(['GET'])
+@authentication_classes((TokenAuthentication,))
 @permission_classes([IsAuthenticated])
 def get_notes(request: Request):
     return Response({"message": "GET"}, status=status.HTTP_200_OK)
 
 
 @api_view(['GET', 'POST', 'DELETE', 'PUT'])
+@authentication_classes((TokenAuthentication,))
 @permission_classes([IsAuthenticated])
 def note_action(request: Request, pk=None):
     if request.method == 'GET':
