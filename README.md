@@ -12,7 +12,11 @@ Life-Kitz will be your go to multi-tool from simple to advanced tasks!
 ## API INFO
 
 - News API: [Slightly Used API](https://newsapi.org/)
-- API NINJAS: [Most Abused API](https://api-ninjas.com/):
+- API NINJAS: [Most Abused API](https://api-ninjas.com/)
+  - weather/
+  - world-time/
+  - jokes/
+  - quotes/
 
 ## MVP
 
@@ -36,3 +40,4 @@ Life-Kitz will be your go to multi-tool from simple to advanced tasks!
 ## STRETCH
 
 - Update the CP RUBRIC to proper url  :)
+- Add more kits by abusing the API-NINJAS api
