@@ -6,5 +6,5 @@ from .models import Note
 class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
-        fields = ['id', 'title', 'content']
-        read_only_fields = ['id']
+        fields = ['id', 'title', 'content', 'created_at', 'user']
+        read_only_fields = ['id', 'user']

@@ -1,9 +1,11 @@
 from django.contrib import admin
 
-# Register your models here.
-from django.contrib import admin
-
 from .models import Note
 
 # Register your models here.
-admin.site.register(Note)
+
+
+@admin.register(Note)
+class NoteAdmin(admin.ModelAdmin):
+    list_display = ['title', 'created_at']
+    list_filter = ['created_at']
