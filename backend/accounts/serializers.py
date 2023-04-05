@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from rest_framework.authtoken.models import Token
 from rest_framework.validators import ValidationError
 
 from .models import User
@@ -26,5 +27,7 @@ class SignUpSerializer(serializers.ModelSerializer):
 
         user.set_password(password)
         user.save()
+
+        Token.objects.create(user=user)
 
         return user

@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     "accounts",
     "notes",
     "expenses",
+
+    # Third Party Packages
     "rest_framework",
+    "rest_framework.authtoken",
     "corsheaders",
 ]
 
@@ -60,8 +63,17 @@ MIDDLEWARE = [
 ROOT_URLCONF = "project.urls"
 
 REST_FRAMEWORK = {
-    "NON_FIELD_ERRORS_KEY": "errors"
+    "NON_FIELD_ERRORS_KEY": "errors",
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+    ),
+    "DEFAULT_PERMISSION_CLASSES": (
+        # "rest_framework.permissions.IsAuthenticated",
+        # "rest_framework.permissions.IsAdminUser",
+    )
 }
+
 
 TEMPLATES = [
     {
