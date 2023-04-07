@@ -4,9 +4,20 @@ from django.contrib.auth import authenticate
 from rest_framework.response import Response
 from rest_framework.request import Request
 from rest_framework.views import APIView
+from rest_framework.decorators import api_view, permission_classes, authentication_classes
+from django.views.decorators.csrf import csrf_exempt
 from .tokens import create_jwt_pair_for_user
+from rest_framework.permissions import IsAuthenticated, AllowAny
 
 # Create your views here.
+
+
+# @authentication_classes([])
+@api_view(["GET", "POST"])
+@csrf_exempt
+@permission_classes([AllowAny])
+def Auth_Homepage(request: Request):
+    return Response("Hello World!")
 
 
 class SignUpView(generics.GenericAPIView):
