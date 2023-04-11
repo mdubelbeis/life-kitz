@@ -2,7 +2,7 @@
 
 ## ABOUT
 
-Life-Kitz are designed to be your personal tooling for everyday activities.
+Life-Kitz is designed to be your personal tooling for everyday activities.
 
 Add a kit for your needs.
 Remove a kit when no longer needed.
