@@ -12,7 +12,6 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 # Create your views here.
 
 
-# @authentication_classes([])
 @api_view(["GET", "POST"])
 @csrf_exempt
 @permission_classes([AllowAny])
@@ -22,7 +21,7 @@ def Auth_Homepage(request: Request):
 
 class SignUpView(generics.GenericAPIView):
     serializer_class = SignUpSerializer
-    permission_classes = []
+    permission_classes = [AllowAny]
 
     def post(self, request: Request):
         data = request.data
@@ -43,7 +42,7 @@ class SignUpView(generics.GenericAPIView):
 
 
 class LoginView(APIView):
-    permission_classes = []
+    permission_classes = [AllowAny]
 
     def post(self, request: Request):
         # Get credentials in body of POST request:
