@@ -24,7 +24,7 @@ export interface Expense {
   created_at: string;
 }
 
-interface HomePageProps {
+export interface HomePageProps {
   message: string;
   todos: Todo[]; // TODO: Create Todo Interface
   notes: Note[]; // TODO: Create Note Interface
@@ -61,7 +61,9 @@ const HomePage: React.FC<HomePageProps> = ({
           <p>Expenses</p>
           <ul>
             {expenses.length > 0 ? (
-              expenses.map((expense) => <li key={expense.id}>{expense.title}</li>)
+              expenses.map((expense) => (
+                <li key={expense.id}>{expense.title}</li>
+              ))
             ) : (
               <li>No expenses</li>
             )}
