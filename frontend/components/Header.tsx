@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react";
 
 const Header: React.FC = () => {
@@ -8,16 +9,17 @@ const Header: React.FC = () => {
       <h1>Life-Kitz</h1>
       {userAuth ? (
         <nav>
-          <a href="/">Home</a>
-          <a href="/todos">Todos</a>
-          <a href="/expenses">Expenses</a>
-          <a href="/notes">Notes</a>
+          <Link href="/">Home</Link>
+          <Link href="/todos">Todos</Link>
+          <Link href="/expenses">Expenses</Link>
+          <Link href="/notes">Notes</Link>
+          <Link href="/logout">Logout</Link>
         </nav>
       ) : (
         <nav>
-          <a href="/">Home</a>
-          <a href="/login">Login</a>
-          <a href="/register">Register</a>
+          <Link href="/">Home</Link>
+          <Link href="/login">Login</Link>
+          <Link href="/register">Register</Link>
         </nav>
       )}
     </header>
