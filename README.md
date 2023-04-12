@@ -36,7 +36,36 @@ Life-Kitz will be your go to multi-tool from simple to advanced tasks!
   - ...
 - Django/DRF - BE
   - ...
+
+
+## WIRE-FRAMES AND BRAINSTORMING
+
+### FIGMA
+
+![iphone-mini](./dev-documents/wire-frames/iphone-mini.png)
+
+![iphone-pro-max](./dev-documents/wire-frames/iphone-pro-max.png)
+
+![ipad-pro](./dev-documents/wire-frames/ipad-pro.png)
+
+![desktop](./dev-documents/wire-frames/desktop.png)
+
+### WHITEBOARD
+
+![Sign-up Page](./dev-documents/whiteboarding/signup_page.JPG)
+![Login Page](./dev-documents/whiteboarding/login_page.JPG)
+![Mobile Design (OG)](./dev-documents/whiteboarding/mobile.JPG)
+![Desktop Design (OG)](./dev-documents/whiteboarding/desktop.JPG)
+![Desktop Header (OG)](./dev-documents/whiteboarding/desktop_header.JPG)
+![LifeKit Component](./dev-documents/whiteboarding/lifekit.JPG)
+![Dashboard Design (OG)](./dev-documents/whiteboarding/dashboard.JPG)
+![Design (OG)](./dev-documents/whiteboarding/sql_design_proto.JPG)
   
+## SQL SCHEMA
+
+![SQL SCHEMA](./dev-documents/whiteboarding/sql_schema.png)
+![SQL SCHEMA (OG)](./dev-documents/whiteboarding/sql_schema_og.JPG)
+
 ## STRETCH GOALS
 
 - Update the CP RUBRIC to proper url  :)
