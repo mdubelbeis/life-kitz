@@ -88,9 +88,9 @@ export async function getServerSideProps() {
   // Fetch data from external API
   try {
     // FETCH USER TODOS -> USER TODOS | EXPECT 200 OK
-    const todos = await axios.get("http://127.0.0.1:8000/api/todos/");
-    const notes = await axios.get("http://127.0.0.1:8000/api/notes/");
-    const expenses = await axios.get("http://127.0.0.1:8000/api/expenses/");
+    const todos = await axios.get("http://127.0.0.1:8000/api/todos/"); // TODO: ADD AUTH HEADERS?
+    const notes = await axios.get("http://127.0.0.1:8000/api/notes/"); // TODO: ADD AUTH HEADERS?
+    const expenses = await axios.get("http://127.0.0.1:8000/api/expenses/"); // TOOD: ADD AUTH HEADERS?
 
     return {
       props: {
