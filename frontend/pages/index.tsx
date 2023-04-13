@@ -175,6 +175,7 @@ export async function getServerSideProps() {
         expenses: expenses_data.data,
         widgetData: {
           weather: {}, // TODO: Add default data for weather widget
+          // jokes: {}, // TODO: Add default data for weather widget
         },
       },
     };
