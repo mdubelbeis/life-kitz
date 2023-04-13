@@ -26,12 +26,25 @@ export interface Expense {
   created_at: string;
 }
 
+export interface WeatherData {
+  wind_speed: number;
+  wind_degrees: number;
+  temp: number;
+  humidity: number;
+  sunset: number;
+  min_temp: number;
+  cloud_pct: number;
+  feels_like: number;
+  sunrise: number;
+  max_temp: number;
+}
+
 export interface HomePageProps {
   // message: string;
   todos: Todo[]; // TODO: Create Todo Interface
   notes: Note[]; // TODO: Create Note Interface
   expenses: Expense[]; // TODO: Create Expense Interface
-  widgetData: { weather: {} }[];
+  widgetData: { weather: WeatherData }[];
 }
 
 const HomePage: React.FC<HomePageProps> = ({
@@ -40,7 +53,6 @@ const HomePage: React.FC<HomePageProps> = ({
   expenses,
   widgetData,
 }) => {
-  console.log(widgetData.weather);
   return (
     <>
       <Head>
@@ -50,7 +62,7 @@ const HomePage: React.FC<HomePageProps> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <WidgetContainer>
-        {widgetData.weather && <WeatherWidget data={widgetData.weather} />}
+        <WeatherWidget data={widgetData.weather} />
         {/* <ClockWidget /> */}
         {/* <JokesWidget />
         <QuotesWidget /> */}
@@ -96,39 +108,91 @@ const HomePage: React.FC<HomePageProps> = ({
 };
 
 export async function getServerSideProps() {
-  // Fetch data from external API
-  try {
-    // FETCH USER TODOS -> USER TODOS | EXPECT 200 OK
-    const todos = await axios.get("http://127.0.0.1:8000/api/todos/"); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
-    const notes = await axios.get("http://127.0.0.1:8000/api/notes/"); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
-    const expenses = await axios.get("http://127.0.0.1:8000/api/expenses/"); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
+  //* Fetch data from BE API
+  let todos_data:
+    | {
+        id: number;
+        title: string;
+        description: string;
+        created_at: string;
+        completed: boolean;
+      }[];
+  let notes_data:
+    | { id: number; title: string; content: string; created_at: string }[];
+  let expenses_data:
+    | {
+        id: number;
+        title: string;
+        amount: number;
+        description: string;
+        created_at: string;
+      }[];
+  let weatherWidgetData: {
+    wind_speed: number;
+    wind_degrees: number;
+    temp: number;
+    humidity: number;
+    sunset: number;
+    min_temp: number;
+    cloud_pct: number;
+    feels_like: number;
+    sunrise: number;
+    max_temp: number;
+  };
 
+  try {
+    todos_data = await axios.get("http://127.0.0.1:8000/api/todos/"); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
+    notes_data = await axios.get("http://127.0.0.1:8000/api/notes/"); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
+    expenses_data = await axios.get("http://127.0.0.1:8000/api/expenses/"); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
+  } catch {
+    console.log("Error fetching data from BE API");
+  }
+
+  //* Fetch data from 3rd party APIs
+  try {
     const weather_widget_res = await fetch(
       "https://api.api-ninjas.com/v1/weather?city=austin",
       {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          "X-Api-Key": process.env.API_NINJA_KEY,
         },
       }
     );
-    const weather_widget_data = await weather_widget_res.json();
-    console.log(weather_widget_data);
-    return {
-      props: {
-        todos: todos.data,
-        notes: notes.data,
-        expenses: expenses.data,
-        widgetData: {
-          weather: weather_widget_data,
-          // jokes: jokes_widget_data,
-          // quotes: quotes_widget_data,
-        },
-      },
-    };
+    weatherWidgetData = await weather_widget_res.json();
+    console.log(weatherWidgetData);
   } catch (error) {
     console.log(`${error} - Weather Widget Data Fetch Failed`);
   }
+
+  if (!weatherWidgetData) {
+    console.log("Todos, Notes, Expenses Data Fetched");
+    return {
+      props: {
+        todos: todos_data.data,
+        notes: notes_data.data,
+        expenses: expenses_data.data,
+        widgetData: {
+          weather: {}, // TODO: Add default data for weather widget
+        },
+      },
+    };
+  }
+
+  return {
+    props: {
+      todos: todos_data.data,
+      notes: notes_data.data,
+      expenses: expenses_data.data,
+      widgetData: {
+        weather: weatherWidgetData,
+        // jokes: jokesWidgetData,
+        // quotes: quotesWidgetData,
+        // news: newsWidgetData,
+      },
+    },
+  };
 }
 
 export default HomePage;
