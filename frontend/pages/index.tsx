@@ -1,3 +1,4 @@
+import WidgetContainer from "@/components/widgets/WidgetContainer";
 import axios from "axios";
 import Head from "next/head";
 
@@ -29,6 +30,7 @@ export interface HomePageProps {
   todos: Todo[]; // TODO: Create Todo Interface
   notes: Note[]; // TODO: Create Note Interface
   expenses: Expense[]; // TODO: Create Expense Interface
+  widgetData: string;
 }
 
 const HomePage: React.FC<HomePageProps> = ({
@@ -36,6 +38,7 @@ const HomePage: React.FC<HomePageProps> = ({
   todos,
   notes,
   expenses,
+  widgetData,
 }) => {
   return (
     <>
@@ -45,7 +48,8 @@ const HomePage: React.FC<HomePageProps> = ({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <WidgetContainer widgetData={widgetData} />
+      <section>
         <h1>Life-Kitz</h1>
         <div>
           <p>Todos</p>
@@ -79,7 +83,7 @@ const HomePage: React.FC<HomePageProps> = ({
             )}
           </ul>
         </div>
-      </main>
+      </section>
     </>
   );
 };
@@ -98,6 +102,7 @@ export async function getServerSideProps() {
         todos: todos.data,
         notes: notes.data,
         expenses: expenses.data,
+        widgetData: "placeholder",
       },
     };
   } catch (error) {
