@@ -35,8 +35,9 @@ Life-Kitz will be your go to multi-tool from simple to advanced tasks!
   - React-Icons (Icons)
   - ...
 - Django/DRF - BE
-  - ...
-
+  - JWT AUTH
+  - Custom Permissions inherited from BasePermissions
+  - ViewSets for CRUD functionality
 
 ## WIRE-FRAMES AND BRAINSTORMING
 
