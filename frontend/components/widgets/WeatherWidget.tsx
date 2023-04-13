@@ -9,11 +9,28 @@ interface WeatherWidgetProps {
 const WeatherWidget: React.FC<WeatherWidgetProps> = ({ data }) => {
   const [mountTime, setMountTime] = useState(new Date().getHours()); // 24 hour clock time only hours
   const [textColor, setTextColor] = useState("");
+  const [feelsLikeFahrenheit, setFeelsLikesFahrenheit] = useState(
+    Number(data.feels_like * 1.8 + 32).toFixed(0)
+  );
+  const {
+    wind_speed,
+    wind_degrees,
+    temp,
+    humidity,
+    sunset,
+    min_temp,
+    cloud_pct,
+    feels_like,
+    sunrise,
+    max_temp,
+  } = data;
 
-  const tempInFahrenheit = Number(data.feels_like * 1.8 + 32).toFixed(0);
+  // Updated weather text color based on textColor
 
   // NEED UPDATE WEATHER FUNCTION TO UPDATE EVERY 30 MINUTES
   // const updateWeather = () => {};
+
+  // console.log(Object.keys(data).length); // length of keys on data .... why?
 
   const getWeatherIcon = () => {
     if (mountTime > 1800) {
@@ -31,62 +48,23 @@ const WeatherWidget: React.FC<WeatherWidgetProps> = ({ data }) => {
     );
   };
   return (
-    <section>
-      <div className="stats shadow">
-        <div className="stat flex flex-col place-items-center gap-3">
+    <section className="max-w-4xl">
+      <div className="stats flex shadow">
+        <div className="stat flex flex-col place-items-center items-center justify-center gap-3">
           <div className="stat-desc">{getWeatherIcon()}</div>
           <div className="stat-title">Feels Like</div>
           <div className="stat-value">
-            <span className={`${textColor}`}>{tempInFahrenheit}°F</span>
+            <span className={`${textColor}`}>{feelsLikeFahrenheit}°F</span>
           </div>
         </div>
 
         <div className="stat place-items-center">
-          <div className="stat-title">Other shit</div>
-          <div className="stat-value overflow-x-auto text-secondary">
-            <table className="table w-full">
-              {/* head */}
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>Wind Speed</th>
-                  <th>Humidity</th>
-                  <th>Cloud Percent</th>
-                  <th>Favorite Color</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* row 1 */}
-                <tr>
-                  <th>1</th>
-                  <td>Cy Ganderton</td>
-                  <td>Quality Control Specialist</td>
-                  <td>Blue</td>
-                </tr>
-                {/* row 2 */}
-                <tr className="hover">
-                  <th>2</th>
-                  <td>Hart Hagerty</td>
-                  <td>Desktop Support Technician</td>
-                  <td>Purple</td>
-                </tr>
-                {/* row 3 */}
-                <tr>
-                  <th>3</th>
-                  <td>Brice Swyre</td>
-                  <td>Tax Accountant</td>
-                  <td>Red</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div className="stat-desc text-secondary">↗︎ 40 (2%)</div>
-        </div>
-
-        <div className="stat place-items-center">
-          <div className="stat-title">New Registers</div>
-          <div className="stat-value">1,200</div>
-          <div className="stat-desc">↘︎ 90 (14%)</div>
+          <ul className="items flex w-full flex-col items-center justify-center gap-3 tracking-wider">
+            <li>Wind Speed: ... {(wind_speed * 1.150779).toFixed(0)} mph</li>
+            <li>Wind Degrees: ... {wind_degrees}</li>
+            <li>Temp: ... {((temp * 9) / 5 + 32).toFixed(0)}°F</li>
+            <li>Humidity: ... {humidity}</li>
+          </ul>
         </div>
       </div>
     </section>
