@@ -1,9 +1,14 @@
 interface WidgetContainerProps {
-  widgetData: string;
+  children: React.ReactNode;
 }
 
-const WidgetContainer: React.FC<WidgetContainerProps> = ({ widgetData }) => {
-  return <section>{widgetData}</section>;
+const WidgetContainer: React.FC<WidgetContainerProps> = ({ children }) => {
+  return (
+    <section>
+      <h2>Widgets</h2>
+      {children}
+    </section>
+  );
 };
 
 export default WidgetContainer;

@@ -1,3 +1,4 @@
+import WeatherWidget from "@/components/widgets/WeatherWidget";
 import WidgetContainer from "@/components/widgets/WidgetContainer";
 import axios from "axios";
 import Head from "next/head";
@@ -26,20 +27,20 @@ export interface Expense {
 }
 
 export interface HomePageProps {
-  message: string;
+  // message: string;
   todos: Todo[]; // TODO: Create Todo Interface
   notes: Note[]; // TODO: Create Note Interface
   expenses: Expense[]; // TODO: Create Expense Interface
-  widgetData: string;
+  widgetData: { weather: {} }[];
 }
 
 const HomePage: React.FC<HomePageProps> = ({
-  message,
   todos,
   notes,
   expenses,
   widgetData,
 }) => {
+  console.log(widgetData.weather);
   return (
     <>
       <Head>
@@ -48,7 +49,13 @@ const HomePage: React.FC<HomePageProps> = ({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <WidgetContainer widgetData={widgetData} />
+      <WidgetContainer>
+        {widgetData.weather && <WeatherWidget data={widgetData.weather} />}
+        {/* <ClockWidget /> */}
+        {/* <JokesWidget />
+        <QuotesWidget /> */}
+        {/* <NewsWidget /> */}
+      </WidgetContainer>
       <section>
         <h1>Life-Kitz</h1>
         <div>
@@ -96,17 +103,31 @@ export async function getServerSideProps() {
     const notes = await axios.get("http://127.0.0.1:8000/api/notes/"); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
     const expenses = await axios.get("http://127.0.0.1:8000/api/expenses/"); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
 
+    const weather_widget_res = await fetch(
+      "https://api.api-ninjas.com/v1/weather?city=austin",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const weather_widget_data = await weather_widget_res.json();
+    console.log(weather_widget_data);
     return {
       props: {
-        message: "Home Page Props",
         todos: todos.data,
         notes: notes.data,
         expenses: expenses.data,
-        widgetData: "placeholder",
+        widgetData: {
+          weather: weather_widget_data,
+          // jokes: jokes_widget_data,
+          // quotes: quotes_widget_data,
+        },
       },
     };
   } catch (error) {
-    console.log(error);
+    console.log(`${error} - Weather Widget Data Fetch Failed`);
   }
 }
 
