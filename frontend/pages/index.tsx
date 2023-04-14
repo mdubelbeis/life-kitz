@@ -44,7 +44,7 @@ export interface HomePageProps {
   todos: Todo[]; // TODO: Create Todo Interface
   notes: Note[]; // TODO: Create Note Interface
   expenses: Expense[]; // TODO: Create Expense Interface
-  widgetData: { weather: WeatherData }[];
+  widgetData: {}[];
 }
 
 const HomePage: React.FC<HomePageProps> = ({
@@ -62,7 +62,7 @@ const HomePage: React.FC<HomePageProps> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <WidgetContainer>
-        <WeatherWidget data={widgetData.weather} />
+        <WeatherWidget />
         {/* <ClockWidget /> */}
         {/* <JokesWidget />
         <QuotesWidget /> */}
