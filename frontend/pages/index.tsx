@@ -135,10 +135,7 @@ export async function getServerSideProps() {
   } catch {
     console.log('Error fetching data from BE API');
   }
-
-  const { todos } = todos_data.data;
   //* Fetch data from 3rd party APIs
-
   return {
     props: {
       todos: todos_data.data,

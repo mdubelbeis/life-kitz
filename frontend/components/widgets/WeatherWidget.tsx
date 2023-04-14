@@ -1,7 +1,8 @@
-import { SyntheticEvent, useState } from 'react';
+import { SyntheticEvent, useEffect, useState } from 'react';
 import { TiWeatherNight, TiWeatherSunny } from 'react-icons/ti';
 
 import { WeatherData } from '@/pages/index';
+import WeatherWrapper from './WeatherWrapper';
 
 const defaultWeather = {
   wind_speed: 0,
@@ -19,11 +20,13 @@ const defaultWeather = {
 const WeatherWidget: React.FC = () => {
   const [weather, setWeather] = useState<WeatherData>(defaultWeather);
   const [mountTime, setMountTime] = useState(new Date().getHours()); // 24 hour clock time only hours
-  const [textColor, setTextColor] = useState('');
+  const [tempTextColor, setTempTextColor] = useState('');
   const [feelsLikeFahrenheit, setFeelsLikesFahrenheit] = useState(
     Number(weather.feels_like * 1.8 + 32).toFixed(0)
   );
-  const [zipCode, setZipCode] = useState(''); // TODO: Get user location from browser
+  const [weatherCardBgColor, setWeatherCardBgColor] = useState('');
+  const [weatherDataTextColor, setWeatherDataTextColor] = useState('');
+  const [zipCode, setZipCode] = useState('');
   let {
     wind_speed,
     wind_degrees,
@@ -46,24 +49,30 @@ const WeatherWidget: React.FC = () => {
   // console.log(Object.keys(data).length); // length of keys on data .... why?
 
   const getWeatherIcon = () => {
-    if (mountTime > 1800) {
+    if (mountTime > 18) {
       return (
         <span>
-          <TiWeatherNight className="h-20 w-20" />
+          <TiWeatherNight className="h-20 w-20" fill="gray" />
+        </span>
+      );
+    } else {
+      return (
+        <span>
+          <TiWeatherSunny className="h-20 w-20" fill="yellow" />
         </span>
       );
     }
-
-    return (
-      <span>
-        <TiWeatherSunny className="h-20 w-20" />
-      </span>
-    );
   };
 
-  // useEffect(() => {
-  //   console.log(weather);
-  // }, [weather]);
+  useEffect(() => {
+    if (mountTime > 18) {
+      setWeatherCardBgColor('bg-slate-800');
+      setWeatherDataTextColor('text-slate-300');
+    } else {
+      setWeatherCardBgColor('bg-blue-400');
+      setWeatherDataTextColor('text-white');
+    }
+  }, [mountTime]);
 
   const updateWeatherData = async () => {
     try {
@@ -82,6 +91,9 @@ const WeatherWidget: React.FC = () => {
       // console.log(updatedWeather);
       setWeather(updatedWeather);
       setUserLocation(zipCode);
+      setFeelsLikesFahrenheit(
+        Number(updatedWeather.feels_like * 1.8 + 32).toFixed(0)
+      );
     } catch (error) {
       console.log(`${error} - Weather Widget Data Fetch Failed`);
     }
@@ -92,53 +104,88 @@ const WeatherWidget: React.FC = () => {
     // Fetch data
     updateWeatherData();
   };
+
+  const getWindDirection = () => {
+    if (wind_degrees > 337.5) {
+      return 'N';
+    } else if (wind_degrees > 292.5) {
+      return 'NW';
+    } else if (wind_degrees > 247.5) {
+      return 'W';
+    } else if (wind_degrees > 202.5) {
+      return 'SW';
+    } else if (wind_degrees > 157.5) {
+      return 'S';
+    } else if (wind_degrees > 122.5) {
+      return 'SE';
+    } else if (wind_degrees > 67.5) {
+      return 'E';
+    } else if (wind_degrees > 22.5) {
+      return 'NE';
+    } else {
+      return 'N';
+    }
+  };
   return (
     <>
       {userLocation ? (
-        <section className="max-w-4xl">
-          <div className="stats flex shadow">
+        <WeatherWrapper>
+          <div
+            className={`stats mx-auto flex w-11/12 flex-col md:w-6/12 ${weatherCardBgColor} ${weatherDataTextColor} rounded-xl shadow`}
+          >
             <div className="stat flex flex-col place-items-center items-center justify-center gap-3">
               <div className="stat-desc">{getWeatherIcon()}</div>
-              <div className="stat-title">Feels Like</div>
               <div className="stat-value">
-                <span className={`${textColor}`}>{feelsLikeFahrenheit}°F</span>
+                <span className={`${tempTextColor}`}>
+                  {feelsLikeFahrenheit}°F
+                </span>
               </div>
             </div>
 
-            <div className="stat place-items-center">
+            <div className="hidden lg:stat lg:block lg:place-items-center">
               <ul className="items flex w-full flex-col items-center justify-center gap-3 tracking-wider">
                 <li>
                   Wind Speed: ... {(wind_speed * 1.150779).toFixed(0)} mph
                 </li>
-                <li>Wind Degrees: ... {wind_degrees}</li>
+                <li>
+                  Wind Degrees: ... {wind_degrees} {getWindDirection()}
+                </li>
                 <li>Temp: ... {((temp * 9) / 5 + 32).toFixed(0)}°F</li>
                 <li>Humidity: ... {humidity}</li>
               </ul>
             </div>
           </div>
-        </section>
+        </WeatherWrapper>
       ) : (
-        <div className="stats flex max-w-4xl">
-          <div className="stat flex flex-col place-items-center items-center justify-center gap-3">
-            <form className="form-control" onSubmit={handleZipCode}>
-              <div className="flex gap-3">
-                <label className="input-group">
-                  <span>Zipcode</span>
-                  <input
-                    type="number"
-                    min={5}
-                    placeholder="Enter your zipcode"
-                    className="input-bordered input"
-                    onChange={(e) => setZipCode(e.target.value)}
-                  />
-                </label>
-                <button className="btn" type="submit">
+        <WeatherWrapper>
+          <div className="stats mx-auto flex bg-inherit">
+            <div className="stat flex flex-col place-items-center items-center justify-center gap-3">
+              <form
+                className="form-control flex w-full flex-col items-center justify-center gap-3 lg:w-10/12"
+                onSubmit={handleZipCode}
+              >
+                <div className="lg:w-10/12">
+                  <label className="input-group">
+                    <span>Zipcode</span>
+                    <input
+                      type="number"
+                      min={5}
+                      placeholder="Get your local weather"
+                      className="input-bordered input w-full"
+                      onChange={(e) => setZipCode(e.target.value)}
+                    />
+                  </label>
+                </div>
+                <button
+                  className="btn bg-slate-800 lg:w-6/12 lg:text-lg"
+                  type="submit"
+                >
                   FIND
                 </button>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
-        </div>
+        </WeatherWrapper>
       )}
     </>
   );
