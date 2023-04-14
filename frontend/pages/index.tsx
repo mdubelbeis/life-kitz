@@ -1,6 +1,7 @@
 import JokesWidget from '@/components/widgets/JokesWidget';
 import WeatherWidget from '@/components/widgets/WeatherWidget';
 import WidgetContainer from '@/components/widgets/WidgetContainer';
+import QuotesWidget from '@/components/widgets/QuotesWidget'
 import axios from 'axios';
 import Head from 'next/head';
 
@@ -40,12 +41,23 @@ export interface WeatherData {
   max_temp: number;
 }
 
+export interface JokeData {
+  joke: string;
+
+}
+
+export interface QuoteData {
+  quote: string;
+  author: string;
+  category: string;
+}
+
 export interface HomePageProps {
   // message: string;
   todos: Todo[]; // TODO: Create Todo Interface
   notes: Note[]; // TODO: Create Note Interface
   expenses: Expense[]; // TODO: Create Expense Interface
-  widgetData: { jokes: {}[] }[];
+  widgetData: { jokes: {}[], quotes: {}[] }[];
 }
 
 const HomePage: React.FC<HomePageProps> = ({
@@ -55,6 +67,8 @@ const HomePage: React.FC<HomePageProps> = ({
   widgetData,
 }) => {
   const joke = widgetData.jokes[0].joke;
+  const quote = widgetData.quotes;
+  console.log(quote)
   return (
     <>
       <Head>
@@ -67,7 +81,7 @@ const HomePage: React.FC<HomePageProps> = ({
         <WeatherWidget />
         {/* <ClockWidget /> */}
         <JokesWidget joke={joke} />
-        {/* <QuotesWidget /> */}
+        <QuotesWidget quote={quote} />
         {/* <NewsWidget /> */}
       </WidgetContainer>
       <section>
@@ -111,26 +125,13 @@ const HomePage: React.FC<HomePageProps> = ({
 
 export async function getServerSideProps() {
   //* Fetch data from BE API
-  let todos_data:
-    | {
-        id: number;
-        title: string;
-        description: string;
-        created_at: string;
-        completed: boolean;
-      }[];
-  let notes_data:
-    | { id: number; title: string; content: string; created_at: string }[];
-  let expenses_data:
-    | {
-        id: number;
-        title: string;
-        amount: number;
-        description: string;
-        created_at: string;
-      }[];
+  let todos_data: Todo[];
+  let notes_data: Note[];
+  let expenses_data: Expense[];
   let jokesWidgetData: {}[];
+  let quotesWidgetData: QuoteData[]
 
+  // FETCH BE data
   try {
     todos_data = await axios.get('http://127.0.0.1:8000/api/todos/'); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
     notes_data = await axios.get('http://127.0.0.1:8000/api/notes/'); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
@@ -138,7 +139,7 @@ export async function getServerSideProps() {
   } catch {
     console.log('Error fetching data from BE API');
   }
-
+  // FETCH jokes data
   try {
     const jokes_widget_res = await fetch(
       `https://api.api-ninjas.com/v1/jokes?limit=1`,
@@ -152,11 +153,29 @@ export async function getServerSideProps() {
     );
     const data = await jokes_widget_res.json();
     jokesWidgetData = data;
-    console.log(jokesWidgetData);
+    console.log(typeof jokesWidgetData);
+  } catch (error) {
+    console.log(`${error} - Jokes Widget Data Fetch Failed`);
+  }
+
+  // FETCH quotes data
+  try {
+    const quotes_widget_res = await fetch(
+      `https://api.api-ninjas.com/v1/quotes?limit=1`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Api-Key': process.env.NEXT_PUBLIC_API_NINJA_KEY,
+        },
+      }
+    );
+    const data = await quotes_widget_res.json();
+    quotesWidgetData = data;
   } catch (error) {
     console.log(`${error} - Weather Widget Data Fetch Failed`);
   }
-  //* Fetch data from 3rd party APIs
+
   return {
     props: {
       todos: todos_data.data,
@@ -164,7 +183,7 @@ export async function getServerSideProps() {
       expenses: expenses_data.data,
       widgetData: {
         jokes: jokesWidgetData,
-        // quotes: quotesWidgetData,
+        quotes: quotesWidgetData,
         // news: newsWidgetData,
       },
     },
