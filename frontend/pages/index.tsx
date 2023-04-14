@@ -127,18 +127,6 @@ export async function getServerSideProps() {
         description: string;
         created_at: string;
       }[];
-  let weatherWidgetData: {
-    wind_speed: number;
-    wind_degrees: number;
-    temp: number;
-    humidity: number;
-    sunset: number;
-    min_temp: number;
-    cloud_pct: number;
-    feels_like: number;
-    sunrise: number;
-    max_temp: number;
-  };
 
   try {
     todos_data = await axios.get("http://127.0.0.1:8000/api/todos/"); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
@@ -149,37 +137,6 @@ export async function getServerSideProps() {
   }
 
   //* Fetch data from 3rd party APIs
-  try {
-    const weather_widget_res = await fetch(
-      "https://api.api-ninjas.com/v1/weather?city=austin",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Api-Key": process.env.API_NINJA_KEY,
-        },
-      }
-    );
-    weatherWidgetData = await weather_widget_res.json();
-    console.log(weatherWidgetData);
-  } catch (error) {
-    console.log(`${error} - Weather Widget Data Fetch Failed`);
-  }
-
-  if (!weatherWidgetData) {
-    console.log("Todos, Notes, Expenses Data Fetched");
-    return {
-      props: {
-        todos: todos_data.data,
-        notes: notes_data.data,
-        expenses: expenses_data.data,
-        widgetData: {
-          weather: {}, // TODO: Add default data for weather widget
-          // jokes: {}, // TODO: Add default data for weather widget
-        },
-      },
-    };
-  }
 
   return {
     props: {
@@ -187,7 +144,6 @@ export async function getServerSideProps() {
       notes: notes_data.data,
       expenses: expenses_data.data,
       widgetData: {
-        weather: weatherWidgetData,
         // jokes: jokesWidgetData,
         // quotes: quotesWidgetData,
         // news: newsWidgetData,
