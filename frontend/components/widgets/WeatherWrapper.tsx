@@ -5,7 +5,7 @@ interface WeatherWrapperProps {
 }
 
 const WeatherWrapper: React.FC<WeatherWrapperProps> = ({ children }) => {
-  return <section className="mx-auto w-full">{children}</section>;
+  return <aside className="mx-auto w-full">{children}</aside>;
 };
 
 export default WeatherWrapper;

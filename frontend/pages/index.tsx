@@ -1,3 +1,4 @@
+import JokesWidget from '@/components/widgets/JokesWidget';
 import WeatherWidget from '@/components/widgets/WeatherWidget';
 import WidgetContainer from '@/components/widgets/WidgetContainer';
 import axios from 'axios';
@@ -44,7 +45,7 @@ export interface HomePageProps {
   todos: Todo[]; // TODO: Create Todo Interface
   notes: Note[]; // TODO: Create Note Interface
   expenses: Expense[]; // TODO: Create Expense Interface
-  widgetData: {}[];
+  widgetData: { jokes: {}[] }[];
 }
 
 const HomePage: React.FC<HomePageProps> = ({
@@ -53,6 +54,7 @@ const HomePage: React.FC<HomePageProps> = ({
   expenses,
   widgetData,
 }) => {
+  const joke = widgetData.jokes[0].joke;
   return (
     <>
       <Head>
@@ -64,8 +66,8 @@ const HomePage: React.FC<HomePageProps> = ({
       <WidgetContainer>
         <WeatherWidget />
         {/* <ClockWidget /> */}
-        {/* <JokesWidget />
-        <QuotesWidget /> */}
+        <JokesWidget joke={joke} />
+        {/* <QuotesWidget /> */}
         {/* <NewsWidget /> */}
       </WidgetContainer>
       <section>
@@ -127,6 +129,7 @@ export async function getServerSideProps() {
         description: string;
         created_at: string;
       }[];
+  let jokesWidgetData: {}[];
 
   try {
     todos_data = await axios.get('http://127.0.0.1:8000/api/todos/'); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
@@ -135,6 +138,24 @@ export async function getServerSideProps() {
   } catch {
     console.log('Error fetching data from BE API');
   }
+
+  try {
+    const jokes_widget_res = await fetch(
+      `https://api.api-ninjas.com/v1/jokes?limit=1`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Api-Key': process.env.NEXT_PUBLIC_API_NINJA_KEY,
+        },
+      }
+    );
+    const data = await jokes_widget_res.json();
+    jokesWidgetData = data;
+    console.log(jokesWidgetData);
+  } catch (error) {
+    console.log(`${error} - Weather Widget Data Fetch Failed`);
+  }
   //* Fetch data from 3rd party APIs
   return {
     props: {
@@ -142,7 +163,7 @@ export async function getServerSideProps() {
       notes: notes_data.data,
       expenses: expenses_data.data,
       widgetData: {
-        // jokes: jokesWidgetData,
+        jokes: jokesWidgetData,
         // quotes: quotesWidgetData,
         // news: newsWidgetData,
       },

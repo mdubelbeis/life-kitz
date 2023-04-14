@@ -131,7 +131,7 @@ const WeatherWidget: React.FC = () => {
       {userLocation ? (
         <WeatherWrapper>
           <div
-            className={`stats mx-auto flex w-11/12 flex-col md:w-6/12 ${weatherCardBgColor} ${weatherDataTextColor} rounded-xl shadow`}
+            className={`stats mx-auto flex w-full flex-col md:w-6/12 ${weatherCardBgColor} ${weatherDataTextColor} rounded-xl shadow`}
           >
             <div className="stat flex flex-col place-items-center items-center justify-center gap-3">
               <div className="stat-desc">{getWeatherIcon()}</div>
