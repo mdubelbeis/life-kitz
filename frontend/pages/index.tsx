@@ -1,7 +1,7 @@
-import WeatherWidget from "@/components/widgets/WeatherWidget";
-import WidgetContainer from "@/components/widgets/WidgetContainer";
-import axios from "axios";
-import Head from "next/head";
+import WeatherWidget from '@/components/widgets/WeatherWidget';
+import WidgetContainer from '@/components/widgets/WidgetContainer';
+import axios from 'axios';
+import Head from 'next/head';
 
 export interface Todo {
   id: number;
@@ -44,7 +44,7 @@ export interface HomePageProps {
   todos: Todo[]; // TODO: Create Todo Interface
   notes: Note[]; // TODO: Create Note Interface
   expenses: Expense[]; // TODO: Create Expense Interface
-  widgetData: { weather: WeatherData }[];
+  widgetData: {}[];
 }
 
 const HomePage: React.FC<HomePageProps> = ({
@@ -62,7 +62,7 @@ const HomePage: React.FC<HomePageProps> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <WidgetContainer>
-        <WeatherWidget data={widgetData.weather} />
+        <WeatherWidget />
         {/* <ClockWidget /> */}
         {/* <JokesWidget />
         <QuotesWidget /> */}
@@ -127,67 +127,21 @@ export async function getServerSideProps() {
         description: string;
         created_at: string;
       }[];
-  let weatherWidgetData: {
-    wind_speed: number;
-    wind_degrees: number;
-    temp: number;
-    humidity: number;
-    sunset: number;
-    min_temp: number;
-    cloud_pct: number;
-    feels_like: number;
-    sunrise: number;
-    max_temp: number;
-  };
 
   try {
-    todos_data = await axios.get("http://127.0.0.1:8000/api/todos/"); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
-    notes_data = await axios.get("http://127.0.0.1:8000/api/notes/"); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
-    expenses_data = await axios.get("http://127.0.0.1:8000/api/expenses/"); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
+    todos_data = await axios.get('http://127.0.0.1:8000/api/todos/'); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
+    notes_data = await axios.get('http://127.0.0.1:8000/api/notes/'); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
+    expenses_data = await axios.get('http://127.0.0.1:8000/api/expenses/'); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
   } catch {
-    console.log("Error fetching data from BE API");
+    console.log('Error fetching data from BE API');
   }
-
   //* Fetch data from 3rd party APIs
-  try {
-    const weather_widget_res = await fetch(
-      "https://api.api-ninjas.com/v1/weather?city=austin",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Api-Key": process.env.API_NINJA_KEY,
-        },
-      }
-    );
-    weatherWidgetData = await weather_widget_res.json();
-    console.log(weatherWidgetData);
-  } catch (error) {
-    console.log(`${error} - Weather Widget Data Fetch Failed`);
-  }
-
-  if (!weatherWidgetData) {
-    console.log("Todos, Notes, Expenses Data Fetched");
-    return {
-      props: {
-        todos: todos_data.data,
-        notes: notes_data.data,
-        expenses: expenses_data.data,
-        widgetData: {
-          weather: {}, // TODO: Add default data for weather widget
-          // jokes: {}, // TODO: Add default data for weather widget
-        },
-      },
-    };
-  }
-
   return {
     props: {
       todos: todos_data.data,
       notes: notes_data.data,
       expenses: expenses_data.data,
       widgetData: {
-        weather: weatherWidgetData,
         // jokes: jokesWidgetData,
         // quotes: quotesWidgetData,
         // news: newsWidgetData,
