@@ -1,7 +1,7 @@
-import { SyntheticEvent, useState } from "react";
-import { TiWeatherNight, TiWeatherSunny } from "react-icons/ti";
+import { SyntheticEvent, useState } from 'react';
+import { TiWeatherNight, TiWeatherSunny } from 'react-icons/ti';
 
-import { WeatherData } from "@/pages/index";
+import { WeatherData } from '@/pages/index';
 
 const defaultWeather = {
   wind_speed: 0,
@@ -19,11 +19,11 @@ const defaultWeather = {
 const WeatherWidget: React.FC = () => {
   const [weather, setWeather] = useState<WeatherData>(defaultWeather);
   const [mountTime, setMountTime] = useState(new Date().getHours()); // 24 hour clock time only hours
-  const [textColor, setTextColor] = useState("");
+  const [textColor, setTextColor] = useState('');
   const [feelsLikeFahrenheit, setFeelsLikesFahrenheit] = useState(
     Number(weather.feels_like * 1.8 + 32).toFixed(0)
   );
-  const [zipCode, setZipCode] = useState(""); // TODO: Get user location from browser
+  const [zipCode, setZipCode] = useState(''); // TODO: Get user location from browser
   let {
     wind_speed,
     wind_degrees,
@@ -36,7 +36,7 @@ const WeatherWidget: React.FC = () => {
     sunrise,
     max_temp,
   } = weather;
-  const [userLocation, setUserLocation] = useState("");
+  const [userLocation, setUserLocation] = useState('');
 
   // Updated weather text color based on textColor
 
@@ -71,10 +71,10 @@ const WeatherWidget: React.FC = () => {
         // TODO: Write to separate file or hook
         `https://api.api-ninjas.com/v1/weather?zip=${zipCode}`,
         {
-          method: "GET",
+          method: 'GET',
           headers: {
-            "Content-Type": "application/json",
-            "X-Api-Key": process.env.NEXT_PUBLIC_API_NINJA_KEY,
+            'Content-Type': 'application/json',
+            'X-Api-Key': process.env.NEXT_PUBLIC_API_NINJA_KEY,
           },
         }
       );

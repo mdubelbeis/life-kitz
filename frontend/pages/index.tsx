@@ -1,7 +1,7 @@
-import WeatherWidget from "@/components/widgets/WeatherWidget";
-import WidgetContainer from "@/components/widgets/WidgetContainer";
-import axios from "axios";
-import Head from "next/head";
+import WeatherWidget from '@/components/widgets/WeatherWidget';
+import WidgetContainer from '@/components/widgets/WidgetContainer';
+import axios from 'axios';
+import Head from 'next/head';
 
 export interface Todo {
   id: number;
@@ -129,13 +129,14 @@ export async function getServerSideProps() {
       }[];
 
   try {
-    todos_data = await axios.get("http://127.0.0.1:8000/api/todos/"); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
-    notes_data = await axios.get("http://127.0.0.1:8000/api/notes/"); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
-    expenses_data = await axios.get("http://127.0.0.1:8000/api/expenses/"); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
+    todos_data = await axios.get('http://127.0.0.1:8000/api/todos/'); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
+    notes_data = await axios.get('http://127.0.0.1:8000/api/notes/'); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
+    expenses_data = await axios.get('http://127.0.0.1:8000/api/expenses/'); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
   } catch {
-    console.log("Error fetching data from BE API");
+    console.log('Error fetching data from BE API');
   }
 
+  const { todos } = todos_data.data;
   //* Fetch data from 3rd party APIs
 
   return {

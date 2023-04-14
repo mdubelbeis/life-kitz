@@ -1,0 +1,295 @@
+2023-04-14 11:09:52.972 CDT [12129] LOG:  starting PostgreSQL 14.7 (Homebrew) on aarch64-apple-darwin22.1.0, compiled by Apple clang version 14.0.0 (clang-1400.0.29.202), 64-bit
+2023-04-14 11:09:52.973 CDT [12129] LOG:  listening on IPv6 address "::1", port 5432
+2023-04-14 11:09:52.973 CDT [12129] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2023-04-14 11:09:52.973 CDT [12129] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2023-04-14 11:09:52.975 CDT [12130] LOG:  database system was shut down at 2023-04-14 11:09:28 CDT
+2023-04-14 11:09:52.976 CDT [12129] LOG:  database system is ready to accept connections
+2023-04-14 11:15:09.868 CDT [12207] FATAL:  database "life_kitz" does not exist
+2023-04-14 11:16:56.858 CDT [12286] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:16:56.858 CDT [12286] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC
+2023-04-14 11:16:56.867 CDT [12286] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:16:56.867 CDT [12286] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:16:56.868 CDT [12286] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:16:56.868 CDT [12286] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:16:56.868 CDT [12286] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:16:56.868 CDT [12286] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:16:56.868 CDT [12286] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:16:56.868 CDT [12286] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:16:56.869 CDT [12286] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:16:56.869 CDT [12286] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:16:56.869 CDT [12286] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:16:56.869 CDT [12286] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:16:56.869 CDT [12286] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:16:56.869 CDT [12286] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:16:56.869 CDT [12286] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:16:56.869 CDT [12286] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:16:56.869 CDT [12286] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:16:56.869 CDT [12286] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:16:56.869 CDT [12286] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:16:56.869 CDT [12286] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:01.683 CDT [12291] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:01.683 CDT [12291] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC
+2023-04-14 11:17:01.691 CDT [12291] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:01.691 CDT [12291] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:01.691 CDT [12291] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:01.691 CDT [12291] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:01.691 CDT [12291] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:01.691 CDT [12291] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:01.691 CDT [12291] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:01.691 CDT [12291] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:01.692 CDT [12291] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:01.692 CDT [12291] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:01.692 CDT [12291] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:01.692 CDT [12291] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:01.692 CDT [12291] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:01.692 CDT [12291] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:01.692 CDT [12291] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:01.692 CDT [12291] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:01.692 CDT [12291] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:01.692 CDT [12291] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:01.693 CDT [12291] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:01.693 CDT [12291] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.374 CDT [12308] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.374 CDT [12308] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC
+2023-04-14 11:17:45.375 CDT [12307] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.375 CDT [12307] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC
+2023-04-14 11:17:45.382 CDT [12309] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.382 CDT [12309] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC
+2023-04-14 11:17:45.393 CDT [12308] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.393 CDT [12308] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.394 CDT [12308] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.394 CDT [12308] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.394 CDT [12307] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.394 CDT [12307] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.395 CDT [12308] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.395 CDT [12308] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.395 CDT [12307] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.395 CDT [12307] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.396 CDT [12309] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.396 CDT [12309] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.396 CDT [12308] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.396 CDT [12308] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.396 CDT [12307] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.396 CDT [12307] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.396 CDT [12309] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.396 CDT [12309] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.397 CDT [12308] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.397 CDT [12308] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.397 CDT [12307] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.397 CDT [12307] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.397 CDT [12309] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.397 CDT [12309] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.397 CDT [12308] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.397 CDT [12308] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.398 CDT [12307] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.398 CDT [12307] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.398 CDT [12309] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.398 CDT [12309] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.398 CDT [12308] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.398 CDT [12308] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.398 CDT [12307] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.398 CDT [12307] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.398 CDT [12309] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.398 CDT [12309] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.398 CDT [12308] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.398 CDT [12308] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.399 CDT [12307] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.399 CDT [12307] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.399 CDT [12309] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.399 CDT [12309] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.399 CDT [12308] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.399 CDT [12308] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.399 CDT [12307] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.399 CDT [12307] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.399 CDT [12309] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.399 CDT [12309] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.399 CDT [12308] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.399 CDT [12308] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.400 CDT [12307] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.400 CDT [12307] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.400 CDT [12309] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.400 CDT [12309] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.401 CDT [12307] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.401 CDT [12307] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.401 CDT [12309] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.401 CDT [12309] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:45.402 CDT [12309] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:45.402 CDT [12309] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:53.677 CDT [12327] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:53.677 CDT [12327] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC
+2023-04-14 11:17:53.683 CDT [12327] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:53.683 CDT [12327] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:53.683 CDT [12327] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:53.683 CDT [12327] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:53.684 CDT [12327] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:53.684 CDT [12327] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:53.684 CDT [12327] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:53.684 CDT [12327] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:53.684 CDT [12327] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:53.684 CDT [12327] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:53.684 CDT [12327] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:53.684 CDT [12327] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:53.684 CDT [12327] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:53.684 CDT [12327] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:53.684 CDT [12327] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:53.684 CDT [12327] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:53.684 CDT [12327] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:53.684 CDT [12327] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:17:53.685 CDT [12327] ERROR:  relation "todos_todo" does not exist at character 134
+2023-04-14 11:17:53.685 CDT [12327] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed" FROM "todos_todo" ORDER BY "todos_todo"."created_at" DESC LIMIT 21
+2023-04-14 11:39:13.870 CDT [12726] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:13.870 CDT [12726] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC
+2023-04-14 11:39:13.878 CDT [12726] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:13.878 CDT [12726] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:13.878 CDT [12726] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:13.878 CDT [12726] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:13.878 CDT [12726] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:13.878 CDT [12726] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:13.879 CDT [12726] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:13.879 CDT [12726] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:13.879 CDT [12726] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:13.879 CDT [12726] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:13.879 CDT [12726] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:13.879 CDT [12726] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:13.879 CDT [12726] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:13.879 CDT [12726] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:13.879 CDT [12726] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:13.879 CDT [12726] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:13.880 CDT [12726] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:13.880 CDT [12726] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:13.880 CDT [12726] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:13.880 CDT [12726] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.183 CDT [12746] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.183 CDT [12746] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC
+2023-04-14 11:39:40.183 CDT [12747] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.183 CDT [12747] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC
+2023-04-14 11:39:40.191 CDT [12748] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.191 CDT [12748] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC
+2023-04-14 11:39:40.201 CDT [12746] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.201 CDT [12746] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.202 CDT [12746] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.202 CDT [12746] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.202 CDT [12746] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.202 CDT [12746] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.203 CDT [12746] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.203 CDT [12746] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.204 CDT [12748] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.204 CDT [12748] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.204 CDT [12746] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.204 CDT [12746] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.204 CDT [12748] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.204 CDT [12748] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.205 CDT [12746] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.205 CDT [12746] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.205 CDT [12748] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.205 CDT [12748] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.206 CDT [12746] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.206 CDT [12746] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.206 CDT [12748] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.206 CDT [12748] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.206 CDT [12746] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.206 CDT [12746] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.207 CDT [12748] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.207 CDT [12748] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.207 CDT [12746] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.207 CDT [12746] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.208 CDT [12748] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.208 CDT [12748] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.208 CDT [12746] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.208 CDT [12746] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.208 CDT [12748] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.208 CDT [12748] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.210 CDT [12748] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.210 CDT [12748] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.210 CDT [12747] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.210 CDT [12747] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.210 CDT [12748] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.210 CDT [12748] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.211 CDT [12747] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.211 CDT [12747] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.211 CDT [12748] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.211 CDT [12748] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.213 CDT [12747] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.213 CDT [12747] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.214 CDT [12747] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.214 CDT [12747] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.215 CDT [12747] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.215 CDT [12747] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.215 CDT [12747] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.215 CDT [12747] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.216 CDT [12747] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.216 CDT [12747] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.222 CDT [12747] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.222 CDT [12747] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.227 CDT [12747] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.227 CDT [12747] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:40.233 CDT [12747] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:40.233 CDT [12747] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:55.921 CDT [12761] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:55.921 CDT [12761] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC
+2023-04-14 11:39:55.932 CDT [12761] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:55.932 CDT [12761] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:55.933 CDT [12761] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:55.933 CDT [12761] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:55.933 CDT [12761] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:55.933 CDT [12761] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:55.933 CDT [12761] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:55.933 CDT [12761] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:55.933 CDT [12761] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:55.933 CDT [12761] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:55.934 CDT [12761] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:55.934 CDT [12761] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:55.936 CDT [12761] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:55.936 CDT [12761] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:55.936 CDT [12761] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:55.936 CDT [12761] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:55.936 CDT [12761] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:55.936 CDT [12761] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:39:55.936 CDT [12761] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:39:55.936 CDT [12761] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:40:19.019 CDT [12768] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:40:19.019 CDT [12768] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC
+2023-04-14 11:40:19.028 CDT [12768] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:40:19.028 CDT [12768] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:40:19.029 CDT [12768] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:40:19.029 CDT [12768] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:40:19.029 CDT [12768] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:40:19.029 CDT [12768] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:40:19.029 CDT [12768] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:40:19.029 CDT [12768] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:40:19.030 CDT [12768] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:40:19.030 CDT [12768] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:40:19.030 CDT [12768] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:40:19.030 CDT [12768] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:40:19.030 CDT [12768] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:40:19.030 CDT [12768] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:40:19.030 CDT [12768] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:40:19.030 CDT [12768] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:40:19.031 CDT [12768] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:40:19.031 CDT [12768] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:40:19.031 CDT [12768] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:40:19.031 CDT [12768] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:44:15.113 CDT [12994] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:44:15.113 CDT [12994] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC
+2023-04-14 11:44:15.122 CDT [12994] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:44:15.122 CDT [12994] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:44:15.122 CDT [12994] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:44:15.122 CDT [12994] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:44:15.122 CDT [12994] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:44:15.122 CDT [12994] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:44:20.757 CDT [13000] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:44:20.757 CDT [13000] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC
+2023-04-14 11:44:20.767 CDT [13000] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:44:20.767 CDT [13000] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:44:20.767 CDT [13000] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:44:20.767 CDT [13000] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:44:20.768 CDT [13000] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:44:20.768 CDT [13000] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:46:04.672 CDT [13061] ERROR:  column "author_id" of relation "todos_todo" does not exist at character 78
+2023-04-14 11:46:04.672 CDT [13061] STATEMENT:  INSERT INTO "todos_todo" ("title", "description", "created_at", "completed", "author_id") VALUES ('Add new users', 'Add new users to db to test relationships', '2023-04-14T16:45:37+00:00'::timestamptz, false, 2) RETURNING "todos_todo"."id"
+2023-04-14 11:46:04.688 CDT [13061] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:46:04.688 CDT [13061] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
+2023-04-14 11:46:16.268 CDT [13069] ERROR:  column "author_id" of relation "todos_todo" does not exist at character 78
+2023-04-14 11:46:16.268 CDT [13069] STATEMENT:  INSERT INTO "todos_todo" ("title", "description", "created_at", "completed", "author_id") VALUES ('Add new users', 'Add new users to db to test relationships', '2023-04-14T16:46:14+00:00'::timestamptz, false, 2) RETURNING "todos_todo"."id"
+2023-04-14 11:46:16.284 CDT [13069] ERROR:  column todos_todo.author_id does not exist at character 130
+2023-04-14 11:46:16.284 CDT [13069] STATEMENT:  SELECT "todos_todo"."id", "todos_todo"."title", "todos_todo"."description", "todos_todo"."created_at", "todos_todo"."completed", "todos_todo"."author_id" FROM "todos_todo" ORDER BY "todos_todo"."id" DESC LIMIT 21
