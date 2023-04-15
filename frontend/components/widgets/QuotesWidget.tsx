@@ -1,6 +1,4 @@
-import { useState } from "react"
-
-import { QuoteData } from "@/pages"
+import { QuoteData } from '@/pages';
 
 interface QuotesWidgetProps {
   quote: QuoteData;
@@ -8,8 +6,7 @@ interface QuotesWidgetProps {
 const QuotesWidget: React.FC<QuotesWidgetProps> = ({ quote }) => {
   // const [quote, setQuote] = useState<string>(quotes[0])
   // const [quoteAuthor, setQuoteAuthor] = useState<string>('')
-  console.log(quote)
-
+  console.log(quote);
 
   return (
     <div>
@@ -17,8 +14,7 @@ const QuotesWidget: React.FC<QuotesWidgetProps> = ({ quote }) => {
       <p>{quote.author}</p>
       <p>{quote.category}</p>
     </div>
-  )
-}
-
+  );
+};
 
 export default QuotesWidget;
