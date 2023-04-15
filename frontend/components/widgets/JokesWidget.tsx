@@ -1,21 +1,22 @@
 import { useState } from 'react';
 import JokeWrapper from './JokeWrapper';
+import { JokeData } from '@/pages';
 
 interface JokesWidgetProps {
-  joke: string;
+  joke: JokeData;
 }
 
 const JokesWidget: React.FC<JokesWidgetProps> = ({ joke }) => {
   const [showAnswer, setShowAnswer] = useState(false);
-  const [question, answer] = joke.split('? ');
+
 
   return (
     <aside className="text-center" onClick={() => setShowAnswer(!showAnswer)}>
       {/* needs same styling! */}
       {!showAnswer ? (
-        <JokeWrapper>{question}?</JokeWrapper>
+        <JokeWrapper>{joke.line}</JokeWrapper>
       ) : (
-        <JokeWrapper>{answer}</JokeWrapper>
+        <JokeWrapper>{joke.answer}</JokeWrapper>
       )}
     </aside>
   );
