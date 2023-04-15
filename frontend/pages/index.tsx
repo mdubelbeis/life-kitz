@@ -42,12 +42,12 @@ export interface WeatherData {
 }
 
 export interface JokeData {
-  joke: string;
-
+  line: string;
+  answer: string
 }
 
 export interface QuoteData {
-  quote: string;
+  line: string;
   author: string;
   category: string;
 }
@@ -57,7 +57,7 @@ export interface HomePageProps {
   todos: Todo[]; // TODO: Create Todo Interface
   notes: Note[]; // TODO: Create Note Interface
   expenses: Expense[]; // TODO: Create Expense Interface
-  widgetData: { jokes: {}[], quotes: {}[] }[];
+  widgetData: { joke: JokeData, quote: QuoteData };
 }
 
 const HomePage: React.FC<HomePageProps> = ({
@@ -66,9 +66,7 @@ const HomePage: React.FC<HomePageProps> = ({
   expenses,
   widgetData,
 }) => {
-  const joke = widgetData.jokes[0].joke;
-  const quote = widgetData.quotes;
-  console.log(quote)
+
   return (
     <>
       <Head>
@@ -80,8 +78,8 @@ const HomePage: React.FC<HomePageProps> = ({
       <WidgetContainer>
         <WeatherWidget />
         {/* <ClockWidget /> */}
-        <JokesWidget joke={joke} />
-        <QuotesWidget quote={quote} />
+        <JokesWidget joke={widgetData.joke} />
+        <QuotesWidget quote={widgetData.quote} />
         {/* <NewsWidget /> */}
       </WidgetContainer>
       <section>
@@ -128,8 +126,13 @@ export async function getServerSideProps() {
   let todos_data: Todo[];
   let notes_data: Note[];
   let expenses_data: Expense[];
-  let jokesWidgetData: {}[];
-  let quotesWidgetData: QuoteData[]
+
+  //* 3rd Party API data
+  let jokesWidgetData_line: string;
+  let jokesWidgetData_answer: string;
+  let quotesWidgetData_line: string;
+  let quotesWidgetData_author: string;
+  let quotesWidgetData_category: string;
 
   // FETCH BE data
   try {
@@ -139,6 +142,7 @@ export async function getServerSideProps() {
   } catch {
     console.log('Error fetching data from BE API');
   }
+
   // FETCH jokes data
   try {
     const jokes_widget_res = await fetch(
@@ -152,8 +156,17 @@ export async function getServerSideProps() {
       }
     );
     const data = await jokes_widget_res.json();
-    jokesWidgetData = data;
-    console.log(typeof jokesWidgetData);
+    if (data[0].joke.includes('?')) {
+      const split = data[0].joke.split('? ');
+      jokesWidgetData_line = split[0] + '?';
+      jokesWidgetData_answer = split[1];
+    } else {
+      jokesWidgetData_line = data[0].joke;
+      jokesWidgetData_answer = ''
+    }
+
+
+    // quotesWidgetData_category = data[0].category;
   } catch (error) {
     console.log(`${error} - Jokes Widget Data Fetch Failed`);
   }
@@ -171,7 +184,9 @@ export async function getServerSideProps() {
       }
     );
     const data = await quotes_widget_res.json();
-    quotesWidgetData = data;
+    quotesWidgetData_line = data[0].quote;
+    quotesWidgetData_author = data[0].author;
+    quotesWidgetData_category = data[0].category;
   } catch (error) {
     console.log(`${error} - Weather Widget Data Fetch Failed`);
   }
@@ -182,8 +197,8 @@ export async function getServerSideProps() {
       notes: notes_data.data,
       expenses: expenses_data.data,
       widgetData: {
-        jokes: jokesWidgetData,
-        quotes: quotesWidgetData,
+        joke: { line: jokesWidgetData_line, answer: jokesWidgetData_answer },
+        quote: { line: quotesWidgetData_line, author: quotesWidgetData_author, category: quotesWidgetData_category },
         // news: newsWidgetData,
       },
     },
