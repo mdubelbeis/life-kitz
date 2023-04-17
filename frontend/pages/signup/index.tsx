@@ -1,11 +1,11 @@
 import Forms from '@/components/auth/Forms';
-import FormWrapper from '@/components/ui/FormWrapper';
+import FormsWrapper from '@/components/ui/FormsWrapper';
 
 const SignUp: React.FC = () => {
   return (
-    <FormWrapper>
+    <FormsWrapper>
       <Forms />
-    </FormWrapper>
+    </FormsWrapper>
   );
 };
 
