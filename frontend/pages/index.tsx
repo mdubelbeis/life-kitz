@@ -1,6 +1,7 @@
-import JokesWidget from '@/components/widgets/JokesWidget';
+import ClockWidget from '@/components/widgets/ClockWidget/ClockWidget';
+import JokesWidget from '@/components/widgets/JokesWidget/JokesWidget';
 import QuotesWidget from '@/components/widgets/QuotesWidget';
-import WeatherWidget from '@/components/widgets/WeatherWidget';
+import WeatherWidget from '@/components/widgets/WeatherWidget/WeatherWidget';
 import WidgetContainer from '@/components/widgets/WidgetContainer';
 import axios from 'axios';
 import Head from 'next/head';
@@ -76,7 +77,7 @@ const HomePage: React.FC<HomePageProps> = ({
       </Head>
       <WidgetContainer>
         <WeatherWidget />
-        {/* <ClockWidget /> */}
+        <ClockWidget />
         <JokesWidget joke={widgetData.joke} />
         <QuotesWidget quote={widgetData.quote} />
         {/* <NewsWidget /> */}
