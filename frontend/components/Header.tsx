@@ -1,8 +1,10 @@
-import Link from "next/link";
-import { useState } from "react";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 const Header: React.FC = () => {
   const [userAuth, setUserAuth] = useState(false);
+  const router = useRouter();
 
   return (
     <header>
@@ -18,8 +20,17 @@ const Header: React.FC = () => {
       ) : (
         <nav>
           <Link href="/">Home</Link>
-          <Link href="/login">Login</Link>
-          <Link href="/register">Register</Link>
+          <div>
+            {router.pathname === '/login' ? (
+              <Link href="/signup" className="text-blue-700 underline">
+                Sign up
+              </Link>
+            ) : (
+              <Link href="/login" className="text-blue-700 underline">
+                Log in
+              </Link>
+            )}
+          </div>
         </nav>
       )}
     </header>
