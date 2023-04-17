@@ -1,7 +1,8 @@
-import JokesWidget from '@/components/widgets/JokesWidget';
-import WeatherWidget from '@/components/widgets/WeatherWidget';
+import ClockWidget from '@/components/widgets/ClockWidget/ClockWidget';
+import JokesWidget from '@/components/widgets/JokesWidget/JokesWidget';
+import QuotesWidget from '@/components/widgets/QuotesWidget';
+import WeatherWidget from '@/components/widgets/WeatherWidget/WeatherWidget';
 import WidgetContainer from '@/components/widgets/WidgetContainer';
-import QuotesWidget from '@/components/widgets/QuotesWidget'
 import axios from 'axios';
 import Head from 'next/head';
 
@@ -43,7 +44,7 @@ export interface WeatherData {
 
 export interface JokeData {
   line: string;
-  answer: string
+  answer: string;
 }
 
 export interface QuoteData {
@@ -57,7 +58,7 @@ export interface HomePageProps {
   todos: Todo[]; // TODO: Create Todo Interface
   notes: Note[]; // TODO: Create Note Interface
   expenses: Expense[]; // TODO: Create Expense Interface
-  widgetData: { joke: JokeData, quote: QuoteData };
+  widgetData: { joke: JokeData; quote: QuoteData };
 }
 
 const HomePage: React.FC<HomePageProps> = ({
@@ -66,7 +67,6 @@ const HomePage: React.FC<HomePageProps> = ({
   expenses,
   widgetData,
 }) => {
-
   return (
     <>
       <Head>
@@ -77,7 +77,7 @@ const HomePage: React.FC<HomePageProps> = ({
       </Head>
       <WidgetContainer>
         <WeatherWidget />
-        {/* <ClockWidget /> */}
+        <ClockWidget />
         <JokesWidget joke={widgetData.joke} />
         <QuotesWidget quote={widgetData.quote} />
         {/* <NewsWidget /> */}
@@ -162,9 +162,8 @@ export async function getServerSideProps() {
       jokesWidgetData_answer = split[1];
     } else {
       jokesWidgetData_line = data[0].joke;
-      jokesWidgetData_answer = ''
+      jokesWidgetData_answer = '';
     }
-
 
     // quotesWidgetData_category = data[0].category;
   } catch (error) {
@@ -198,7 +197,11 @@ export async function getServerSideProps() {
       expenses: expenses_data.data,
       widgetData: {
         joke: { line: jokesWidgetData_line, answer: jokesWidgetData_answer },
-        quote: { line: quotesWidgetData_line, author: quotesWidgetData_author, category: quotesWidgetData_category },
+        quote: {
+          line: quotesWidgetData_line,
+          author: quotesWidgetData_author,
+          category: quotesWidgetData_category,
+        },
         // news: newsWidgetData,
       },
     },
