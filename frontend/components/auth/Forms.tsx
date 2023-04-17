@@ -15,10 +15,25 @@ const Forms: React.FC = () => {
 
   return (
     <div className="flex w-full flex-col gap-10">
-      {router.pathname === '/login' ? <LoginForm /> : <SignUpForm />}
+      {router.pathname === '/login' ? (
+        <LoginForm
+          email={email}
+          accessToken={accessToken}
+          password={password}
+          setEmail={setEmail}
+          setPassword={setPassword}
+        />
+      ) : (
+        <SignUpForm />
+      )}
       <div>
         {router.pathname === '/login' ? (
-          <Link href="/signup">Want an account? Sign up</Link>
+          <p className="flex justify-center gap-1">
+            <span>Want an account?</span>
+            <Link href="/signup" className="text-blue-700 underline">
+              Sign up
+            </Link>
+          </p>
         ) : (
           <p className="flex justify-center gap-1">
             <span>Already have an account?</span>
