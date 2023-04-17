@@ -11,20 +11,24 @@ const Forms: React.FC = () => {
   const [accessToken, setAccessToken] = useState('');
   const [refreshToken, setRefreshToken] = useState('');
 
-  // TODO: Add logic to show either login or signup form
   const router = useRouter();
 
   return (
-    <>
-      <div>{router.pathname === '/login' ? <LoginForm /> : <SignUpForm />}</div>
+    <div className="flex w-full flex-col gap-10">
+      {router.pathname === '/login' ? <LoginForm /> : <SignUpForm />}
       <div>
         {router.pathname === '/login' ? (
           <Link href="/signup">Want an account? Sign up</Link>
         ) : (
-          <Link href="/login">Already have an account? Log in</Link>
+          <p className="flex justify-center gap-1">
+            <span>Already have an account?</span>
+            <Link href="/login" className="text-blue-700 underline">
+              Log in
+            </Link>
+          </p>
         )}
       </div>
-    </>
+    </div>
   );
 };
 
