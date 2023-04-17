@@ -4,10 +4,6 @@ interface QuotesWidgetProps {
   quote: QuoteData;
 }
 const QuotesWidget: React.FC<QuotesWidgetProps> = ({ quote }) => {
-  // const [quote, setQuote] = useState<string>(quotes[0])
-  // const [quoteAuthor, setQuoteAuthor] = useState<string>('')
-  console.log(quote);
-
   return (
     <div>
       <p>{quote.line}</p>
