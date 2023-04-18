@@ -50,7 +50,6 @@ const LoginForm: React.FC<LoginFormProps> = ({
         setAccess(data.tokens.access);
         setRefresh(data.tokens.refresh);
         localStorage.setItem('jwtToken', data.tokens.access);
-        //? Why does the /login page show the /SignUp (flashes) page briefly before being redirected by '/'
         push('/');
       }
     } catch (error) {
