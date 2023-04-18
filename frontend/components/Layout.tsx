@@ -15,7 +15,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Header />
       {isAuthenticated && <main>{children}</main>}
       {!isAuthenticated && (
-        <main>
+        <main className="mx-auto flex h-screen w-11/12 items-center justify-center">
           <Forms setIsAuthenticated={setIsAuthenticated} />
         </main>
       )}
