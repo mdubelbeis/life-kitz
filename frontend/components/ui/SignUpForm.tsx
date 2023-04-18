@@ -1,11 +1,32 @@
 import Link from 'next/link';
+import { SyntheticEvent } from 'react';
 import { MdAccountCircle, MdAlternateEmail, MdPassword } from 'react-icons/md';
 import Button from './Button';
 
-const SignUpForm: React.FC = () => {
+interface SignUpFormProps {
+  email: string;
+  password: string;
+  username: string;
+  setEmail: (email: string) => void;
+  setPassword: (password: string) => void;
+  setUsername: (username: string) => void;
+}
+
+const SignUpForm: React.FC<SignUpFormProps> = ({
+  email,
+  password,
+  setEmail,
+  setPassword,
+  setUsername,
+}) => {
+  const handleSignUp = async (e: SyntheticEvent) => {
+    e.preventDefault();
+    console.log('Signing up...');
+  };
+
   return (
     // Form with email, username, and password fields
-    <form className="flex flex-col gap-3">
+    <form className="flex flex-col gap-3" onSubmit={handleSignUp}>
       <label className="relative" htmlFor="email">
         <input
           type="email"
