@@ -1,20 +1,30 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Header: React.FC = () => {
   const [userAuth, setUserAuth] = useState(false);
   const router = useRouter();
 
+  useEffect(() => {
+    const token = localStorage.getItem('jwtToken');
+    if (token) {
+      setUserAuth(true);
+    } else {
+      setUserAuth(false);
+    }
+  }, [userAuth]);
+
   return (
     <header>
-      <h1>Life-Kitz</h1>
+      <h1 className="w-6/12">Life-Kitz</h1>
       {userAuth ? (
-        <nav>
-          <Link href="/">Home</Link>
-          <Link href="/todos">Todos</Link>
-          <Link href="/expenses">Expenses</Link>
-          <Link href="/notes">Notes</Link>
+        <nav className="flex w-full justify-between">
+          <div>
+            <Link href="/todos">Todos</Link>
+            <Link href="/expenses">Expenses</Link>
+            <Link href="/notes">Notes</Link>
+          </div>
           <Link href="/logout">Logout</Link>
         </nav>
       ) : (
