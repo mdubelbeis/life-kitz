@@ -46,9 +46,8 @@ const LoginForm: React.FC<LoginFormProps> = ({
       if (data.tokens) {
         setAccess(data.tokens.access);
         setRefresh(data.tokens.refresh);
-        // USE STATE MGMT TO SET AUTH! (ZUSTAND)
-        setIsAuthenticated(true); //? Set auth to true
-        push('/'); //? Redirect to home page
+        setIsAuthenticated(true);
+        push('/');
       }
     } catch (error) {
       console.log(error);

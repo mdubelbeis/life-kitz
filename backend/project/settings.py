@@ -23,6 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# todo: change this to an environment variable
 SECRET_KEY = "django-insecure-52b53vbj7j$37a91p!)l_v(o_m8#ts1=)2d8!16@-@kvu3#8a^"
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -31,7 +32,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-    "http://localhost:3001",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
 ]
 
 
@@ -49,10 +51,10 @@ INSTALLED_APPS = [
     "notes",
     "expenses",
     # Third Party Packages
+    "corsheaders",
     "rest_framework",
     "rest_framework.authtoken",
     "rest_framework_simplejwt",
-    "corsheaders",
 ]
 
 AUTH_USER_MODEL = "accounts.User"
@@ -121,6 +123,8 @@ DATABASES = {
 
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3001",
+    "http://127.0.0.1:3000",
+    "http://localhost:3000",
     "http://localhost:3001",
 ]
 

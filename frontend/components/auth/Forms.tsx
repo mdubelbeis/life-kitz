@@ -30,7 +30,14 @@ const Forms: React.FC<FormsProps> = ({ setIsAuthenticated }) => {
           setIsAuthenticated={setIsAuthenticated}
         />
       ) : (
-        <SignUpForm />
+        <SignUpForm
+          email={email}
+          password={password}
+          username={username}
+          setEmail={setEmail}
+          setPassword={setPassword}
+          setUsername={setUsername}
+        />
       )}
 
       {router.pathname === '/login' ? (
