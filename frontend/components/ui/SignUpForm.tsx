@@ -44,7 +44,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
       // console.log(data);
 
       if (data.data) {
-        console.log('User created successfully!');
         push('/login');
       } else {
         console.log('User creation failed!');

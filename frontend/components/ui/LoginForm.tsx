@@ -27,7 +27,6 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
   const handleLogin = async (e: SyntheticEvent) => {
     e.preventDefault();
-    console.log('Logging in...');
     try {
       const resp = await fetch('http://127.0.0.1:8000/auth/login/', {
         method: 'POST',
@@ -41,7 +40,6 @@ const LoginForm: React.FC<LoginFormProps> = ({
       });
 
       const data = await resp.json();
-      console.log(data);
 
       if (data.tokens) {
         setAccess(data.tokens.access);
