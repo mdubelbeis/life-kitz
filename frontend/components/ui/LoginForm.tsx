@@ -26,6 +26,10 @@ const LoginForm: React.FC<LoginFormProps> = ({
   const { push } = useRouter();
 
   const handleLogin = async (e: SyntheticEvent) => {
+    // TODO: Add validation
+    // TODO: Add error handling
+    // TODO: Add loading state
+
     e.preventDefault();
     try {
       const resp = await fetch('http://127.0.0.1:8000/auth/login/', {
@@ -42,9 +46,10 @@ const LoginForm: React.FC<LoginFormProps> = ({
       const data = await resp.json();
 
       if (data.tokens) {
+        setIsAuthenticated(true);
         setAccess(data.tokens.access);
         setRefresh(data.tokens.refresh);
-        setIsAuthenticated(true);
+        //? Why does the /login page show the /SignUp (flashes) page briefly before being redirected by '/'
         push('/');
       }
     } catch (error) {

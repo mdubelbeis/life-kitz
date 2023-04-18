@@ -21,6 +21,10 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
   setPassword,
   setUsername,
 }) => {
+  // TODO: Add validation
+  // TODO: Add error handling
+  // TODO: Add loading state
+
   const { push } = useRouter();
   const { reload } = useRouter();
 
