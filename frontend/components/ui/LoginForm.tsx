@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { SyntheticEvent } from 'react';
+import { SyntheticEvent, useEffect } from 'react';
 import { MdAlternateEmail, MdPassword } from 'react-icons/md';
 import Button from './Button';
 
@@ -16,9 +16,9 @@ interface LoginFormProps {
 
 const LoginForm: React.FC<LoginFormProps> = ({
   email,
+  password,
   setAccess,
   setRefresh,
-  password,
   setEmail,
   setPassword,
   setIsAuthenticated,
@@ -49,6 +49,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
         setIsAuthenticated(true);
         setAccess(data.tokens.access);
         setRefresh(data.tokens.refresh);
+        localStorage.setItem('jwtToken', data.tokens.access);
         //? Why does the /login page show the /SignUp (flashes) page briefly before being redirected by '/'
         push('/');
       }
@@ -58,6 +59,12 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
     console.log(email, password);
   };
+
+  useEffect(() => {
+    if (localStorage.getItem('jwtToken')) {
+      push('/');
+    }
+  }, []);
 
   return (
     <form className="flex flex-col gap-3" onSubmit={handleLogin}>
