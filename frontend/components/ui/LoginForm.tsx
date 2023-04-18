@@ -1,23 +1,53 @@
 import Link from 'next/link';
+import { SyntheticEvent } from 'react';
 import { MdAlternateEmail, MdPassword } from 'react-icons/md';
 import Button from './Button';
 
 interface LoginFormProps {
   email: string;
-  accessToken: string;
   password: string;
+  setRefresh: () => void;
+  setAccess: () => void;
   setEmail: (email: string) => void;
   setPassword: (password: string) => void;
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({
   email,
-  accessToken,
+  setAccess,
+  setRefresh,
   password,
   setEmail,
   setPassword,
 }) => {
-  const handleLogin = () => {};
+  const handleLogin = async (e: SyntheticEvent) => {
+    e.preventDefault();
+    console.log('Logging in...');
+    try {
+      const resp = await fetch('http://127.0.0.1:8000/auth/login/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+
+      const data = await resp.json();
+      console.log(data)
+
+      if (data.tokens) {
+        setAccess(data.tokens.access)
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+
+    console.log(email, password);
+  };
 
   return (
     <form className="flex flex-col gap-3" onSubmit={handleLogin}>
@@ -26,6 +56,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
           type="email"
           id="email"
           placeholder="Email"
+          name="email"
           value={email}
           className="w-full rounded px-1 py-2 tracking-wider"
           onChange={(e) => setEmail(e.target.value)}
@@ -38,6 +69,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
           type="password"
           id="password"
           placeholder="Password"
+          name="password"
           value={password}
           className="w-full rounded px-1 py-2 tracking-wider"
           onChange={(e) => setPassword(e.target.value)}

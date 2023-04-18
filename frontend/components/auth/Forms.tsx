@@ -18,7 +18,8 @@ const Forms: React.FC = () => {
       {router.pathname === '/login' ? (
         <LoginForm
           email={email}
-          accessToken={accessToken}
+          setAccess={setAccessToken}
+          setRefresh={setRefreshToken}
           password={password}
           setEmail={setEmail}
           setPassword={setPassword}
@@ -26,23 +27,22 @@ const Forms: React.FC = () => {
       ) : (
         <SignUpForm />
       )}
-      <div>
-        {router.pathname === '/login' ? (
-          <p className="flex justify-center gap-1">
-            <span>Want an account?</span>
-            <Link href="/signup" className="text-blue-700 underline">
-              Sign up
-            </Link>
-          </p>
-        ) : (
-          <p className="flex justify-center gap-1">
-            <span>Already have an account?</span>
-            <Link href="/login" className="text-blue-700 underline">
-              Log in
-            </Link>
-          </p>
-        )}
-      </div>
+
+      {router.pathname === '/login' ? (
+        <p className="flex justify-center gap-1">
+          <span>Want an account?</span>
+          <Link href="/signup" className="text-blue-700 underline">
+            Sign up
+          </Link>
+        </p>
+      ) : (
+        <p className="flex justify-center gap-1">
+          <span>Already have an account?</span>
+          <Link href="/login" className="text-blue-700 underline">
+            Log in
+          </Link>
+        </p>
+      )}
     </div>
   );
 };

@@ -20,17 +20,16 @@ const Header: React.FC = () => {
       ) : (
         <nav>
           <Link href="/">Home</Link>
-          <div>
-            {router.pathname === '/login' ? (
-              <Link href="/signup" className="text-blue-700 underline">
-                Sign up
-              </Link>
-            ) : (
-              <Link href="/login" className="text-blue-700 underline">
-                Log in
-              </Link>
-            )}
-          </div>
+
+          {router.pathname === '/login' ? (
+            <Link href="/signup" className="text-blue-700 underline">
+              Sign up
+            </Link>
+          ) : (
+            <Link href="/login" className="text-blue-700 underline">
+              Log in
+            </Link>
+          )}
         </nav>
       )}
     </header>

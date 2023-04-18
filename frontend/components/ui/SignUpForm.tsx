@@ -11,6 +11,7 @@ const SignUpForm: React.FC = () => {
           type="email"
           id="email"
           placeholder="Email"
+          name="email"
           className="w-full rounded px-1 py-2 tracking-wider"
         />
         <MdAlternateEmail className="absolute right-2 top-1/2 -translate-y-1/2 transform text-gray-400" />
@@ -20,6 +21,7 @@ const SignUpForm: React.FC = () => {
         <input
           type="text"
           id="username"
+          name="username"
           placeholder="Username"
           className="w-full rounded px-1 py-2 tracking-wider"
         />
@@ -29,6 +31,7 @@ const SignUpForm: React.FC = () => {
         <input
           type="password"
           id="password"
+          name="password"
           placeholder="Password"
           className="w-full rounded px-1 py-2 tracking-wider"
         />
