@@ -1,15 +1,22 @@
 import { useEffect, useState } from 'react';
 
 const Time: React.FC = () => {
-  const [time, setTime] = useState(new Date().toLocaleTimeString());
+  const [times, setTimes] = useState<string>('');
+
+  const getTimes = () => {
+    setTimes(
+      new Date().toLocaleTimeString().split(':').slice(0, 2).join(':') +
+        ' ' +
+        new Date().toLocaleTimeString().slice(-2)
+    );
+  };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTime(new Date().toLocaleTimeString());
-    }, 1000);
+    const interval = setInterval(() => getTimes(), 1000);
     return () => clearInterval(interval);
   });
-  return <p className="">{time.slice(0, 5)}</p>;
+
+  return <p>{times}</p>;
 };
 
 export default Time;

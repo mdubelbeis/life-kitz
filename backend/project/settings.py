@@ -28,7 +28,11 @@ SECRET_KEY = "django-insecure-52b53vbj7j$37a91p!)l_v(o_m8#ts1=)2d8!16@-@kvu3#8a^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "http://localhost:3001",
+]
 
 
 # Application definition
@@ -44,7 +48,6 @@ INSTALLED_APPS = [
     "accounts",
     "notes",
     "expenses",
-
     # Third Party Packages
     "rest_framework",
     "rest_framework.authtoken",
@@ -59,6 +62,7 @@ MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
@@ -71,12 +75,12 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
     "DEFAULT_PERMISSION_CLASSES": (
         "rest_framework.permissions.IsAuthenticated",
         "rest_framework.permissions.IsAdminUser",
-    )
+    ),
 }
 
 SIMPLE_JWT = {
@@ -111,9 +115,14 @@ WSGI_APPLICATION = "project.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": 'life_kitz',
+        "NAME": "life_kitz",
     }
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:3001",
+    "http://localhost:3001",
+]
 
 
 # Password validation
