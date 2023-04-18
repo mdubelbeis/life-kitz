@@ -16,7 +16,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       {isAuthenticated && <main>{children}</main>}
       {!isAuthenticated && (
         <main>
-          <Forms />
+          <Forms setIsAuthenticated={setIsAuthenticated} />
         </main>
       )}
       <Footer />

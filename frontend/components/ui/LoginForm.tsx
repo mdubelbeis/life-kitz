@@ -11,6 +11,7 @@ interface LoginFormProps {
   setAccess: (token: string) => void;
   setEmail: (email: string) => void;
   setPassword: (password: string) => void;
+  setIsAuthenticated?: (isAuthenticated: boolean) => void;
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({
@@ -20,6 +21,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
   password,
   setEmail,
   setPassword,
+  setIsAuthenticated,
 }) => {
   const { push } = useRouter();
 
@@ -44,7 +46,8 @@ const LoginForm: React.FC<LoginFormProps> = ({
       if (data.tokens) {
         setAccess(data.tokens.access);
         setRefresh(data.tokens.refresh);
-        // USE STATE MGMT TO SET AUTH! (ZUSTAND or REDUX-TOOLKIT)
+        // USE STATE MGMT TO SET AUTH! (ZUSTAND)
+        setIsAuthenticated(true); //? Set auth to true
         push('/'); //? Redirect to home page
       }
     } catch (error) {

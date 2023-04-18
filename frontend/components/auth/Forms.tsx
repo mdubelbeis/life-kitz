@@ -4,7 +4,11 @@ import { useState } from 'react';
 import LoginForm from '../ui/LoginForm';
 import SignUpForm from '../ui/SignUpForm';
 
-const Forms: React.FC = () => {
+interface FormsProps {
+  setIsAuthenticated?: (isAuthenticated: boolean) => void;
+}
+
+const Forms: React.FC<FormsProps> = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
@@ -23,6 +27,7 @@ const Forms: React.FC = () => {
           password={password}
           setEmail={setEmail}
           setPassword={setPassword}
+          setIsAuthenticated={setIsAuthenticated}
         />
       ) : (
         <SignUpForm />
