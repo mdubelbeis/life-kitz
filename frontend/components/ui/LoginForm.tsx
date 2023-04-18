@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { SyntheticEvent } from 'react';
 import { MdAlternateEmail, MdPassword } from 'react-icons/md';
 import Button from './Button';
@@ -6,8 +7,8 @@ import Button from './Button';
 interface LoginFormProps {
   email: string;
   password: string;
-  setRefresh: () => void;
-  setAccess: () => void;
+  setRefresh: (token: string) => void;
+  setAccess: (token: string) => void;
   setEmail: (email: string) => void;
   setPassword: (password: string) => void;
 }
@@ -20,6 +21,8 @@ const LoginForm: React.FC<LoginFormProps> = ({
   setEmail,
   setPassword,
 }) => {
+  const { push } = useRouter();
+
   const handleLogin = async (e: SyntheticEvent) => {
     e.preventDefault();
     console.log('Logging in...');
@@ -36,12 +39,14 @@ const LoginForm: React.FC<LoginFormProps> = ({
       });
 
       const data = await resp.json();
-      console.log(data)
+      console.log(data);
 
       if (data.tokens) {
-        setAccess(data.tokens.access)
+        setAccess(data.tokens.access);
+        setRefresh(data.tokens.refresh);
+        // USE STATE MGMT TO SET AUTH! (ZUSTAND or REDUX-TOOLKIT)
+        push('/'); //? Redirect to home page
       }
-
     } catch (error) {
       console.log(error);
     }
