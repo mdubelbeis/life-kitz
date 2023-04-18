@@ -1,11 +1,62 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { SyntheticEvent } from 'react';
 import { MdAccountCircle, MdAlternateEmail, MdPassword } from 'react-icons/md';
 import Button from './Button';
 
-const SignUpForm: React.FC = () => {
+interface SignUpFormProps {
+  email: string;
+  password: string;
+  username: string;
+  setEmail: (email: string) => void;
+  setPassword: (password: string) => void;
+  setUsername: (username: string) => void;
+}
+
+const SignUpForm: React.FC<SignUpFormProps> = ({
+  email,
+  password,
+  username,
+  setEmail,
+  setPassword,
+  setUsername,
+}) => {
+  const { push } = useRouter();
+  const { reload } = useRouter();
+
+  const handleSignUp = async (e: SyntheticEvent) => {
+    e.preventDefault();
+    console.log('Signing up...');
+    try {
+      const resp = await fetch('http://127.0.0.1:8000/auth/signup/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          password,
+          username,
+        }),
+      });
+
+      const data = await resp.json();
+      // console.log(data);
+
+      if (data.data) {
+        console.log('User created successfully!');
+        push('/login');
+      } else {
+        console.log('User creation failed!');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     // Form with email, username, and password fields
-    <form className="flex flex-col gap-3">
+    <form className="flex flex-col gap-3" onSubmit={handleSignUp}>
       <label className="relative" htmlFor="email">
         <input
           type="email"
@@ -13,6 +64,8 @@ const SignUpForm: React.FC = () => {
           placeholder="Email"
           name="email"
           className="w-full rounded px-1 py-2 tracking-wider"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <MdAlternateEmail className="absolute right-2 top-1/2 -translate-y-1/2 transform text-gray-400" />
       </label>
@@ -24,6 +77,8 @@ const SignUpForm: React.FC = () => {
           name="username"
           placeholder="Username"
           className="w-full rounded px-1 py-2 tracking-wider"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <MdAccountCircle className="absolute right-2 top-1/2 -translate-y-1/2 transform text-gray-400" />
       </label>
@@ -34,6 +89,8 @@ const SignUpForm: React.FC = () => {
           name="password"
           placeholder="Password"
           className="w-full rounded px-1 py-2 tracking-wider"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <MdPassword className="absolute right-2 top-1/2 -translate-y-1/2 transform text-gray-400" />
       </label>
