@@ -11,7 +11,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false); // TODO: Use state management call to set auth
 
   const setAuthToLocalStorage = () => {
-    // TODO: Set auth to local storage
     if (!localStorage.getItem('jwtToken')) {
       setIsAuthenticated(false);
     } else {
@@ -20,8 +19,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   };
 
   useEffect(() => {
-    // Use useEffect to access sessionid and if sessionid valid -> setIsAuth(true)
-    // Access sessionid from Application cookies
     setAuthToLocalStorage();
   }, []);
   return (
