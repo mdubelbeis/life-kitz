@@ -1,5 +1,6 @@
 import ClockWidget from '@/components/widgets/ClockWidget/ClockWidget';
 import JokesWidget from '@/components/widgets/JokesWidget/JokesWidget';
+import QuotesWidget from '@/components/widgets/QuotesWidget';
 import WeatherWidget from '@/components/widgets/WeatherWidget/WeatherWidget';
 import WidgetContainer from '@/components/widgets/WidgetContainer';
 import Head from 'next/head';
@@ -66,14 +67,8 @@ const HomePage: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [notes, setNotes] = useState<Note[]>([]);
   const [expenses, setExpenses] = useState<Expense[]>([]);
-  const [widgetData, setWidgetData] = useState<{
-    joke: JokeData | null;
-    quote: QuoteData | null;
-  }>({ joke: null, quote: null });
 
   const router = useRouter();
-
-  const fetchQuoteData = async () => {};
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
@@ -82,8 +77,6 @@ const HomePage: React.FC = () => {
     } else {
       router.push('/login');
     }
-
-    // fetchQuoteData();
   }, []);
 
   return (
@@ -103,7 +96,7 @@ const HomePage: React.FC = () => {
             <WeatherWidget />
             <ClockWidget />
             <JokesWidget />
-            {/* <QuotesWidget quote={widgetData.quote} /> */}
+            <QuotesWidget />
             {/* <NewsWidget /> */}
           </WidgetContainer>
           {/* <section>
@@ -169,52 +162,8 @@ const HomePage: React.FC = () => {
 //     console.log('Error fetching data from BE API');
 //   }
 
-//   // FETCH jokes data
-//   try {
-//     const jokes_widget_res = await fetch(
-//       `https://api.api-ninjas.com/v1/jokes?limit=1`,
-//       {
-//         method: 'GET',
-//         headers: {
-//           'Content-Type': 'application/json',
-//           'X-Api-Key': process.env.NEXT_PUBLIC_API_NINJA_KEY,
-//         },
-//       }
-//     );
-//     const data = await jokes_widget_res.json();
-//     if (data[0].joke.includes('?')) {
-//       const split = data[0].joke.split('? ');
-//       jokesWidgetData_line = split[0] + '?';
-//       jokesWidgetData_answer = split[1];
-//     } else {
-//       jokesWidgetData_line = data[0].joke;
-//       jokesWidgetData_answer = '';
-//     }
-
-//     // quotesWidgetData_category = data[0].category;
-//   } catch (error) {
-//     console.log(`${error} - Jokes Widget Data Fetch Failed`);
-//   }
-
 //   // FETCH quotes data
-//   try {
-//     const quotes_widget_res = await fetch(
-//       `https://api.api-ninjas.com/v1/quotes?limit=1`,
-//       {
-//         method: 'GET',
-//         headers: {
-//           'Content-Type': 'application/json',
-//           'X-Api-Key': process.env.NEXT_PUBLIC_API_NINJA_KEY,
-//         },
-//       }
-//     );
-//     const data = await quotes_widget_res.json();
-//     quotesWidgetData_line = data[0].quote;
-//     quotesWidgetData_author = data[0].author;
-//     quotesWidgetData_category = data[0].category;
-//   } catch (error) {
-//     console.log(`${error} - Quotes Data Fetch Failed`);
-//   }
+//
 
 //   return {
 //     props: {
