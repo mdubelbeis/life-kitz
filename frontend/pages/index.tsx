@@ -187,7 +187,7 @@ export async function getServerSideProps() {
     quotesWidgetData_author = data[0].author;
     quotesWidgetData_category = data[0].category;
   } catch (error) {
-    console.log(`${error} - Weather Widget Data Fetch Failed`);
+    console.log(`${error} - Quotes Data Fetch Failed`);
   }
 
   return {
@@ -198,9 +198,9 @@ export async function getServerSideProps() {
       widgetData: {
         joke: { line: jokesWidgetData_line, answer: jokesWidgetData_answer },
         quote: {
-          line: quotesWidgetData_line,
-          author: quotesWidgetData_author,
-          category: quotesWidgetData_category,
+          line: quotesWidgetData_line || 'No Quote Found',
+          author: quotesWidgetData_author || 'No Author Found',
+          category: quotesWidgetData_category || 'No Category Found',
         },
         // news: newsWidgetData,
       },

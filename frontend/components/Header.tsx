@@ -1,37 +1,36 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
 
-const Header: React.FC = () => {
-  const [userAuth, setUserAuth] = useState(false);
-  const router = useRouter();
+interface HeaderProps {
+  token: {
+    access: string;
+    refresh: string;
+  } | null;
+  setToken: (value: null) => void;
+}
 
-  useEffect(() => {
-    const token = localStorage.getItem('jwtToken');
-    if (token) {
-      setUserAuth(true);
-    } else {
-      setUserAuth(false);
-    }
-  }, [userAuth]);
+const Header: React.FC<HeaderProps> = ({ token, setToken }) => {
+  const { push, pathname } = useRouter();
+
+  const handleLogout = () => {
+    setToken(null);
+  };
 
   return (
     <header>
       <h1 className="w-6/12">Life-Kitz</h1>
-      {userAuth ? (
+      {token ? (
         <nav className="flex w-full justify-between">
           <div>
             <Link href="/todos">Todos</Link>
             <Link href="/expenses">Expenses</Link>
             <Link href="/notes">Notes</Link>
           </div>
-          <Link href="/logout">Logout</Link>
+          <span onClick={handleLogout}>Logout</span>
         </nav>
       ) : (
         <nav>
-          <Link href="/">Home</Link>
-
-          {router.pathname === '/login' ? (
+          {pathname === '/login' ? (
             <Link href="/signup" className="text-blue-700 underline">
               Sign up
             </Link>

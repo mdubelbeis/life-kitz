@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { SyntheticEvent, useEffect } from 'react';
+import { SyntheticEvent } from 'react';
 import { MdAlternateEmail, MdPassword } from 'react-icons/md';
 import Button from './Button';
 
@@ -11,7 +11,7 @@ interface LoginFormProps {
   setAccess: (token: string) => void;
   setEmail: (email: string) => void;
   setPassword: (password: string) => void;
-  setIsAuthenticated?: (isAuthenticated: boolean) => void;
+  setToken?: (token: { access: string; refresh: string }) => void;
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({
@@ -21,7 +21,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
   setRefresh,
   setEmail,
   setPassword,
-  setIsAuthenticated,
+  setToken,
 }) => {
   const { push } = useRouter();
 
@@ -29,7 +29,6 @@ const LoginForm: React.FC<LoginFormProps> = ({
     // TODO: Add validation
     // TODO: Add error handling
     // TODO: Add loading state
-
     e.preventDefault();
     try {
       const resp = await fetch('http://127.0.0.1:8000/auth/login/', {
@@ -44,26 +43,19 @@ const LoginForm: React.FC<LoginFormProps> = ({
       });
 
       const data = await resp.json();
+      const { tokens } = data;
+      if (tokens.access) {
+        setAccess(tokens.access);
+        setRefresh(tokens.refresh);
+        setToken({ access: tokens.access, refresh: tokens.refresh });
+        // GET request to /auth/login/ using access token to verify signed in user
 
-      if (data.tokens) {
-        setIsAuthenticated(true);
-        setAccess(data.tokens.access);
-        setRefresh(data.tokens.refresh);
-        localStorage.setItem('jwtToken', data.tokens.access);
-        push('/');
+        await push('/');
       }
     } catch (error) {
       console.log(error);
     }
-
-    console.log(email, password);
   };
-
-  useEffect(() => {
-    if (localStorage.getItem('jwtToken')) {
-      push('/');
-    }
-  }, []);
 
   return (
     <form className="flex flex-col gap-3" onSubmit={handleLogin}>

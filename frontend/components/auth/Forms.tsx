@@ -6,9 +6,10 @@ import SignUpForm from '../ui/SignUpForm';
 
 interface FormsProps {
   setIsAuthenticated?: (isAuthenticated: boolean) => void;
+  setToken?: (token: { access: string; refresh: string }) => void;
 }
 
-const Forms: React.FC<FormsProps> = ({ setIsAuthenticated }) => {
+const Forms: React.FC<FormsProps> = ({ setToken }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
@@ -27,7 +28,7 @@ const Forms: React.FC<FormsProps> = ({ setIsAuthenticated }) => {
           password={password}
           setEmail={setEmail}
           setPassword={setPassword}
-          setIsAuthenticated={setIsAuthenticated}
+          setToken={setToken}
         />
       ) : (
         <SignUpForm
