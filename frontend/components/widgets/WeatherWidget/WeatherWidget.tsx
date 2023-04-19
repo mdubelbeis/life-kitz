@@ -169,7 +169,8 @@ const WeatherWidget: React.FC = () => {
                     <span>Zipcode</span>
                     <input
                       type="number"
-                      min={5}
+                      min={0o501}
+                      max={99950}
                       placeholder="Get your local weather"
                       className="input-bordered input w-full"
                       onChange={(e) => setZipCode(e.target.value)}
