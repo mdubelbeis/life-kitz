@@ -1,4 +1,5 @@
 import ClockWidget from '@/components/widgets/ClockWidget/ClockWidget';
+import JokesWidget from '@/components/widgets/JokesWidget/JokesWidget';
 import WeatherWidget from '@/components/widgets/WeatherWidget/WeatherWidget';
 import WidgetContainer from '@/components/widgets/WidgetContainer';
 import Head from 'next/head';
@@ -62,7 +63,17 @@ export interface HomePageProps {
 
 const HomePage: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const [notes, setNotes] = useState<Note[]>([]);
+  const [expenses, setExpenses] = useState<Expense[]>([]);
+  const [widgetData, setWidgetData] = useState<{
+    joke: JokeData | null;
+    quote: QuoteData | null;
+  }>({ joke: null, quote: null });
+
   const router = useRouter();
+
+  const fetchQuoteData = async () => {};
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
@@ -71,6 +82,8 @@ const HomePage: React.FC = () => {
     } else {
       router.push('/login');
     }
+
+    // fetchQuoteData();
   }, []);
 
   return (
@@ -89,8 +102,8 @@ const HomePage: React.FC = () => {
           <WidgetContainer>
             <WeatherWidget />
             <ClockWidget />
-            {/* <JokesWidget joke={widgetData.joke} />
-            <QuotesWidget quote={widgetData.quote} /> */}
+            <JokesWidget />
+            {/* <QuotesWidget quote={widgetData.quote} /> */}
             {/* <NewsWidget /> */}
           </WidgetContainer>
           {/* <section>
