@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { SyntheticEvent } from 'react';
+import { SyntheticEvent, useState } from 'react';
 import { MdAccountCircle, MdAlternateEmail, MdPassword } from 'react-icons/md';
 import Button from './Button';
 
@@ -21,6 +21,15 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
   setPassword,
   setUsername,
 }) => {
+  // TODO: Add validation
+  // TODO: Add error handling
+  // TODO: Add loading state
+  const [userData, setUserData] = useState<{
+    id: string;
+    email: string;
+    username: string;
+  }>();
+
   const { push } = useRouter();
   const { reload } = useRouter();
 
@@ -41,10 +50,10 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
       });
 
       const data = await resp.json();
-      // console.log(data);
+      setUserData(data.data);
 
-      if (data.data) {
-        push('/login');
+      if (data.message === 'User Created Successfully') {
+        await push('/login');
       } else {
         console.log('User creation failed!');
       }

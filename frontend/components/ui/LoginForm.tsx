@@ -11,21 +11,24 @@ interface LoginFormProps {
   setAccess: (token: string) => void;
   setEmail: (email: string) => void;
   setPassword: (password: string) => void;
-  setIsAuthenticated?: (isAuthenticated: boolean) => void;
+  setToken?: (token: { access: string; refresh: string }) => void;
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({
   email,
+  password,
   setAccess,
   setRefresh,
-  password,
   setEmail,
   setPassword,
-  setIsAuthenticated,
+  setToken,
 }) => {
-  const { push } = useRouter();
+  const router = useRouter();
 
   const handleLogin = async (e: SyntheticEvent) => {
+    // TODO: Add validation
+    // TODO: Add error handling
+    // TODO: Add loading state
     e.preventDefault();
     try {
       const resp = await fetch('http://127.0.0.1:8000/auth/login/', {
@@ -40,18 +43,18 @@ const LoginForm: React.FC<LoginFormProps> = ({
       });
 
       const data = await resp.json();
+      const { tokens } = data;
 
-      if (data.tokens) {
-        setAccess(data.tokens.access);
-        setRefresh(data.tokens.refresh);
-        setIsAuthenticated(true);
-        push('/');
-      }
+      // setAccess(tokens.access);
+      // setRefresh(tokens.refresh);
+      // setToken({ access: tokens.access, refresh: tokens.refresh });
+      localStorage.setItem('token', JSON.stringify(tokens));
+      localStorage.setItem('refreshToken', JSON.stringify(tokens.refresh));
+      localStorage.setItem('isAuthenticated', JSON.stringify(true));
+      router.push('/');
     } catch (error) {
       console.log(error);
     }
-
-    console.log(email, password);
   };
 
   return (

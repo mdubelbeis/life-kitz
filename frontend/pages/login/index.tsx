@@ -4,6 +4,7 @@ import FormWrapper from '@/components/ui/FormsWrapper';
 const Login: React.FC = () => {
   return (
     <FormWrapper>
+      Testing
       <Forms />
     </FormWrapper>
   );
