@@ -23,7 +23,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
   setPassword,
   setToken,
 }) => {
-  const { push } = useRouter();
+  const router = useRouter();
 
   const handleLogin = async (e: SyntheticEvent) => {
     // TODO: Add validation
@@ -44,14 +44,14 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
       const data = await resp.json();
       const { tokens } = data;
-      if (tokens.access) {
-        setAccess(tokens.access);
-        setRefresh(tokens.refresh);
-        setToken({ access: tokens.access, refresh: tokens.refresh });
-        // GET request to /auth/login/ using access token to verify signed in user
 
-        await push('/');
-      }
+      // setAccess(tokens.access);
+      // setRefresh(tokens.refresh);
+      // setToken({ access: tokens.access, refresh: tokens.refresh });
+      localStorage.setItem('token', JSON.stringify(tokens));
+      localStorage.setItem('refreshToken', JSON.stringify(tokens.refresh));
+      localStorage.setItem('isAuthenticated', JSON.stringify(true));
+      router.push('/');
     } catch (error) {
       console.log(error);
     }

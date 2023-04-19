@@ -1,5 +1,31 @@
-const TodosPage: React.FC = () => {
-  return <div>TodosPage</div>;
+import { useState } from 'react';
+import { Todo } from '../index';
+
+interface TodosPageProps {
+  todosData: Todo[] | null;
+}
+
+const TodosPage: React.FC<TodosPageProps> = ({ todosData }) => {
+  const [todos, setTodos] = useState<Todo[]>(todosData);
+  return (
+    <>
+      <div>
+        <h1>Todos</h1>
+      </div>
+      <div>
+        {
+          <ul>
+            {todosData.map((todo) => (
+              <li key={todo.id}>
+                <h3>{todo.title}</h3>
+                <p>{todo.description}</p>
+              </li>
+            ))}
+          </ul>
+        }
+      </div>
+    </>
+  );
 };
 
 export async function getServerSideProps() {
@@ -12,7 +38,7 @@ export async function getServerSideProps() {
 
     return {
       props: {
-        todos: todos,
+        todosData: todos,
       },
     };
   } catch (error) {
@@ -21,7 +47,7 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      todos: [],
+      todosData: null,
     },
   };
 }
