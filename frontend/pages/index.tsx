@@ -56,16 +56,14 @@ export interface QuoteData {
 
 const HomePage: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const [notes, setNotes] = useState<Note[]>([]);
-  const [expenses, setExpenses] = useState<Expense[]>([]);
+  // const [todos, setTodos] = useState<Todo[]>([]);
+  // const [notes, setNotes] = useState<Note[]>([]);
+  // const [expenses, setExpenses] = useState<Expense[]>([]);
 
   const router = useRouter();
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
-      const token = localStorage.getItem('token');
-      console.log(token);
       setIsAuthenticated(true);
     } else {
       router.push('/login');
