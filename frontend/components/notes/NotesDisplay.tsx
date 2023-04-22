@@ -1,33 +1,28 @@
-import { Todo } from '@/pages';
-import React, { useEffect } from 'react';
+import { Note } from '@/pages';
 
-interface TodosDisplayProps {
-  todos: Todo[];
+interface NotesDisplayProps {
+  notes: Note[];
 }
 
-const TodosDisplay: React.FC<TodosDisplayProps> = ({ todos }) => {
-  useEffect(() => {
-    console.log(todos);
-  }, [todos]);
-
+const NotesDisplay: React.FC<NotesDisplayProps> = ({ notes }) => {
   return (
     <>
-      {todos ? (
+      {notes ? (
         <div className="overflow-x-auto">
           <table className="table-zebra table w-full">
             {/* head */}
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Description</th>
+                <th>Content</th>
                 <th>Quick Action</th>
               </tr>
             </thead>
             <tbody>
-              {todos.map((todo) => (
-                <tr key={todo.id}>
-                  <td>{todo.title}</td>
-                  <td className="line-clamp-1">{todo.description}</td>
+              {notes?.map((note) => (
+                <tr key={note.id}>
+                  <td>{note.title}</td>
+                  <td className="line-clamp-1">{note.content}</td>
                   <td>
                     <button className="mr-2">Completed</button>
                     <button className="mr-2">Delete</button>
@@ -39,10 +34,10 @@ const TodosDisplay: React.FC<TodosDisplayProps> = ({ todos }) => {
           </table>
         </div>
       ) : (
-        <p>No todos</p>
+        <p>No notes</p>
       )}
     </>
   );
 };
 
-export default TodosDisplay;
+export default NotesDisplay;
