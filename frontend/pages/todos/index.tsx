@@ -28,6 +28,7 @@ const TodosPage: React.FC = () => {
   };
 
   useEffect(() => {
+    // Check if user is authenticated
     if (localStorage.getItem('token')) {
       setIsAuthenticated(true);
       getTodos();
