@@ -54,14 +54,6 @@ export interface QuoteData {
   category: string;
 }
 
-export interface HomePageProps {
-  // message: string;
-  todos: Todo[]; // TODO: Create Todo Interface
-  notes: Note[]; // TODO: Create Note Interface
-  expenses: Expense[]; // TODO: Create Expense Interface
-  widgetData: { joke: JokeData; quote: QuoteData };
-}
-
 const HomePage: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -146,13 +138,6 @@ const HomePage: React.FC = () => {
 //   let notes_data: Note[];
 //   let expenses_data: Expense[];
 
-//   //* 3rd Party API data
-//   let jokesWidgetData_line: string;
-//   let jokesWidgetData_answer: string;
-//   let quotesWidgetData_line: string;
-//   let quotesWidgetData_author: string;
-//   let quotesWidgetData_category: string;
-
 //   // FETCH BE data
 //   try {
 //     todos_data = await axios.get('http://127.0.0.1:8000/api/todos/'); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
@@ -161,26 +146,5 @@ const HomePage: React.FC = () => {
 //   } catch {
 //     console.log('Error fetching data from BE API');
 //   }
-
-//   // FETCH quotes data
-//
-
-//   return {
-//     props: {
-//       todos: todos_data.data,
-//       notes: notes_data.data,
-//       expenses: expenses_data.data,
-//       widgetData: {
-//         joke: { line: jokesWidgetData_line, answer: jokesWidgetData_answer },
-//         quote: {
-//           line: quotesWidgetData_line || 'No Quote Found',
-//           author: quotesWidgetData_author || 'No Author Found',
-//           category: quotesWidgetData_category || 'No Category Found',
-//         },
-//         // news: newsWidgetData,
-//       },
-//     },
-//   };
-// }
 
 export default HomePage;
