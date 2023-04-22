@@ -14,7 +14,12 @@ const TodosPage: React.FC = () => {
 
   const getTodos = async () => {
     try {
-      const todos_data = await fetch('http://localhost:8000/api/todos/');
+      const todos_data = await fetch('http://localhost:8000/api/todos/', {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token').slice(1, -1)}`,
+        },
+      });
+
       const todos_json = await todos_data.json();
       const todos = todos_json;
 
@@ -41,8 +46,6 @@ const TodosPage: React.FC = () => {
   const handleNewTodo = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    localStorage.getItem('token');
-
     const newTodo = {
       title: newTodoTitle,
       description: newTodoDescription,
@@ -57,10 +60,10 @@ const TodosPage: React.FC = () => {
         },
         body: JSON.stringify(newTodo),
       });
-      console.log(`Token DUDE ${localStorage.getItem('token')}`);
-      const data = await response.json();
-      console.log(data);
 
+      const data = await response.json();
+
+      console.log(data);
       await getTodos();
     } catch (error) {
       console.log(error + 'Error creating new todo');
