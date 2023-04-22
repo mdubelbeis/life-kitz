@@ -1,13 +1,17 @@
 import { Todo } from '@/pages';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 interface TodosDisplayProps {
   todos: Todo[];
 }
 
 const TodosDisplay: React.FC<TodosDisplayProps> = ({ todos }) => {
+  useEffect(() => {
+    console.log(todos);
+  }, [todos]);
+
   return (
-    <div>
+    <>
       {todos ? (
         <div className="overflow-x-auto">
           <table className="table-zebra table w-full">
@@ -16,11 +20,11 @@ const TodosDisplay: React.FC<TodosDisplayProps> = ({ todos }) => {
               <tr>
                 <th>Name</th>
                 <th>Description</th>
-                <th>Action</th>
+                <th>Quick Action</th>
               </tr>
             </thead>
             <tbody>
-              {todos?.map((todo) => (
+              {todos.map((todo) => (
                 <tr key={todo.id}>
                   <td>{todo.title}</td>
                   <td className="line-clamp-1">{todo.description}</td>
@@ -37,7 +41,7 @@ const TodosDisplay: React.FC<TodosDisplayProps> = ({ todos }) => {
       ) : (
         <p>No todos</p>
       )}
-    </div>
+    </>
   );
 };
 
