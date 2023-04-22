@@ -45,12 +45,10 @@ const LoginForm: React.FC<LoginFormProps> = ({
       const data = await resp.json();
       const { tokens } = data;
 
-      // setAccess(tokens.access);
-      // setRefresh(tokens.refresh);
-      // setToken({ access: tokens.access, refresh: tokens.refresh });
-      localStorage.setItem('token', JSON.stringify(tokens));
+      localStorage.setItem('token', JSON.stringify(tokens.access));
       localStorage.setItem('refreshToken', JSON.stringify(tokens.refresh));
       localStorage.setItem('isAuthenticated', JSON.stringify(true));
+
       router.push('/');
     } catch (error) {
       console.log(error);
