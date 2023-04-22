@@ -32,16 +32,47 @@ const TodosPage: React.FC = () => {
     if (localStorage.getItem('token')) {
       setIsAuthenticated(true);
       getTodos();
-      // setTimeout(() => {}, 1000);
     } else {
       router.push('/login');
     }
   }, []);
 
+  const handleNewTodo = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    localStorage.getItem('token');
+
+    const newTodo = {
+      title: newTodoTitle,
+      description: newTodoDescription,
+    };
+
+    try {
+      const response = await fetch('http://localhost:8000/api/todos/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token').slice(1, -1)}`,
+        },
+        body: JSON.stringify(newTodo),
+      });
+      console.log(`Token DUDE ${localStorage.getItem('token')}`);
+      const data = await response.json();
+      console.log(data);
+
+      await getTodos();
+    } catch (error) {
+      console.log(error + 'Error creating new todo');
+    }
+
+    setNewTodoTitle('');
+    setNewTodoDescription('');
+  };
+
   return (
     isAuthenticated && (
       <section className="mx-auto flex w-11/12 max-w-6xl flex-col gap-10">
-        <form className="flex flex-col gap-3">
+        <form className="flex flex-col gap-3" onSubmit={handleNewTodo}>
           <label>
             <input
               type="text"
