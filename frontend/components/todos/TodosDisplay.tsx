@@ -14,7 +14,6 @@ const TodosDisplay: React.FC<TodosDisplayProps> = ({ todos }) => {
             {/* head */}
             <thead>
               <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Action</th>
@@ -23,7 +22,6 @@ const TodosDisplay: React.FC<TodosDisplayProps> = ({ todos }) => {
             <tbody>
               {todos?.map((todo) => (
                 <tr key={todo.id}>
-                  <th>{todo.id}</th>
                   <td>{todo.title}</td>
                   <td className="line-clamp-1">{todo.description}</td>
                   <td>

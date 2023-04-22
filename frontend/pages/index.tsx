@@ -64,8 +64,9 @@ const HomePage: React.FC = () => {
 
   useEffect(() => {
     if (localStorage.getItem('token')) {
+      const token = localStorage.getItem('token');
+      console.log(token);
       setIsAuthenticated(true);
-      setTimeout(() => {}, 1000);
     } else {
       router.push('/login');
     }
@@ -91,60 +92,10 @@ const HomePage: React.FC = () => {
             <QuotesWidget />
             {/* <NewsWidget /> */}
           </WidgetContainer>
-          {/* <section>
-            <h1>Life-Kitz</h1>
-            <div>
-              <p>Todos</p>
-              <ul>
-                {todos.length > 0 ? (
-                  todos.map((todo) => <li key={todo.id}>{todo.title}</li>)
-                ) : (
-                  <li>No todos</li>
-                )}
-              </ul>
-            </div>
-            <div>
-              <p>Expenses</p>
-              <ul>
-                {expenses.length > 0 ? (
-                  expenses.map((expense) => (
-                    <li key={expense.id}>{expense.title}</li>
-                  ))
-                ) : (
-                  <li>No expenses</li>
-                )}
-              </ul>
-            </div>
-            <div>
-              <p>Notes</p>
-              <ul>
-                {notes.length > 0 ? (
-                  notes.map((note) => <li key={note.id}>{note.title}</li>)
-                ) : (
-                  <li>No Notes</li>
-                )}
-              </ul>
-            </div>
-          </section> */}
         </>
       )}
     </>
   );
 };
-
-// export async function getServerSideProps() {
-//   //* Fetch data from BE API
-//   let todos_data: Todo[];
-//   let notes_data: Note[];
-//   let expenses_data: Expense[];
-
-//   // FETCH BE data
-//   try {
-//     todos_data = await axios.get('http://127.0.0.1:8000/api/todos/'); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
-//     notes_data = await axios.get('http://127.0.0.1:8000/api/notes/'); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
-//     expenses_data = await axios.get('http://127.0.0.1:8000/api/expenses/'); // TODO: ADD AUTH HEADERS - Once Auth on FE is setup
-//   } catch {
-//     console.log('Error fetching data from BE API');
-//   }
 
 export default HomePage;
