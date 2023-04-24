@@ -18,7 +18,7 @@ const NotesForm: React.FC<NotesFormProps> = ({
   return (
     <form
       onSubmit={handleNewNote}
-      className="flex flex-col justify-center gap-3"
+      className="mx-auto flex w-11/12 max-w-6xl flex-col justify-center gap-3"
     >
       <label>
         <input
