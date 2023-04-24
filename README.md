@@ -59,6 +59,10 @@ Life-Kitz will be your go to multi-tool from simple to advanced tasks!
 ![LifeKit Component](./dev-documents/whiteboarding/lifekit.JPG)
 ![Dashboard Design (OG)](./dev-documents/whiteboarding/dashboard.JPG)
 ![Design (OG)](./dev-documents/whiteboarding/sql_design_proto.JPG)
+![Brainstorming JWT Process](./dev-documents/whiteboarding/jwt.JPG)
+![Restructuring SSR Model](./dev-documents/whiteboarding/restructuring_ssr.JPG)
+![Time component](./dev-documents/whiteboarding/time_component.JPG)
+![Widget Container](./dev-documents/whiteboarding/widget_container.JPG)
   
 ## SQL SCHEMA
 
