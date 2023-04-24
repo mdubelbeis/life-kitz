@@ -16,7 +16,10 @@ const TodoForm: React.FC<TodoFormProps> = ({
   setNewTodoDescription,
 }) => {
   return (
-    <form className="flex flex-col gap-3" onSubmit={handleNewTodo}>
+    <form
+      className="mx-auto flex w-11/12 max-w-6xl flex-col justify-center gap-3"
+      onSubmit={handleNewTodo}
+    >
       <label>
         <input
           type="text"
@@ -39,7 +42,7 @@ const TodoForm: React.FC<TodoFormProps> = ({
           onChange={(e) => setNewTodoDescription(e.target.value)}
         />
       </label>
-      <div className="flex gap-3">
+      <div className="flex items-center justify-center gap-3">
         <button type="submit" className="btn-primary btn">
           Add Todo
         </button>
