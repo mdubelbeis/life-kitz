@@ -1,3 +1,4 @@
+import { getAuth } from '@/auth/getAuth';
 import TodoForm from '@/components/todos/TodoForm';
 import TodosDisplay from '@/components/todos/TodosDisplay';
 import Head from 'next/head';
@@ -34,8 +35,8 @@ const TodosPage: React.FC = () => {
   };
 
   useEffect(() => {
-    // Check if user is authenticated
-    if (localStorage.getItem('token')) {
+    const { token } = getAuth();
+    if (token) {
       setIsAuthenticated(true);
       getTodos();
     } else {

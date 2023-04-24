@@ -4,6 +4,7 @@ import { Expense } from '@/pages/index';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { getAuth } from '../../auth/getAuth';
 
 const ExpensesPage: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -36,8 +37,8 @@ const ExpensesPage: React.FC = () => {
   };
 
   useEffect(() => {
-    // Check if user is authenticated
-    if (localStorage.getItem('token')) {
+    const { token } = getAuth();
+    if (token) {
       setIsAuthenticated(true);
       getExpenses();
     } else {

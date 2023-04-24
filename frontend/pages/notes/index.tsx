@@ -1,3 +1,4 @@
+import { getAuth } from '@/auth/getAuth';
 import NotesDisplay from '@/components/notes/NotesDisplay';
 import NotesForm from '@/components/notes/NotesForm';
 import Head from 'next/head';
@@ -5,7 +6,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { Note } from '../index';
 
-const NotesPage = () => {
+const NotesPage: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [notes, setNotes] = useState<Note[] | null>(null);
   const [newNoteTitle, setNewNoteTitle] = useState<string>('');
@@ -35,7 +36,8 @@ const NotesPage = () => {
 
   useEffect(() => {
     // Check if user is authenticated
-    if (localStorage.getItem('token')) {
+    const { token } = getAuth();
+    if (token) {
       setIsAuthenticated(true);
       getNotes();
     } else {
