@@ -164,9 +164,9 @@ const WeatherWidget: React.FC = () => {
                 className="form-control flex w-full flex-col items-center justify-center gap-3 lg:w-10/12"
                 onSubmit={handleZipCode}
               >
-                <div className="lg:w-10/12">
+                <div className="w-full lg:w-10/12">
                   <label className="input-group w-full">
-                    <span>Zipcode</span>
+                    <span>ZIP</span>
                     <input
                       type="number"
                       min={0o501}
@@ -178,10 +178,10 @@ const WeatherWidget: React.FC = () => {
                   </label>
                 </div>
                 <button
-                  className="btn bg-slate-800 lg:w-6/12 lg:text-lg"
+                  className="btn w-10/12 bg-slate-800 text-lg lg:w-6/12 lg:text-xl"
                   type="submit"
                 >
-                  FIND
+                  Get Weather
                 </button>
               </form>
             </div>

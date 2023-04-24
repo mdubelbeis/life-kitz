@@ -1,3 +1,4 @@
+import { getAuth } from '@/auth/getAuth';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -17,7 +18,8 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     // Check if user is authenticated
-    if (localStorage.getItem('token')) {
+    const { token } = getAuth();
+    if (token) {
       setIsAuthenticated(true);
     } else {
       router.push('/login');
@@ -26,7 +28,9 @@ const Header: React.FC = () => {
 
   return (
     <header>
-      <h1 className="w-6/12">Life-Kitz</h1>
+      <Link href="/">
+        <h1 className="w-6/12">Life-Kitz</h1>
+      </Link>
       {!isAuthenticated ? (
         <nav>
           {pathname === '/login' ? (
