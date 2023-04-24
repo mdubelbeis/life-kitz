@@ -158,14 +158,14 @@ const WeatherWidget: React.FC = () => {
         </WeatherWrapper>
       ) : (
         <WeatherWrapper>
-          <div className="stats mx-auto flex bg-inherit">
-            <div className="stat flex flex-col place-items-center items-center justify-center gap-3">
+          <div className="stats mx-auto flex w-full bg-inherit">
+            <div className="stat flex w-full flex-col place-items-center items-center justify-center gap-3">
               <form
                 className="form-control flex w-full flex-col items-center justify-center gap-3 lg:w-10/12"
                 onSubmit={handleZipCode}
               >
                 <div className="lg:w-10/12">
-                  <label className="input-group">
+                  <label className="input-group w-full">
                     <span>Zipcode</span>
                     <input
                       type="number"

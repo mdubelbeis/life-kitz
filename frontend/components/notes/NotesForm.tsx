@@ -16,7 +16,10 @@ const NotesForm: React.FC<NotesFormProps> = ({
   handleNewNote,
 }) => {
   return (
-    <form onSubmit={handleNewNote} className="flex flex-col gap-3">
+    <form
+      onSubmit={handleNewNote}
+      className="flex flex-col justify-center gap-3"
+    >
       <label>
         <input
           type="text"
@@ -31,7 +34,7 @@ const NotesForm: React.FC<NotesFormProps> = ({
       <label>
         <textarea
           placeholder="Content"
-          className="input w-full rounded-md border-2 border-gray-300"
+          className="input h-[200px] w-full rounded-md border-2 border-gray-300 py-2"
           id="content"
           name="content"
           value={newNoteContent}
