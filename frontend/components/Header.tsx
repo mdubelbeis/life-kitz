@@ -13,6 +13,7 @@ const Header: React.FC = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('refreshToken');
     localStorage.removeItem('isAuthenticated');
+    localStorage.removeItem('zipcode');
     push('/login');
   };
 
