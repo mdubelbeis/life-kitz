@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Button from '../ui/Button';
 
 interface ExpenseFormProps {
   newExpenseTitle: string;
@@ -28,7 +29,7 @@ const ExpenseForm: React.FC<ExpenseFormProps> = ({
         <input
           type="text"
           placeholder="Title"
-          className="input w-full rounded-md border-2 border-gray-300"
+          className="input w-full rounded-md border-[1px] border-slate-100 shadow-lg"
           id="title"
           name="title"
           value={newExpenseTitle}
@@ -38,7 +39,7 @@ const ExpenseForm: React.FC<ExpenseFormProps> = ({
       <label>
         <input
           placeholder="Description"
-          className="input w-full rounded-md border-2 border-gray-300 py-2"
+          className="input w-full rounded-md border-[1px] border-slate-100 py-2 shadow-lg"
           id="Description"
           name="Description"
           value={newExpenseDescription}
@@ -51,20 +52,20 @@ const ExpenseForm: React.FC<ExpenseFormProps> = ({
           min="1"
           step="any"
           placeholder="Amount"
-          className="input w-full rounded-md border-2 border-gray-300 py-2"
+          className="input w-full rounded-md border-[1px] border-slate-100 py-2 shadow-lg"
           id="amount"
           name="amount"
           value={newExpenseAmount}
           onChange={(e) => setNewExpenseAmount(Number(e.target.value))}
         />
       </label>
-      <div className="flex items-center justify-center gap-3">
-        <button type="submit" className="btn-primary btn">
+      <div className="mt-3 flex items-center justify-center gap-3">
+        <Button type="button" id="tertiary">
+          <Link href="/">Cancel</Link>
+        </Button>
+        <Button type="submit" id="primary">
           Add Note
-        </button>
-        <button className="btn-secondary btn">
-          <Link href="/notes">Cancel</Link>
-        </button>
+        </Button>
       </div>
     </form>
   );

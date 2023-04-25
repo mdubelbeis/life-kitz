@@ -103,9 +103,13 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
       </label>
       <div className="mt-3 flex items-center justify-center gap-3">
         <Link href="/">
-          <Button type="button">Cancel</Button>
+          <Button id="tertiary" type="button">
+            Cancel
+          </Button>
         </Link>
-        <Button type="submit">Sign Up</Button>
+        <Button id="primary" type="submit">
+          Sign Up
+        </Button>
       </div>
     </form>
   );

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Button from '../ui/Button';
 
 interface NotesFormProps {
   newNoteTitle: string;
@@ -24,7 +25,7 @@ const NotesForm: React.FC<NotesFormProps> = ({
         <input
           type="text"
           placeholder="Title"
-          className="input w-full rounded-md border-2 border-gray-300"
+          className="input w-full rounded-md border-[1px] border-slate-100 shadow-lg"
           id="title"
           name="title"
           value={newNoteTitle}
@@ -34,20 +35,20 @@ const NotesForm: React.FC<NotesFormProps> = ({
       <label>
         <textarea
           placeholder="Content"
-          className="input h-[200px] w-full rounded-md border-2 border-gray-300 py-2"
+          className="input h-[200px] w-full rounded-md border-[1px] border-slate-100 py-2 shadow-lg"
           id="content"
           name="content"
           value={newNoteContent}
           onChange={(e) => setNewNoteContent(e.target.value)}
         />
       </label>
-      <div className="flex items-center justify-center gap-3">
-        <button type="submit" className="btn-primary btn">
-          Add Note
-        </button>
-        <button className="btn-secondary btn">
+      <div className="mt-3 flex items-center justify-center gap-3">
+        <Button type="button" id="tertiary">
           <Link href="/notes">Cancel</Link>
-        </button>
+        </Button>
+        <Button type="submit" id="primary">
+          Add Note
+        </Button>
       </div>
     </form>
   );

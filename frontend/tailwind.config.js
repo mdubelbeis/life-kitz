@@ -13,6 +13,10 @@ module.exports = {
         quaternary: '#66FCF2',
         quinary: '#45A29F',
       },
+      fontFamily: {
+        cedarville: ['Cedarville Cursive', 'cursive'],
+        raleway: ['Raleway Dots', 'cursive'],
+      },
     },
   },
   plugins: [require('daisyui')],

@@ -34,11 +34,9 @@ const Header: React.FC = () => {
   }, [router]);
 
   return (
-    <header className="flex w-full flex-col items-center justify-center gap-3 bg-primary px-3 py-10 text-white">
+    <header className="flex w-full flex-col items-center justify-center gap-3 bg-primary px-3 py-10 font-thin text-white lg:flex-row lg:justify-between lg:font-light">
       <h1 className="text-6xl font-bold tracking-wide text-quaternary">
-        <Link href="/">
-          LifeKitz
-        </Link>
+        <Link href="/">LifeKitz</Link>
       </h1>
       {!isAuthenticated ? (
         <nav>
@@ -72,7 +70,7 @@ const Header: React.FC = () => {
           >
             Notes
           </Link>
-          <span onClick={handleLogout} className="text-quinary">
+          <span className="text-white" onClick={handleLogout}>
             Logout
           </span>
         </nav>

@@ -13,7 +13,7 @@ const TodosDisplay: React.FC<TodosDisplayProps> = ({ todos }) => {
   return (
     <>
       {todos ? (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto shadow-lg">
           <table className="table-zebra table w-full text-center">
             {/* head */}
             <thead>

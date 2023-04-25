@@ -8,7 +8,7 @@ const ExpensesDisplay: React.FC<ExpensesDisplayProps> = ({ expenses }) => {
   return (
     <>
       {expenses ? (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto shadow-lg">
           <table className="table-zebra table w-full text-center">
             {/* head */}
             <thead>
