@@ -7,7 +7,7 @@ export interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="flex w-screen flex-col gap-10">
+    <div className="flex h-screen w-screen flex-col justify-between gap-10">
       <Header />
       <main className="mx-auto w-11/12 max-w-7xl">{children}</main>
       <Footer />

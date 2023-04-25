@@ -6,7 +6,7 @@ interface JokeWrapperProps {
 
 const JokeWrapper: React.FC<JokeWrapperProps> = ({ children }) => {
   return (
-    <div className="w-full rounded-xl bg-slate-800 text-slate-300 p-10 text-center">
+    <div className="w-full rounded-xl bg-slate-800 p-10 text-center text-slate-300">
       {children}
     </div>
   );

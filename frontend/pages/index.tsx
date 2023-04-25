@@ -55,12 +55,12 @@ export interface QuoteData {
 }
 
 const HomePage: React.FC = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(null);
 
   const router = useRouter();
 
   useEffect(() => {
-    if (localStorage.getItem('token')) {
+    if (localStorage.getItem('isAuthenticated')) {
       setIsAuthenticated(true);
     } else {
       router.push('/login');

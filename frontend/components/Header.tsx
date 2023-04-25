@@ -8,7 +8,7 @@ const Header: React.FC = () => {
   const router = useRouter();
   const { push, pathname } = useRouter();
   const [pathStyle, setPathStyle] = useState<string>(
-    'border-b-[1px] border-b-secondary text-secondary hover:border-b-quinary hover:text-quinary'
+    'border-b-[1px] border-b-quaternary text-quaternary hover:border-b-quinary hover:text-quinary'
   );
   const [notPathStyle, setNotPathStyle] = useState<string>(
     'hover:text-quinary text-tertiary'
@@ -31,29 +31,29 @@ const Header: React.FC = () => {
     } else {
       router.push('/login');
     }
-  }, [isAuthenticated]);
+  });
 
   return (
-    <header className="flex w-full flex-col items-center justify-center gap-3 bg-primary px-3 py-10 text-tertiary">
+    <header className="flex w-full flex-col items-center justify-center gap-3 bg-primary px-3 py-10 text-white">
       <Link href="/">
-        <h1 className="text-6xl font-bold tracking-wide text-secondary">
+        <h1 className="text-6xl font-bold tracking-wide text-quaternary">
           LifeKitz
         </h1>
       </Link>
       {!isAuthenticated ? (
         <nav>
           {pathname === '/login' ? (
-            <Link href="/signup" className="text-blue-700 underline">
+            <Link href="/signup" className="text-quinary underline">
               Sign up
             </Link>
           ) : (
-            <Link href="/login" className="text-blue-700 underline">
+            <Link href="/login" className="text-quinary underline">
               Log in
             </Link>
           )}
         </nav>
       ) : (
-        <nav className="flex gap-3 tracking-wide text-tertiary">
+        <nav className="flex gap-5 tracking-wide text-tertiary">
           {/* <Link
             href="/todos"
             className={`${

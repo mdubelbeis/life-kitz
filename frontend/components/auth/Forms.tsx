@@ -42,16 +42,14 @@ const Forms: React.FC<FormsProps> = ({ setToken }) => {
       )}
 
       {router.pathname === '/login' ? (
-        <p className="flex justify-center gap-1">
+        <Link href="/signup" className="flex justify-center gap-3 text-white">
           <span>Want an account?</span>
-          <Link href="/signup" className="text-blue-700 underline">
-            Sign up
-          </Link>
-        </p>
+          <span className="text-quinary border-b">Sign-up</span>
+        </Link>
       ) : (
         <p className="flex justify-center gap-1">
           <span>Already have an account?</span>
-          <Link href="/login" className="text-blue-700 underline">
+          <Link href="/login" className="text-quinary underline">
             Log in
           </Link>
         </p>

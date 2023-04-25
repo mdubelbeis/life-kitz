@@ -1,6 +1,6 @@
 const Footer: React.FC = () => {
   return (
-    <footer className=" w-full bottom-0 left-0 flex flex-col items-center justify-center gap-3 bg-primary py-8 text-center text-lg text-white lg:flex-row z-40">
+    <footer className=" bottom-0 left-0 z-40 flex w-full flex-col items-center justify-center gap-3 bg-primary py-8 text-center text-lg text-white lg:flex-row">
       <small>
         Designed and developed by{' '}
         <a href="https://masondubelbeis.com">

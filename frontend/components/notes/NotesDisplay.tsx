@@ -9,7 +9,7 @@ const NotesDisplay: React.FC<NotesDisplayProps> = ({ notes }) => {
     <>
       {notes ? (
         <div className="overflow-x-auto">
-          <table className="table-zebra table w-full">
+          <table className="table-zebra table w-full text-center">
             {/* head */}
             <thead>
               <tr>
