@@ -4,29 +4,28 @@ import { TiWeatherNight, TiWeatherSunny } from 'react-icons/ti';
 import { WeatherData } from '@/pages/index';
 import WeatherWrapper from './WeatherWrapper';
 
-const defaultWeather = {
-  wind_speed: 0,
-  wind_degrees: 0,
-  temp: 0,
-  humidity: 0,
-  sunset: 0,
-  min_temp: 0,
-  cloud_pct: 0,
-  feels_like: 0,
-  sunrise: 0,
-  max_temp: 0,
-};
+interface defaultWeather {
+  wind_speed: number;
+  wind_degrees: number;
+  temp: number;
+  humidity: number;
+  sunset: number;
+  min_temp: number;
+  cloud_pct: number;
+  feels_like: number;
+  sunrise: number;
+  max_temp: number;
+}
 
 const WeatherWidget: React.FC = () => {
-  const [weather, setWeather] = useState<WeatherData>(defaultWeather);
+  const [weather, setWeather] = useState<WeatherData>({} as WeatherData);
   const [mountTime, setMountTime] = useState(new Date().getHours()); // 24 hour clock time only hours
   const [tempTextColor, setTempTextColor] = useState('');
-  const [feelsLikeFahrenheit, setFeelsLikesFahrenheit] = useState(
-    Number(weather.feels_like * 1.8 + 32).toFixed(0)
-  );
   const [weatherCardBgColor, setWeatherCardBgColor] = useState('');
   const [weatherDataTextColor, setWeatherDataTextColor] = useState('');
-  const [zipCode, setZipCode] = useState('');
+  const [zipCode, setZipCode] = useState<string | null>(
+    JSON.parse(localStorage.getItem('zipcode')) || null
+  );
   let {
     wind_speed,
     wind_degrees,
@@ -39,14 +38,9 @@ const WeatherWidget: React.FC = () => {
     sunrise,
     max_temp,
   } = weather;
-  const [userLocation, setUserLocation] = useState('');
-
-  // Updated weather text color based on textColor
-
-  // NEED UPDATE WEATHER FUNCTION TO UPDATE EVERY 30 MINUTES
-  // const updateWeather = () => {};
-
-  // console.log(Object.keys(data).length); // length of keys on data .... why?
+  const [userLocation, setUserLocation] = useState(
+    localStorage.getItem('zipcode')
+  );
 
   const getWeatherIcon = () => {
     if (mountTime > 18) {
@@ -64,7 +58,56 @@ const WeatherWidget: React.FC = () => {
     }
   };
 
+  const updateWeatherData = async (zip?: string) => {
+    if (zip) {
+      try {
+        const weather_widget_res = await fetch(
+          // TODO: Write to separate file or hook
+          `https://api.api-ninjas.com/v1/weather?zip=${zipCode}`,
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-Api-Key': process.env.NEXT_PUBLIC_API_NINJA_KEY,
+            },
+          }
+        );
+        const updatedWeather = await weather_widget_res.json();
+
+        setWeather(updatedWeather);
+        setUserLocation(zipCode);
+      } catch (error) {
+        console.log(`${error} - Weather Widget Data Fetch Failed`);
+      }
+    } else {
+      try {
+        const weather_widget_res = await fetch(
+          // TODO: Write to separate file or hook
+          `https://api.api-ninjas.com/v1/weather?zip=${zipCode}`,
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-Api-Key': process.env.NEXT_PUBLIC_API_NINJA_KEY,
+            },
+          }
+        );
+        const updatedWeather = await weather_widget_res.json();
+
+        setWeather(updatedWeather);
+        setUserLocation(zipCode);
+        localStorage.setItem('zipcode', JSON.stringify(zipCode));
+      } catch (error) {
+        console.log(`${error} - Weather Widget Data Fetch Failed`);
+      }
+    }
+  };
+
   useEffect(() => {
+    if (userLocation) {
+      updateWeatherData(zipCode);
+    }
+
     if (mountTime > 18) {
       setWeatherCardBgColor('bg-slate-800');
       setWeatherDataTextColor('text-slate-300');
@@ -73,31 +116,6 @@ const WeatherWidget: React.FC = () => {
       setWeatherDataTextColor('text-white');
     }
   }, [mountTime]);
-
-  const updateWeatherData = async () => {
-    try {
-      const weather_widget_res = await fetch(
-        // TODO: Write to separate file or hook
-        `https://api.api-ninjas.com/v1/weather?zip=${zipCode}`,
-        {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-Api-Key': process.env.NEXT_PUBLIC_API_NINJA_KEY,
-          },
-        }
-      );
-      const updatedWeather = await weather_widget_res.json();
-      // console.log(updatedWeather);
-      setWeather(updatedWeather);
-      setUserLocation(zipCode);
-      setFeelsLikesFahrenheit(
-        Number(updatedWeather.feels_like * 1.8 + 32).toFixed(0)
-      );
-    } catch (error) {
-      console.log(`${error} - Weather Widget Data Fetch Failed`);
-    }
-  };
 
   const handleZipCode = (e: SyntheticEvent) => {
     e.preventDefault();
@@ -137,7 +155,9 @@ const WeatherWidget: React.FC = () => {
               <div className="stat-desc">{getWeatherIcon()}</div>
               <div className="stat-value">
                 <span className={`${tempTextColor}`}>
-                  {feelsLikeFahrenheit}°F
+                  {temp
+                    ? `${((temp * 9) / 5 + 32).toFixed(0)} °F`
+                    : 'Fetching...'}
                 </span>
               </div>
             </div>
