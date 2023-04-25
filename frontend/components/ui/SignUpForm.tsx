@@ -31,7 +31,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
   }>();
 
   const { push } = useRouter();
-  const { reload } = useRouter();
 
   const handleSignUp = async (e: SyntheticEvent) => {
     e.preventDefault();

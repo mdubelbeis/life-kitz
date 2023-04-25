@@ -7,21 +7,15 @@ import Button from './Button';
 interface LoginFormProps {
   email: string;
   password: string;
-  setRefresh: (token: string) => void;
-  setAccess: (token: string) => void;
   setEmail: (email: string) => void;
   setPassword: (password: string) => void;
-  setToken?: (token: { access: string; refresh: string }) => void;
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({
   email,
   password,
-  setAccess,
-  setRefresh,
   setEmail,
   setPassword,
-  setToken,
 }) => {
   const router = useRouter();
 

@@ -29,17 +29,17 @@ const Header: React.FC = () => {
     if (token) {
       setIsAuthenticated(true);
     } else {
-      router.push('/login');
+      setIsAuthenticated(false);
     }
-  });
+  }, [router]);
 
   return (
     <header className="flex w-full flex-col items-center justify-center gap-3 bg-primary px-3 py-10 text-white">
-      <Link href="/">
-        <h1 className="text-6xl font-bold tracking-wide text-quaternary">
+      <h1 className="text-6xl font-bold tracking-wide text-quaternary">
+        <Link href="/">
           LifeKitz
-        </h1>
-      </Link>
+        </Link>
+      </h1>
       {!isAuthenticated ? (
         <nav>
           {pathname === '/login' ? (
@@ -54,16 +54,6 @@ const Header: React.FC = () => {
         </nav>
       ) : (
         <nav className="flex gap-5 tracking-wide text-tertiary">
-          {/* <Link
-            href="/todos"
-            className={`${
-              pathname === '/todos'
-                ? 'border-b-[1px] border-b-secondary text-secondary hover:border-b-quinary hover:text-quinary'
-                : 'hover:text-quinary'
-            }`}
-          >
-            Todos
-          </Link> */}
           <Link
             href="/todos"
             className={pathname === '/todos' ? pathStyle : notPathStyle}
