@@ -36,7 +36,7 @@ const Forms: React.FC<FormsProps> = ({ setToken }) => {
         />
       )}
 
-      <p className="flex justify-center gap-1">
+      <p className="flex justify-center gap-1 text-tertiary">
         {router.pathname === '/login' ? (
           <>
             <span>Don&apos;t have an account?</span>

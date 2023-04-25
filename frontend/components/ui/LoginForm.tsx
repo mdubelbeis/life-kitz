@@ -77,7 +77,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
         <MdPassword className="absolute right-2 top-1/2 -translate-y-1/2 transform text-gray-400" />
       </label>
 
-      <div className="flex items-center justify-center gap-3">
+      <div className="mt-3 flex items-center justify-center gap-3">
         <Link href="/">
           <Button type="button">Cancel</Button>
         </Link>

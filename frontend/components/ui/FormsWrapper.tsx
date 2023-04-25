@@ -3,13 +3,10 @@ interface FormsWrapperProps {
 }
 
 const FormsWrapper: React.FC<FormsWrapperProps> = ({ children }) => {
-
   return (
-    <section className="mx-auto flex h-full w-full max-w-2xl items-center justify-center text-center">
+    <section className="mx-auto h-full w-full max-w-2xl">
       {/* THIS DIV IS THE FORM WRAPPER FOR LOGIN AND SIGNUP */}
-      <div className="flex w-full flex-col justify-center rounded bg-secondary p-2">
-        {children}
-      </div>
+      <div className="rounded bg-secondary px-4 py-20">{children}</div>
     </section>
   );
 };
