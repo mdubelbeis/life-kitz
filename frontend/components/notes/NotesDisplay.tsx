@@ -26,7 +26,7 @@ const NotesDisplay: React.FC<NotesDisplayProps> = ({ notes }) => {
 
     setTimeout(() => {
       window.location.reload();
-    }, 500);
+    }, 200);
   };
 
   const handleDeleteNote = async (id: number) => {
@@ -45,11 +45,11 @@ const NotesDisplay: React.FC<NotesDisplayProps> = ({ notes }) => {
 
     setTimeout(() => {
       window.location.reload();
-    }, 500);
+    }, 200);
   };
   return (
     <>
-      {notes ? (
+      {notes?.length > 0 ? (
         <div className="overflow-x-auto shadow-lg">
           <table className="table-zebra table w-full text-center">
             {/* head */}
@@ -57,7 +57,7 @@ const NotesDisplay: React.FC<NotesDisplayProps> = ({ notes }) => {
               <tr>
                 <th>Name</th>
                 <th>Content</th>
-                <th>Quick Action</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -92,7 +92,22 @@ const NotesDisplay: React.FC<NotesDisplayProps> = ({ notes }) => {
           </table>
         </div>
       ) : (
-        <p>No notes</p>
+        <div className="overflow-x-auto shadow-lg">
+          <table className="table-zebra table w-full text-center">
+            {/* head */}
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Content</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colSpan={4}>No notes found</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       )}
     </>
   );

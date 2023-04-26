@@ -50,7 +50,7 @@ const TodosDisplay: React.FC<TodosDisplayProps> = ({ todos }) => {
 
   return (
     <>
-      {todos ? (
+      {todos?.length > 0 ? (
         <div className="overflow-x-auto shadow-lg">
           <table className="table-zebra table w-full text-center">
             {/* head */}
@@ -93,7 +93,23 @@ const TodosDisplay: React.FC<TodosDisplayProps> = ({ todos }) => {
           </table>
         </div>
       ) : (
-        <p>No todos</p>
+        <div className="overflow-x-auto shadow-lg">
+          <table className="table-zebra table w-full text-center">
+            {/* head */}
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colSpan={4}>No todos found</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       )}
     </>
   );
