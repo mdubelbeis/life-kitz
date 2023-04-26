@@ -1,6 +1,7 @@
 import { Note } from '@/pages';
 import { useState } from 'react';
 import Button from '../ui/Button';
+import {RiDeleteBinLine, RiCheckLine} from "react-icons/ri"
 
 interface NotesDisplayProps {
   notes: Note[];
@@ -71,19 +72,21 @@ const NotesDisplay: React.FC<NotesDisplayProps> = ({ notes }) => {
                   <td>{note.title}</td>
                   <td>{note.content}</td>
                   <td className="space-x-3">
-                    <Button
+                  <Button
                       id="primary"
                       type="button"
-                      onClick={() => handleCompleteNote(note.id)}
+                      isIcon={true}
+                      onClick={() => handleCompleteNote(note)}
                     >
-                      Completed
+                      <RiCheckLine />
                     </Button>
                     <Button
                       id="tertiary"
                       type="button"
-                      onClick={() => handleDeleteNote(note.id)}
+                      isIcon={true}
+                      onClick={() => handleDeleteNote(note)}
                     >
-                      Delete
+                      <RiDeleteBinLine />
                     </Button>
                   </td>
                 </tr>

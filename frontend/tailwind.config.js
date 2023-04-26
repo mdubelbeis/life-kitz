@@ -7,18 +7,21 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#0B0D10',
+        primary: '#1d3557',
         secondary: '#212934',
-        tertiary: '#C4C7C7',
-        quaternary: '#66FCF2',
-        quinary: '#45A29F',
+        tertiary: '#f1faee',
+        quaternary: '#457b9d',
+        quinary: '#000',
+        logo: '#edf6f9',
       },
       fontFamily: {
         cedarville: ['Cedarville Cursive', 'cursive'],
         raleway: ['Raleway Dots', 'cursive'],
+        digital: ['digital', 'sans-serif'],
       },
     },
   },
+
   plugins: [require('daisyui')],
   daisyui: {
     styled: true,

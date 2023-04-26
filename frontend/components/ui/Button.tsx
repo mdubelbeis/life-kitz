@@ -4,10 +4,11 @@ interface ButtonProps {
   children: React.ReactNode;
   id: 'primary' | 'tertiary' | 'default';
   type: 'button' | 'submit' | 'reset';
+  isIcon?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, type, id, onClick }) => {
+const Button: React.FC<ButtonProps> = ({ children, type, id, isIcon, onClick }) => {
   const [buttonStyles, setButtonStyles] = useState<string>('');
 
   const buttonText = {
@@ -28,6 +29,7 @@ const Button: React.FC<ButtonProps> = ({ children, type, id, onClick }) => {
     default: 'hover:bg-slate-100 hover:text-primary-dark',
   };
 
+
   useEffect(() => {
     if (id === 'primary') {
       setButtonStyles(
@@ -40,7 +42,7 @@ const Button: React.FC<ButtonProps> = ({ children, type, id, onClick }) => {
     } else {
       setButtonStyles(
         `${buttonText.default} ${buttonColor.default} ${buttonBgColor.default}`
-      );
+        );
     }
   }, [id]);
 
@@ -48,7 +50,7 @@ const Button: React.FC<ButtonProps> = ({ children, type, id, onClick }) => {
     <button
       onClick={onClick}
       type={type}
-      className={`btn shadow-lg ${buttonStyles}`}
+      className={`btn shadow-lg ${buttonStyles} ${isIcon ? 'text-xl' : ''}`}
     >
       {children}
     </button>

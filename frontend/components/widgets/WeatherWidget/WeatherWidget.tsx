@@ -147,18 +147,18 @@ const WeatherWidget: React.FC = () => {
     <>
       {userLocation ? (
         <div
-          className={`stats mx-auto flex w-6/12 flex-col ${weatherCardBgColor} ${weatherDataTextColor} rounded-none rounded-l-lg shadow-lg`}
+          className={`stats mx-auto flex w-full md:w-full lg:flex-col p-6 md:p-10 lg:w-6/12 lg:px-0 ${weatherCardBgColor} ${weatherDataTextColor} rounded-lg shadow-lg lg:rounded-none lg:rounded-l-lg`}
         >
           <div className="stat flex flex-col place-items-center items-center justify-center gap-3">
             <div className="stat-desc">{getWeatherIcon()}</div>
-            <div className="text:xl stat-value lg:text-6xl">
+            <div className="text:lg stat-value lg:text-6xl">
               <span className={`${tempTextColor} `}>
                 {temp ? `${((temp * 9) / 5 + 32).toFixed(0)} °F` : 'Fetching'}
               </span>
             </div>
           </div>
 
-          <div className="hidden lg:stat lg:block lg:place-items-center">
+          <div className="hidden md:stat md:block md:place-items-center">
             <ul className="items flex w-full flex-col items-center justify-center gap-3 font-thin tracking-wider lg:text-2xl">
               {wind_speed ? (
                 <li>
@@ -180,7 +180,7 @@ const WeatherWidget: React.FC = () => {
                 <li>Temp: ... Fetching</li>
               )}
               {humidity ? (
-                <li>Humidity: ... {humidity}</li>
+                <li>Humidity: ... {humidity}%</li>
               ) : (
                 <li>Humidity: ... Fetching</li>
               )}
@@ -188,13 +188,13 @@ const WeatherWidget: React.FC = () => {
           </div>
         </div>
       ) : (
-        <div className="stats mx-auto flex w-full bg-inherit">
-          <div className="stat flex w-full flex-col place-items-center items-center justify-center gap-3">
+        <div className=" mx-auto flex w-full bg-inherit">
+          <div className=" flex w-full flex-col place-items-center items-center justify-center p-0">
             <form
               className="form-control flex w-full flex-col items-center justify-center gap-3 lg:w-10/12"
               onSubmit={handleZipCode}
             >
-              <div className="w-full lg:w-10/12">
+              <div className="w-full lg:w-11/12">
                 <label className="input-group w-full">
                   <span>ZIP</span>
                   <input

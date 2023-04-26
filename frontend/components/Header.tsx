@@ -35,7 +35,7 @@ const Header: React.FC = () => {
 
   return (
     <header className="flex w-full flex-col items-center justify-center gap-3 bg-primary px-3 py-10 font-thin text-white lg:flex-row lg:justify-between lg:font-light">
-      <h1 className="text-6xl font-bold tracking-wide text-quaternary">
+      <h1 className="text-6xl font-bold tracking-wide text-logo">
         <Link href="/">LifeKitz</Link>
       </h1>
       {!isAuthenticated ? (

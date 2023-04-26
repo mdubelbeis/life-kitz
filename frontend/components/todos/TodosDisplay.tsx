@@ -1,6 +1,7 @@
 import { Todo } from '@/pages';
 import React from 'react';
 import Button from '../ui/Button';
+import {RiDeleteBinLine, RiCheckLine} from "react-icons/ri"
 
 interface TodosDisplayProps {
   todos: Todo[];
@@ -75,16 +76,18 @@ const TodosDisplay: React.FC<TodosDisplayProps> = ({ todos }) => {
                     <Button
                       id="primary"
                       type="button"
+                      isIcon={true}
                       onClick={() => handleCompleteTodo(todo)}
                     >
-                      Completed
+                      <RiCheckLine />
                     </Button>
                     <Button
                       id="tertiary"
                       type="button"
+                      isIcon={true}
                       onClick={() => handleDeleteTodo(todo)}
                     >
-                      Delete
+                      <RiDeleteBinLine />
                     </Button>
                   </td>
                 </tr>
