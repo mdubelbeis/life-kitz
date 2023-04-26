@@ -64,7 +64,7 @@ const QuotesWidget: React.FC = () => {
           <Image
             src="/quotation.png"
             alt="quotation marks"
-            className="absolute mx-auto bottom-0 -right-3 rotate-180 opacity-10 lg:-right-10"
+            className="absolute -right-3 bottom-0 mx-auto rotate-180 opacity-10 lg:-right-10"
             width={200}
             height={200}
           />

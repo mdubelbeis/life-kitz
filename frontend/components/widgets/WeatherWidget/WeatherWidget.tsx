@@ -147,11 +147,11 @@ const WeatherWidget: React.FC = () => {
     <>
       {userLocation ? (
         <div
-          className={`stats mx-auto flex w-6/12 flex-col ${weatherCardBgColor} ${weatherDataTextColor} rounded-xl shadow`}
+          className={`stats mx-auto flex w-6/12 flex-col ${weatherCardBgColor} ${weatherDataTextColor} rounded-xl p-5 shadow-lg`}
         >
           <div className="stat flex flex-col place-items-center items-center justify-center gap-3">
             <div className="stat-desc">{getWeatherIcon()}</div>
-            <div className="stat-value">
+            <div className="text:xl stat-value lg:text-6xl">
               <span className={`${tempTextColor}`}>
                 {temp
                   ? `${((temp * 9) / 5 + 32).toFixed(0)} °F`
@@ -162,12 +162,30 @@ const WeatherWidget: React.FC = () => {
 
           <div className="hidden lg:stat lg:block lg:place-items-center">
             <ul className="items flex w-full flex-col items-center justify-center gap-3 tracking-wider">
-              <li>Wind Speed: ... {(wind_speed * 1.150779).toFixed(0)} mph</li>
-              <li>
-                Wind Degrees: ... {wind_degrees} {getWindDirection()}
-              </li>
-              <li>Temp: ... {((temp * 9) / 5 + 32).toFixed(0)}°F</li>
-              <li>Humidity: ... {humidity}</li>
+              {wind_speed ? (
+                <li>
+                  Wind Speed: ... {(wind_speed * 1.150779).toFixed(0)} mph
+                </li>
+              ) : (
+                <li>Wind Speed: ... Fetching</li>
+              )}
+              {wind_degrees ? (
+                <li>
+                  Wind Degrees: ... {wind_degrees} {getWindDirection()}
+                </li>
+              ) : (
+                <li>Wind Degrees: ... Fetching</li>
+              )}
+              {temp ? (
+                <li>Temp: ... {((temp * 9) / 5 + 32).toFixed(0)}°F</li>
+              ) : (
+                <li>Temp: ... Fetching</li>
+              )}
+              {humidity ? (
+                <li>Humidity: ... {humidity}</li>
+              ) : (
+                <li>Humidity: ... Fetching</li>
+              )}
             </ul>
           </div>
         </div>
