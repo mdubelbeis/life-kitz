@@ -147,21 +147,19 @@ const WeatherWidget: React.FC = () => {
     <>
       {userLocation ? (
         <div
-          className={`stats mx-auto flex w-6/12 flex-col ${weatherCardBgColor} ${weatherDataTextColor} rounded-xl p-5 shadow-lg`}
+          className={`stats mx-auto flex w-6/12 flex-col ${weatherCardBgColor} ${weatherDataTextColor} rounded-none rounded-l-lg shadow-lg`}
         >
           <div className="stat flex flex-col place-items-center items-center justify-center gap-3">
             <div className="stat-desc">{getWeatherIcon()}</div>
             <div className="text:xl stat-value lg:text-6xl">
-              <span className={`${tempTextColor}`}>
-                {temp
-                  ? `${((temp * 9) / 5 + 32).toFixed(0)} °F`
-                  : 'Fetching...'}
+              <span className={`${tempTextColor} `}>
+                {temp ? `${((temp * 9) / 5 + 32).toFixed(0)} °F` : 'Fetching'}
               </span>
             </div>
           </div>
 
           <div className="hidden lg:stat lg:block lg:place-items-center">
-            <ul className="items flex w-full flex-col items-center justify-center gap-3 tracking-wider">
+            <ul className="items flex w-full flex-col items-center justify-center gap-3 font-thin tracking-wider lg:text-2xl">
               {wind_speed ? (
                 <li>
                   Wind Speed: ... {(wind_speed * 1.150779).toFixed(0)} mph
