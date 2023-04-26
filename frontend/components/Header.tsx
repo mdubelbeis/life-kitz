@@ -7,6 +7,12 @@ const Header: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const router = useRouter();
   const { push, pathname } = useRouter();
+  const [pathStyle, setPathStyle] = useState<string>(
+    'border-b-[1px] border-b-quaternary text-quaternary hover:border-b-quinary hover:text-quinary'
+  );
+  const [notPathStyle, setNotPathStyle] = useState<string>(
+    'hover:text-quinary text-tertiary'
+  );
 
   const handleLogout = () => {
     setIsAuthenticated(false);
@@ -23,35 +29,50 @@ const Header: React.FC = () => {
     if (token) {
       setIsAuthenticated(true);
     } else {
-      router.push('/login');
+      setIsAuthenticated(false);
     }
-  });
+  }, [router]);
 
   return (
-    <header>
-      <Link href="/">
-        <h1 className="w-6/12">Life-Kitz</h1>
-      </Link>
+    <header className="flex w-full flex-col items-center justify-center gap-3 bg-primary px-3 py-10 font-thin text-white lg:flex-row lg:justify-between lg:font-light">
+      <h1 className="text-6xl font-bold tracking-wide text-quaternary">
+        <Link href="/">LifeKitz</Link>
+      </h1>
       {!isAuthenticated ? (
         <nav>
           {pathname === '/login' ? (
-            <Link href="/signup" className="text-blue-700 underline">
+            <Link href="/signup" className="text-quinary underline">
               Sign up
             </Link>
           ) : (
-            <Link href="/login" className="text-blue-700 underline">
+            <Link href="/login" className="text-quinary underline">
               Log in
             </Link>
           )}
         </nav>
       ) : (
-        <nav className="flex w-full justify-between">
-          <div>
-            <Link href="/todos">Todos</Link>
-            <Link href="/expenses">Expenses</Link>
-            <Link href="/notes">Notes</Link>
-          </div>
-          <span onClick={handleLogout}>Logout</span>
+        <nav className="flex gap-5 tracking-wide text-tertiary">
+          <Link
+            href="/todos"
+            className={pathname === '/todos' ? pathStyle : notPathStyle}
+          >
+            Todos
+          </Link>
+          <Link
+            href="/expenses"
+            className={pathname === '/expenses' ? pathStyle : notPathStyle}
+          >
+            Expenses
+          </Link>
+          <Link
+            href="/notes"
+            className={pathname === '/notes' ? pathStyle : notPathStyle}
+          >
+            Notes
+          </Link>
+          <span className="text-white" onClick={handleLogout}>
+            Logout
+          </span>
         </nav>
       )}
     </header>

@@ -31,7 +31,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
   }>();
 
   const { push } = useRouter();
-  const { reload } = useRouter();
 
   const handleSignUp = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -102,11 +101,15 @@ const SignUpForm: React.FC<SignUpFormProps> = ({
         />
         <MdPassword className="absolute right-2 top-1/2 -translate-y-1/2 transform text-gray-400" />
       </label>
-      <div className="flex items-center justify-center gap-3">
+      <div className="mt-3 flex items-center justify-center gap-3">
         <Link href="/">
-          <Button type="button">Cancel</Button>
+          <Button id="tertiary" type="button">
+            Cancel
+          </Button>
         </Link>
-        <Button type="submit">Sign Up</Button>
+        <Button id="primary" type="submit">
+          Sign Up
+        </Button>
       </div>
     </form>
   );

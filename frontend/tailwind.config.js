@@ -5,7 +5,19 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#0B0D10',
+        secondary: '#212934',
+        tertiary: '#C4C7C7',
+        quaternary: '#66FCF2',
+        quinary: '#45A29F',
+      },
+      fontFamily: {
+        cedarville: ['Cedarville Cursive', 'cursive'],
+        raleway: ['Raleway Dots', 'cursive'],
+      },
+    },
   },
   plugins: [require('daisyui')],
   daisyui: {

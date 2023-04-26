@@ -82,7 +82,10 @@ const NotesPage: React.FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {isAuthenticated ? (
-        <section className="mx-auto flex w-11/12 max-w-6xl flex-col gap-10">
+        <section className="mx-auto flex flex-col gap-20">
+          <h1 className="mt-10 text-center font-cedarville text-7xl text-quinary lg:text-left">
+            NOTES
+          </h1>
           <NotesForm
             newNoteTitle={newNoteTitle}
             newNoteContent={newNoteContent}

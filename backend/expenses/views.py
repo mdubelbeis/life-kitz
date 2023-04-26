@@ -8,4 +8,4 @@ from .permissions import ReadOnly, AuthorOrReadOnly
 class ExpenseViewSet(viewsets.ModelViewSet):
     queryset = Expense.objects.all()
     serializer_class = ExpenseSerializer
-    permission_classes = [AuthorOrReadOnly]
+    permission_classes = [IsAuthenticated]

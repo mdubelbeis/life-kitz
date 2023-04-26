@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Button from '../ui/Button';
 
 interface TodoFormProps {
   newTodoTitle: string;
@@ -23,8 +24,8 @@ const TodoForm: React.FC<TodoFormProps> = ({
       <label>
         <input
           type="text"
-          placeholder="Todo Title..."
-          className="input w-full rounded-md border-2 border-gray-300"
+          placeholder="Todo title..."
+          className="input w-full rounded-md border-[1px] border-slate-100 shadow-lg"
           id="title"
           name="title"
           value={newTodoTitle}
@@ -34,21 +35,21 @@ const TodoForm: React.FC<TodoFormProps> = ({
       <label>
         <input
           type="text"
-          placeholder="Type here"
-          className="input w-full rounded-md border-2 border-gray-300"
+          placeholder="Todo description..."
+          className="input w-full rounded-md border-[1px] border-slate-100 shadow-lg"
           id="description"
           name="description"
           value={newTodoDescription}
           onChange={(e) => setNewTodoDescription(e.target.value)}
         />
       </label>
-      <div className="flex items-center justify-center gap-3">
-        <button type="submit" className="btn-primary btn">
-          Add Todo
-        </button>
-        <button className="btn-secondary btn">
+      <div className="mt-3 flex items-center justify-center gap-3">
+        <Button type="button" id="tertiary">
           <Link href="/todos">Cancel</Link>
-        </button>
+        </Button>
+        <Button type="submit" id="primary">
+          Add Todo
+        </Button>
       </div>
     </form>
   );

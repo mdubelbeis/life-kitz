@@ -1,34 +1,55 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface ButtonProps {
   children: React.ReactNode;
+  id: 'primary' | 'tertiary' | 'default';
   type: 'button' | 'submit' | 'reset';
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
-const Button: React.FC<ButtonProps> = ({ children, type }) => {
-  let [buttonStyling, setButtonStyling] = useState<string>(
-    'py-3 px-5 rounded-lg'
-  );
+
+const Button: React.FC<ButtonProps> = ({ children, type, id, onClick }) => {
+  const [buttonStyles, setButtonStyles] = useState<string>('');
+
+  const buttonText = {
+    primary: 'text-white',
+    tertiary: 'text-primary border-none',
+    default: 'text-primary',
+  };
+
+  const buttonBgColor = {
+    primary: 'bg-primary',
+    tertiary: 'bg-white',
+    default: 'border-0 underline bg-white shadow-none',
+  };
+
+  const buttonColor = {
+    primary: 'hover:bg-primary-dark',
+    tertiary: 'hover:bg-slate-100',
+    default: 'hover:bg-slate-100 hover:text-primary-dark',
+  };
 
   useEffect(() => {
-    if (type === 'submit') {
-      // Primary
-      setButtonStyling(
-        (buttonStyling +=
-          ' bg-slate-800 text-white hover:bg-white hover:text-slate-800')
+    if (id === 'primary') {
+      setButtonStyles(
+        `${buttonText.primary} ${buttonColor.primary} ${buttonBgColor.primary}`
+      );
+    } else if (id === 'tertiary') {
+      setButtonStyles(
+        `${buttonText.tertiary} ${buttonColor.tertiary} ${buttonBgColor.tertiary}`
+      );
+    } else {
+      setButtonStyles(
+        `${buttonText.default} ${buttonColor.default} ${buttonBgColor.default}`
       );
     }
-    if (type === 'button') {
-      // Secondary
-      setButtonStyling((buttonStyling += ' bg-slate-400 hover:bg-slate-500'));
-    }
-
-    if (type === 'reset') {
-      setButtonStyling((buttonStyling += ' bg-slate-400'));
-    }
-  }, []);
+  }, [id]);
 
   return (
-    <button type={type} className={buttonStyling}>
+    <button
+      onClick={onClick}
+      type={type}
+      className={`btn shadow-lg ${buttonStyles}`}
+    >
       {children}
     </button>
   );

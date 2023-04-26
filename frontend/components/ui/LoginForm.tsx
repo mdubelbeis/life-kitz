@@ -7,21 +7,15 @@ import Button from './Button';
 interface LoginFormProps {
   email: string;
   password: string;
-  setRefresh: (token: string) => void;
-  setAccess: (token: string) => void;
   setEmail: (email: string) => void;
   setPassword: (password: string) => void;
-  setToken?: (token: { access: string; refresh: string }) => void;
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({
   email,
   password,
-  setAccess,
-  setRefresh,
   setEmail,
   setPassword,
-  setToken,
 }) => {
   const router = useRouter();
 
@@ -56,7 +50,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
   };
 
   return (
-    <form className="flex flex-col gap-3" onSubmit={handleLogin}>
+    <form className="flex flex-col gap-3 text-tertiary" onSubmit={handleLogin}>
       <label className="relative" htmlFor="email">
         <input
           type="email"
@@ -83,11 +77,13 @@ const LoginForm: React.FC<LoginFormProps> = ({
         <MdPassword className="absolute right-2 top-1/2 -translate-y-1/2 transform text-gray-400" />
       </label>
 
-      <div className="flex items-center justify-center gap-3">
-        <Link href="/">
-          <Button type="button">Cancel</Button>
-        </Link>
-        <Button type="submit">Login</Button>
+      <div className="mt-3 flex items-center justify-center gap-3">
+        <Button id="tertiary" type="button">
+          <Link href="">Cancel</Link>
+        </Button>
+        <Button id="primary" type="submit">
+          Login
+        </Button>
       </div>
     </form>
   );

@@ -55,15 +55,12 @@ export interface QuoteData {
 }
 
 const HomePage: React.FC = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  // const [todos, setTodos] = useState<Todo[]>([]);
-  // const [notes, setNotes] = useState<Note[]>([]);
-  // const [expenses, setExpenses] = useState<Expense[]>([]);
+  const [isAuthenticated, setIsAuthenticated] = useState(null);
 
   const router = useRouter();
 
   useEffect(() => {
-    if (localStorage.getItem('token')) {
+    if (localStorage.getItem('isAuthenticated')) {
       setIsAuthenticated(true);
     } else {
       router.push('/login');
@@ -78,17 +75,16 @@ const HomePage: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {isAuthenticated && (
+      {isAuthenticated ? (
         <>
           <WidgetContainer>
             <WeatherWidget />
             <ClockWidget />
             <JokesWidget />
             <QuotesWidget />
-            {/* <NewsWidget /> */}
           </WidgetContainer>
         </>
-      )}
+      ) : null}
     </>
   );
 };
