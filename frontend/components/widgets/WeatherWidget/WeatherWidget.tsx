@@ -2,7 +2,6 @@ import { SyntheticEvent, useEffect, useState } from 'react';
 import { TiWeatherNight, TiWeatherSunny } from 'react-icons/ti';
 
 import { WeatherData } from '@/pages/index';
-import WeatherWrapper from './WeatherWrapper';
 
 interface defaultWeather {
   wind_speed: number;
@@ -147,66 +146,60 @@ const WeatherWidget: React.FC = () => {
   return (
     <>
       {userLocation ? (
-        <WeatherWrapper>
-          <div
-            className={`stats mx-auto flex w-full flex-col md:w-6/12 ${weatherCardBgColor} ${weatherDataTextColor} rounded-xl shadow`}
-          >
-            <div className="stat flex flex-col place-items-center items-center justify-center gap-3">
-              <div className="stat-desc">{getWeatherIcon()}</div>
-              <div className="stat-value">
-                <span className={`${tempTextColor}`}>
-                  {temp
-                    ? `${((temp * 9) / 5 + 32).toFixed(0)} °F`
-                    : 'Fetching...'}
-                </span>
-              </div>
+        <div
+          className={`stats mx-auto flex w-6/12 flex-col ${weatherCardBgColor} ${weatherDataTextColor} rounded-xl shadow`}
+        >
+          <div className="stat flex flex-col place-items-center items-center justify-center gap-3">
+            <div className="stat-desc">{getWeatherIcon()}</div>
+            <div className="stat-value">
+              <span className={`${tempTextColor}`}>
+                {temp
+                  ? `${((temp * 9) / 5 + 32).toFixed(0)} °F`
+                  : 'Fetching...'}
+              </span>
             </div>
+          </div>
 
-            <div className="hidden lg:stat lg:block lg:place-items-center">
-              <ul className="items flex w-full flex-col items-center justify-center gap-3 tracking-wider">
-                <li>
-                  Wind Speed: ... {(wind_speed * 1.150779).toFixed(0)} mph
-                </li>
-                <li>
-                  Wind Degrees: ... {wind_degrees} {getWindDirection()}
-                </li>
-                <li>Temp: ... {((temp * 9) / 5 + 32).toFixed(0)}°F</li>
-                <li>Humidity: ... {humidity}</li>
-              </ul>
-            </div>
+          <div className="hidden lg:stat lg:block lg:place-items-center">
+            <ul className="items flex w-full flex-col items-center justify-center gap-3 tracking-wider">
+              <li>Wind Speed: ... {(wind_speed * 1.150779).toFixed(0)} mph</li>
+              <li>
+                Wind Degrees: ... {wind_degrees} {getWindDirection()}
+              </li>
+              <li>Temp: ... {((temp * 9) / 5 + 32).toFixed(0)}°F</li>
+              <li>Humidity: ... {humidity}</li>
+            </ul>
           </div>
-        </WeatherWrapper>
+        </div>
       ) : (
-        <WeatherWrapper>
-          <div className="stats mx-auto flex w-full bg-inherit">
-            <div className="stat flex w-full flex-col place-items-center items-center justify-center gap-3">
-              <form
-                className="form-control flex w-full flex-col items-center justify-center gap-3 lg:w-10/12"
-                onSubmit={handleZipCode}
+        <div className="stats mx-auto flex w-full bg-inherit">
+          <div className="stat flex w-full flex-col place-items-center items-center justify-center gap-3">
+            <form
+              className="form-control flex w-full flex-col items-center justify-center gap-3 lg:w-10/12"
+              onSubmit={handleZipCode}
+            >
+              <div className="w-full lg:w-10/12">
+                <label className="input-group w-full">
+                  <span>ZIP</span>
+                  <input
+                    type="number"
+                    min={0o501}
+                    max={99950}
+                    placeholder="Get your local weather"
+                    className="input-bordered input w-full"
+                    onChange={(e) => setZipCode(e.target.value)}
+                  />
+                </label>
+              </div>
+              <button
+                className="btn w-10/12 bg-slate-800 text-lg lg:w-6/12 lg:text-xl"
+                type="submit"
               >
-                <div className="w-full lg:w-10/12">
-                  <label className="input-group w-full">
-                    <span>ZIP</span>
-                    <input
-                      type="number"
-                      min={0o501}
-                      max={99950}
-                      placeholder="Get your local weather"
-                      className="input-bordered input w-full"
-                      onChange={(e) => setZipCode(e.target.value)}
-                    />
-                  </label>
-                </div>
-                <button
-                  className="btn w-10/12 bg-slate-800 text-lg lg:w-6/12 lg:text-xl"
-                  type="submit"
-                >
-                  Get Weather
-                </button>
-              </form>
-            </div>
+                Get Weather
+              </button>
+            </form>
           </div>
-        </WeatherWrapper>
+        </div>
       )}
     </>
   );

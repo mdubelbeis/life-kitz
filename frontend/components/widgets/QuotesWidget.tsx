@@ -1,4 +1,5 @@
 import { QuoteData } from '@/pages';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 const QuotesWidget: React.FC = () => {
@@ -48,11 +49,26 @@ const QuotesWidget: React.FC = () => {
         </div>
       )}
       {quoteData && (
-        <>
-          <p>{quoteData.line}</p>
-          <p>{quoteData.author}</p>
-          <p>{quoteData.category}</p>
-        </>
+        <div className="relative mx-auto max-w-2xl py-20">
+          <Image
+            src="/quotation.png"
+            alt="quotation marks"
+            width={200}
+            height={200}
+            className="absolute -left-10 top-0 opacity-10 lg:-left-20"
+          />
+          <div className="flex flex-col gap-3 p-3 text-xl">
+            <p>{quoteData.line}</p>
+            <p className="font-cedarville text-2xl">{quoteData.author}</p>
+          </div>
+          <Image
+            src="/quotation.png"
+            alt="quotation marks"
+            className="absolute mx-auto bottom-0 -right-3 rotate-180 opacity-10 lg:-right-10"
+            width={200}
+            height={200}
+          />
+        </div>
       )}
     </>
   );

@@ -1,12 +1,16 @@
-interface WidgetContainerProps {
-  children: React.ReactNode;
-}
+import ClockWidget from './ClockWidget/ClockWidget';
+import QuotesWidget from './QuotesWidget';
+import WeatherWidget from './WeatherWidget/WeatherWidget';
 
-const WidgetContainer: React.FC<WidgetContainerProps> = ({ children }) => {
+const WidgetContainer: React.FC = () => {
   return (
-    <section>
-      <h2>Widgets</h2>
-      {children}
+    <section className="flex flex-col">
+      <div className="flex w-full rounded-xl border-[1px] border-primary">
+        <WeatherWidget />
+        <ClockWidget />
+      </div>
+      {/* <JokesWidget /> */}
+      <QuotesWidget />
     </section>
   );
 };

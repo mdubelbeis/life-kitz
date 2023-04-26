@@ -1,7 +1,7 @@
 const Calendar: React.FC = () => {
   return (
     <div>
-      <div className="flex gap-1 lg:hidden">
+      <div className="flex gap-1">
         <span>
           {new Date().toLocaleDateString('en-US', { weekday: 'short' })}
         </span>

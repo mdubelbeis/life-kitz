@@ -1,7 +1,3 @@
-import ClockWidget from '@/components/widgets/ClockWidget/ClockWidget';
-import JokesWidget from '@/components/widgets/JokesWidget/JokesWidget';
-import QuotesWidget from '@/components/widgets/QuotesWidget';
-import WeatherWidget from '@/components/widgets/WeatherWidget/WeatherWidget';
 import WidgetContainer from '@/components/widgets/WidgetContainer';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -75,16 +71,7 @@ const HomePage: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {isAuthenticated ? (
-        <>
-          <WidgetContainer>
-            <WeatherWidget />
-            <ClockWidget />
-            <JokesWidget />
-            <QuotesWidget />
-          </WidgetContainer>
-        </>
-      ) : null}
+      {isAuthenticated ? <WidgetContainer /> : null}
     </>
   );
 };
