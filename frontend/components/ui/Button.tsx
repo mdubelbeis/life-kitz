@@ -4,7 +4,7 @@ interface ButtonProps {
   children: React.ReactNode;
   id: 'primary' | 'tertiary' | 'default';
   type: 'button' | 'submit' | 'reset';
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const Button: React.FC<ButtonProps> = ({ children, type, id, onClick }) => {

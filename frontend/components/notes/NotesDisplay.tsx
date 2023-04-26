@@ -1,14 +1,56 @@
 import { Note } from '@/pages';
+import { useState } from 'react';
+import Button from '../ui/Button';
 
 interface NotesDisplayProps {
   notes: Note[];
 }
 
 const NotesDisplay: React.FC<NotesDisplayProps> = ({ notes }) => {
+  const [currentNote, setCurrentNote] = useState<number>();
+  const [completedStyling, setCompletedStyling] = useState<string>('');
+
+  const handleCompleteNote = async (id: number) => {
+    setCurrentNote(id);
+    const response = await fetch(
+      `http://127.0.0.1:8000/api/notes/${id.toString()}/`,
+      {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token').slice(1, -1)}`,
+        },
+      }
+    );
+
+    setCompletedStyling('text-green-500');
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
+  };
+
+  const handleDeleteNote = async (id: number) => {
+    setCurrentNote(id);
+    const response = await fetch(
+      `http://127.0.0.1:8000/api/notes/${id.toString()}/`,
+      {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token').slice(1, -1)}`,
+        },
+      }
+    );
+
+    setCompletedStyling('text-red-500');
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
+  };
   return (
     <>
       {notes ? (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto shadow-lg">
           <table className="table-zebra table w-full text-center">
             {/* head */}
             <thead>
@@ -20,13 +62,29 @@ const NotesDisplay: React.FC<NotesDisplayProps> = ({ notes }) => {
             </thead>
             <tbody>
               {notes?.map((note) => (
-                <tr key={note.id}>
+                <tr
+                  key={note.id}
+                  className={`${
+                    currentNote === note.id ? completedStyling : ''
+                  }`}
+                >
                   <td>{note.title}</td>
-                  <td className="line-clamp-1">{note.content}</td>
-                  <td>
-                    <button className="mr-2">Completed</button>
-                    <button className="mr-2">Delete</button>
-                    <button>Edit</button>
+                  <td>{note.content}</td>
+                  <td className="space-x-3">
+                    <Button
+                      id="primary"
+                      type="button"
+                      onClick={() => handleCompleteNote(note.id)}
+                    >
+                      Completed
+                    </Button>
+                    <Button
+                      id="tertiary"
+                      type="button"
+                      onClick={() => handleDeleteNote(note.id)}
+                    >
+                      Delete
+                    </Button>
                   </td>
                 </tr>
               ))}
