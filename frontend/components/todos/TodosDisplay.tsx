@@ -22,7 +22,7 @@ const TodosDisplay: React.FC<TodosDisplayProps> = ({ todos }) => {
       }
     );
 
-    setCompletedStyling('text-green-500');
+    setCompletedStyling('text-green-500 line-through');
 
     setTimeout(() => {
       window.location.reload();
@@ -41,7 +41,7 @@ const TodosDisplay: React.FC<TodosDisplayProps> = ({ todos }) => {
       }
     );
 
-    setCompletedStyling('text-red-500');
+    setCompletedStyling('text-red-500 line-through');
 
     setTimeout(() => {
       window.location.reload();

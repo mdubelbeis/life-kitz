@@ -64,7 +64,7 @@ const ExpenseForm: React.FC<ExpenseFormProps> = ({
           <Link href="/">Cancel</Link>
         </Button>
         <Button type="submit" id="primary">
-          Add Note
+          Add Expense
         </Button>
       </div>
     </form>
