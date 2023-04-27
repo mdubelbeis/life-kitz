@@ -44,15 +44,17 @@ const QuotesWidget: React.FC = () => {
   return (
     <>
       {quoteData ? (
-        <div className="relative m-4 mx-auto max-w-2xl rounded-xl p-3 py-24 shadow-lg bg-white">
+        <div className="relative m-4 mx-auto max-w-2xl rounded-xl bg-white p-3 py-24 shadow-lg lg:w-[500px]">
           <Image
             src="/quotation.png"
             alt="quotation marks"
-            width={200}
-            height={200}
-            className="absolute -left-10 top-0 opacity-10 lg:-left-20"
+            width={150}
+            height={150}
+            className="absolute -left-2 top-0 w-fit opacity-10 lg:-left-20"
+            priority
           />
-          <div className="flex flex-col gap-3 p-3 text-xl">
+          <h1 className="mb-6 text-center font-cedarville text-6xl">Wisdom</h1>
+          <div className="absolute top-[50%] flex -translate-y-[50%] flex-col gap-3 p-3 text-xl">
             <p>{quoteData.line}</p>
             <p className="mt-3 text-center font-cedarville text-2xl">
               {quoteData.author}
@@ -61,18 +63,18 @@ const QuotesWidget: React.FC = () => {
           <Image
             src="/quotation.png"
             alt="quotation marks"
-            className="absolute -right-3 bottom-0 mx-auto rotate-180 opacity-10 lg:-right-10"
-            width={200}
-            height={200}
+            className="absolute -right-2 bottom-0 mx-auto w-fit rotate-180 opacity-10 lg:-right-20"
+            width={150}
+            height={150}
           />
         </div>
       ) : (
-        <div className="relative m-4 mx-auto max-w-2xl rounded-xl p-3 py-24 shadow-lg">
+        <div className="relative m-4 mx-auto max-w-2xl rounded-xl bg-white p-3 py-24 text-center shadow-lg lg:w-[500px]">
           <Image
             src="/quotation.png"
             alt="quotation marks"
-            width={200}
-            height={200}
+            width={100}
+            height={100}
             className="absolute -left-10 top-0 opacity-10 lg:-left-20"
           />
           <p className="m-10 text-2xl">Quote Data Loading...</p>
@@ -80,8 +82,8 @@ const QuotesWidget: React.FC = () => {
             src="/quotation.png"
             alt="quotation marks"
             className="absolute -right-3 bottom-0 mx-auto rotate-180 opacity-10 lg:-right-10"
-            width={200}
-            height={200}
+            width={100}
+            height={100}
           />
         </div>
       )}

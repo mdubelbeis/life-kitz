@@ -8,10 +8,11 @@ module.exports = {
     extend: {
       colors: {
         primary: '#1d3557',
+        'primary-dark': '#1d3600',
         secondary: '#212934',
-        tertiary: '#f1faee',
+        tertiary: '#a8dadc',
         quaternary: '#457b9d',
-        quinary: '#000',
+        quinary: '#212934',
         logo: '#edf6f9',
       },
       fontFamily: {

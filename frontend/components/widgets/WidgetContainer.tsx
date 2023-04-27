@@ -1,4 +1,5 @@
 import ClockWidget from './ClockWidget/ClockWidget';
+import CurrencyConverterWidget from './CurrencyConverter/CurrencyConverter';
 import QuotesWidget from './QuotesWidget';
 import WeatherWidget from './WeatherWidget/WeatherWidget';
 
@@ -9,7 +10,10 @@ const WidgetContainer: React.FC = () => {
         <WeatherWidget />
         <ClockWidget />
       </div>
-      <QuotesWidget />
+      <div className="flex flex-wrap">
+        <QuotesWidget />
+        <CurrencyConverterWidget />
+      </div>
     </section>
   );
 };

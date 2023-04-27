@@ -86,7 +86,7 @@ const ExpensesPage: React.FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {isAuthenticated ? (
-        <section className="mx-auto flex w-full flex-col gap-20">
+        <section className="mx-auto flex w-full h-screen flex-col gap-20">
           <h1 className="mt-10 text-center font-cedarville text-6xl text-quinary lg:text-left lg:text-7xl">
             EXPENSES
           </h1>

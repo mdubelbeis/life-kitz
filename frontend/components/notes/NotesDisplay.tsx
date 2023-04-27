@@ -1,7 +1,7 @@
 import { Note } from '@/pages';
 import { useState } from 'react';
+import { RiCheckLine, RiDeleteBinLine } from 'react-icons/ri';
 import Button from '../ui/Button';
-import {RiDeleteBinLine, RiCheckLine} from "react-icons/ri"
 
 interface NotesDisplayProps {
   notes: Note[];
@@ -72,7 +72,7 @@ const NotesDisplay: React.FC<NotesDisplayProps> = ({ notes }) => {
                   <td>{note.title}</td>
                   <td>{note.content}</td>
                   <td className="space-x-3">
-                  <Button
+                    <Button
                       id="primary"
                       type="button"
                       isIcon={true}

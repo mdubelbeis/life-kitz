@@ -1,7 +1,7 @@
 const Calendar: React.FC = () => {
   return (
-    <div>
-      <div className="flex gap-3">
+    <p>
+      <span className="flex gap-3">
         <span>
           {new Date().toLocaleDateString('en-US', { weekday: 'short' })}
         </span>
@@ -12,8 +12,8 @@ const Calendar: React.FC = () => {
         <span>
           {new Date().toLocaleDateString('en-US', { day: 'numeric' })}
         </span>
-      </div>
-    </div>
+      </span>
+    </p>
   );
 };
 

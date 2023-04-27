@@ -18,7 +18,7 @@ const Forms: React.FC<FormsProps> = ({ setToken }) => {
 
   return (
     <div className="flex w-full flex-col gap-10">
-      {(router.pathname === '/login' || router.pathname === '/login/') ? (
+      {router.pathname === '/login' || router.pathname === '/login/' ? (
         <LoginForm
           email={email}
           password={password}
@@ -36,24 +36,23 @@ const Forms: React.FC<FormsProps> = ({ setToken }) => {
         />
       )}
 
-      <p className="flex justify-center gap-1 text-tertiary">
+      <p className="flex justify-center gap-1 text-logo">
         {router.pathname === '/login' ? (
           <>
             <span>Don&apos;t have an account?</span>
-            <Link href="/signup" className="text-quinary underline">
+            <Link href="/signup" className="text-tertiary underline">
               Sign-up
             </Link>
           </>
         ) : (
           <>
             <span>Already have an account?</span>
-            <Link href="/login" className="text-quinary underline">
+            <Link href="/login" className="text-tertiary underline">
               Log in
             </Link>
           </>
         )}
       </p>
-
     </div>
   );
 };

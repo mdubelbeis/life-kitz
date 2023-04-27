@@ -6,29 +6,36 @@ interface ButtonProps {
   type: 'button' | 'submit' | 'reset';
   isIcon?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  className?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, type, id, isIcon, onClick }) => {
+const Button: React.FC<ButtonProps> = ({
+  children,
+  type,
+  id,
+  isIcon,
+  className,
+  onClick,
+}) => {
   const [buttonStyles, setButtonStyles] = useState<string>('');
 
   const buttonText = {
-    primary: 'text-white',
+    primary: 'text-white active:text-logo',
     tertiary: 'text-primary border-none',
     default: 'text-primary',
   };
 
   const buttonBgColor = {
-    primary: 'bg-primary',
+    primary: 'bg-primary active:bg-quaternary',
     tertiary: 'bg-white',
     default: 'border-0 underline bg-white shadow-none',
   };
 
   const buttonColor = {
-    primary: 'hover:bg-primary-dark',
+    primary: 'hover:bg-logo hover:text-primary',
     tertiary: 'hover:bg-slate-100',
     default: 'hover:bg-slate-100 hover:text-primary-dark',
   };
-
 
   useEffect(() => {
     if (id === 'primary') {
@@ -42,7 +49,7 @@ const Button: React.FC<ButtonProps> = ({ children, type, id, isIcon, onClick }) 
     } else {
       setButtonStyles(
         `${buttonText.default} ${buttonColor.default} ${buttonBgColor.default}`
-        );
+      );
     }
   }, [id]);
 
@@ -50,7 +57,9 @@ const Button: React.FC<ButtonProps> = ({ children, type, id, isIcon, onClick }) 
     <button
       onClick={onClick}
       type={type}
-      className={`btn shadow-lg ${buttonStyles} ${isIcon ? 'text-xl' : ''}`}
+      className={`btn shadow-lg ${buttonStyles} ${
+        isIcon ? 'text-xl' : ''
+      } ${className}`}
     >
       {children}
     </button>

@@ -11,10 +11,11 @@ class Note(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
     author_id = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='notes', default=1)
+        User, on_delete=models.CASCADE, related_name="notes", null=True
+    )
 
     def __str__(self):
-        return 'Note added'
+        return "Note added"
 
     class Meta:
         ordering = ["-id"]

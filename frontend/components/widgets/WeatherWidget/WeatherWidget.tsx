@@ -1,6 +1,7 @@
 import { SyntheticEvent, useEffect, useState } from 'react';
 import { TiWeatherNight, TiWeatherSunny } from 'react-icons/ti';
 
+import Button from '@/components/ui/Button';
 import { WeatherData } from '@/pages/index';
 
 interface defaultWeather {
@@ -147,8 +148,22 @@ const WeatherWidget: React.FC = () => {
     <>
       {userLocation ? (
         <div
-          className={`stats mx-auto flex w-full md:w-full lg:flex-col p-6 md:p-10 lg:w-6/12 lg:px-0 ${weatherCardBgColor} ${weatherDataTextColor} rounded-lg shadow-lg lg:rounded-none lg:rounded-l-lg`}
+          className={`stats relative mx-auto flex w-full p-6 md:w-full md:p-10 lg:w-6/12 lg:flex-col lg:px-0 ${weatherCardBgColor} ${weatherDataTextColor} rounded-lg shadow-lg lg:rounded-none lg:rounded-l-lg`}
         >
+          {/* Close Button */}
+
+          <button
+            type="button"
+            className="absolute left-3 top-3 bg-transparent text-xl font-bold text-black hover:cursor-pointer hover:bg-transparent hover:text-logo active:text-quaternary"
+            onClick={() => {
+              setUserLocation(null);
+              setZipCode(null);
+              localStorage.removeItem('zipcode');
+            }}
+          >
+            X
+          </button>
+
           <div className="stat flex flex-col place-items-center items-center justify-center gap-3">
             <div className="stat-desc">{getWeatherIcon()}</div>
             <div className="text:lg stat-value lg:text-6xl">
@@ -188,14 +203,17 @@ const WeatherWidget: React.FC = () => {
           </div>
         </div>
       ) : (
-        <div className=" mx-auto flex w-full bg-inherit">
+        <div className=" mx-auto flex w-full bg-inherit py-32 md:w-6/12">
           <div className=" flex w-full flex-col place-items-center items-center justify-center p-0">
+            <h1 className="mb-6 text-center font-cedarville text-6xl">
+              Weather
+            </h1>
             <form
-              className="form-control flex w-full flex-col items-center justify-center gap-3 lg:w-10/12"
+              className="form-control flex w-full flex-col items-center justify-center gap-6 lg:w-10/12"
               onSubmit={handleZipCode}
             >
               <div className="w-full lg:w-11/12">
-                <label className="input-group w-full">
+                <label className="input-group w-full shadow-lg">
                   <span>ZIP</span>
                   <input
                     type="number"
@@ -207,12 +225,9 @@ const WeatherWidget: React.FC = () => {
                   />
                 </label>
               </div>
-              <button
-                className="btn w-10/12 bg-slate-800 text-lg lg:w-6/12 lg:text-xl"
-                type="submit"
-              >
+              <Button id="primary" type="submit">
                 Get Weather
-              </button>
+              </Button>
             </form>
           </div>
         </div>

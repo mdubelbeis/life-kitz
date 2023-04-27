@@ -15,10 +15,11 @@ class Expense(models.Model):
     description = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
     author_id = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='expenses', default=1)
+        User, on_delete=models.CASCADE, related_name="expenses", null=True
+    )
 
     def __str__(self):
-        return 'Expense added'
+        return "Expense added"
 
     class Meta:
         ordering = ["-id"]

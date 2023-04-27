@@ -19,12 +19,16 @@ const Time: React.FC = () => {
   });
 
   return (
-    <div className="relative h-full w-full rounded-md bg-black px-6 py-24 font-digital text-xl text-green-700 sm:text-2xl md:text-3xl lg:text-6xl shadow-lg">
-      <p className="absolute left-[50%] top-[50%] w-full -translate-x-[50%] -translate-y-[50%] text-4xl md:text-5xl lg:text-6xl">
-        {times ? times.replace('M', '') : 'Loading...'}
+    <div className="relative h-full w-full rounded-md bg-black px-6 py-24 font-digital text-xl text-green-700 shadow-lg sm:text-2xl md:text-3xl lg:text-6xl">
+      <p className="absolute left-[50%] top-[50%] w-full -translate-x-[50%] -translate-y-[50%] text-4xl md:text-5xl lg:text-7xl">
+        {times ? (
+          times.replace('M', '')
+        ) : (
+          <span className="text-2xl lg:text-4xl">Loading...</span>
+        )}
       </p>
       <p>
-        <RiRadioButtonLine className="absolute animate-pulse text-red-500 top-2 left-2 lg:text-3xl" />
+        <RiRadioButtonLine className="absolute left-2 top-2 animate-pulse text-red-500 lg:text-3xl" />
       </p>
       <p className="absolute bottom-2 right-2 lg:text-5xl">
         <Calendar />

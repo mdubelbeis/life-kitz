@@ -82,7 +82,7 @@ const TodosPage: React.FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {isAuthenticated ? (
-        <section className="mx-auto mt-10 flex max-w-6xl flex-col gap-20">
+        <section className="mx-auto mt-10 flex max-w-6xl flex-col gap-20 h-screen bg-logo">
           <h1 className="text-center font-cedarville text-6xl text-quinary lg:text-left lg:text-7xl">
             TODOS
           </h1>

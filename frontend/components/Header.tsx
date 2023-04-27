@@ -8,10 +8,10 @@ const Header: React.FC = () => {
   const router = useRouter();
   const { push, pathname } = useRouter();
   const [pathStyle, setPathStyle] = useState<string>(
-    'border-b-[1px] border-b-quaternary text-quaternary hover:border-b-quinary hover:text-quinary'
+    'border-b-[1px] border-b-quaternary text-quaternary hover:border-b-logo hover:text-logo'
   );
   const [notPathStyle, setNotPathStyle] = useState<string>(
-    'hover:text-quinary text-tertiary'
+    'hover:text-quaternary text-tertiary'
   );
 
   const handleLogout = () => {
@@ -41,11 +41,11 @@ const Header: React.FC = () => {
       {!isAuthenticated ? (
         <nav>
           {pathname === '/login' ? (
-            <Link href="/signup" className="text-quinary underline">
+            <Link href="/signup" className="text-tertiary underline">
               Sign up
             </Link>
           ) : (
-            <Link href="/login" className="text-quinary underline">
+            <Link href="/login" className="text-tertiary underline">
               Log in
             </Link>
           )}
@@ -70,7 +70,10 @@ const Header: React.FC = () => {
           >
             Notes
           </Link>
-          <span className="text-white" onClick={handleLogout}>
+          <span
+            className="text-white hover:cursor-pointer"
+            onClick={handleLogout}
+          >
             Logout
           </span>
         </nav>
