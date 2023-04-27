@@ -19,8 +19,8 @@ const Time: React.FC = () => {
   });
 
   return (
-    <div className="relative h-full w-full rounded-md bg-black px-6 py-24 font-digital text-xl text-green-700 shadow-lg sm:text-2xl md:text-3xl lg:text-6xl">
-      <p className="absolute left-[50%] top-[50%] w-full -translate-x-[50%] -translate-y-[50%] text-4xl md:text-5xl lg:text-7xl">
+    <div className="relative m-4 mx-auto flex h-full w-full flex-col items-center justify-center gap-10 place-self-center rounded-md rounded-r-lg bg-black p-3 px-6 py-24 text-center font-digital text-xl text-green-700 shadow-lg sm:text-2xl md:text-3xl lg:w-[500px] lg:py-24 lg:text-6xl">
+      <p className="text-4xl md:text-5xl lg:text-7xl">
         {times ? (
           times.replace('M', '')
         ) : (
@@ -30,7 +30,7 @@ const Time: React.FC = () => {
       <p>
         <RiRadioButtonLine className="absolute left-2 top-2 animate-pulse text-red-500 lg:text-3xl" />
       </p>
-      <p className="absolute bottom-2 right-2 lg:text-5xl">
+      <p>
         <Calendar />
       </p>
     </div>

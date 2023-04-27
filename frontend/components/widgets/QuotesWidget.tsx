@@ -44,7 +44,10 @@ const QuotesWidget: React.FC = () => {
   return (
     <>
       {quoteData ? (
-        <div className="relative m-4 mx-auto max-w-2xl rounded-xl bg-white p-3 py-24 shadow-lg lg:w-[500px]">
+        <div className="relative m-4 mx-auto flex w-full flex-col items-center justify-center gap-10 rounded-xl bg-white p-3 py-72 shadow-lg lg:w-[500px] lg:py-24">
+          <h1 className="absolute top-[15%] mb-6 -translate-y-[15%] text-center font-cedarville text-6xl">
+            Wisdom
+          </h1>
           <Image
             src="/quotation.png"
             alt="quotation marks"
@@ -53,7 +56,6 @@ const QuotesWidget: React.FC = () => {
             className="absolute -left-2 top-0 w-fit opacity-10 lg:-left-20"
             priority
           />
-          <h1 className="mb-6 text-center font-cedarville text-6xl">Wisdom</h1>
           <div className="absolute top-[50%] flex -translate-y-[50%] flex-col gap-3 p-3 text-xl">
             <p>{quoteData.line}</p>
             <p className="mt-3 text-center font-cedarville text-2xl">

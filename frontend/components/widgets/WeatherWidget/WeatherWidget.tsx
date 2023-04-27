@@ -148,7 +148,7 @@ const WeatherWidget: React.FC = () => {
     <>
       {userLocation ? (
         <div
-          className={`stats relative mx-auto flex w-full p-6 md:w-full md:p-10 lg:w-6/12 lg:flex-col lg:px-0 ${weatherCardBgColor} ${weatherDataTextColor} rounded-lg shadow-lg lg:rounded-none lg:rounded-l-lg`}
+          className={`stats relative mx-auto flex w-full p-6 lg:flex-col lg:px-0 ${weatherCardBgColor} ${weatherDataTextColor} m-4 mx-auto flex-col items-center justify-center rounded-lg py-24 shadow-lg lg:rounded-none lg:rounded-l-lg`}
         >
           {/* Close Button */}
 
@@ -165,8 +165,11 @@ const WeatherWidget: React.FC = () => {
           </button>
 
           <div className="stat flex flex-col place-items-center items-center justify-center gap-3">
+            <h1 className="mb-6 text-center font-cedarville text-6xl text-black">
+              Weather
+            </h1>
             <div className="stat-desc">{getWeatherIcon()}</div>
-            <div className="text:lg stat-value lg:text-6xl">
+            <div className="text:lg stat-value text-black lg:text-6xl">
               <span className={`${tempTextColor} `}>
                 {temp ? `${((temp * 9) / 5 + 32).toFixed(0)} °F` : 'Fetching'}
               </span>
@@ -174,7 +177,7 @@ const WeatherWidget: React.FC = () => {
           </div>
 
           <div className="hidden md:stat md:block md:place-items-center">
-            <ul className="items flex w-full flex-col items-center justify-center gap-3 font-thin tracking-wider lg:text-2xl">
+            <ul className="items flex w-full flex-col items-center justify-center gap-3 font-thin tracking-wider text-black lg:text-2xl">
               {wind_speed ? (
                 <li>
                   Wind Speed: ... {(wind_speed * 1.150779).toFixed(0)} mph

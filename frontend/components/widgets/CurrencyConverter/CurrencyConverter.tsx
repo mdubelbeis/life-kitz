@@ -107,7 +107,7 @@ const CurrencyConverterWidget: React.FC = () => {
   return (
     <>
       {currencyData ? (
-        <div className="relative m-4 mx-auto flex max-w-2xl flex-col items-center justify-center rounded-xl bg-white p-3 py-24 shadow-lg lg:w-[500px]">
+        <div className="relative m-4 mx-auto flex max-w-2xl flex-col items-center justify-center rounded-xl bg-white p-3 py-24 shadow-lg lg:w-[500px] lg:py-72">
           <div className=" flex flex-col items-center gap-3 border border-black p-3 text-xl">
             <button
               type="button"
