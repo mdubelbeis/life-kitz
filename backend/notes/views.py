@@ -13,7 +13,7 @@ User = get_user_model()
 class NoteViewSet(viewsets.ModelViewSet):
     serializer_class = NoteSerializer
     permission_classes = [IsAuthenticated]
-    # queryset = Note.objects.all()
+    queryset = Note.objects.all()
 
     def get_queryset(self):
         return Note.objects.all().filter(author_id_id=self.request.user.id)

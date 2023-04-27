@@ -76,7 +76,7 @@ const NotesDisplay: React.FC<NotesDisplayProps> = ({ notes }) => {
                       id="primary"
                       type="button"
                       isIcon={true}
-                      onClick={() => handleCompleteNote(note)}
+                      onClick={() => handleCompleteNote(note.id)}
                     >
                       <RiCheckLine />
                     </Button>
@@ -84,7 +84,7 @@ const NotesDisplay: React.FC<NotesDisplayProps> = ({ notes }) => {
                       id="tertiary"
                       type="button"
                       isIcon={true}
-                      onClick={() => handleDeleteNote(note)}
+                      onClick={() => handleDeleteNote(note.id)}
                     >
                       <RiDeleteBinLine />
                     </Button>

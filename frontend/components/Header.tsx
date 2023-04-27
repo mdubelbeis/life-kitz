@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 
 const Header: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [username, setUsername] = useState<string>('');
   const router = useRouter();
   const { push, pathname } = useRouter();
   const [pathStyle, setPathStyle] = useState<string>(
@@ -31,6 +32,20 @@ const Header: React.FC = () => {
     } else {
       setIsAuthenticated(false);
     }
+
+    // Get username from api call and set it to state
+    const getUsername = async () => {
+      const response = await fetch('http://127.0.0.1:8000/auth/login/', {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token').slice(1, -1)}`,
+        },
+      });
+      const data = await response.json();
+      setUsername(data.user);
+    };
+
+    getUsername();
   }, [router]);
 
   return (
@@ -76,6 +91,7 @@ const Header: React.FC = () => {
           >
             Logout
           </span>
+          <h3 className="absolute left-2 top-2">Hello, {username}</h3>
         </nav>
       )}
     </header>

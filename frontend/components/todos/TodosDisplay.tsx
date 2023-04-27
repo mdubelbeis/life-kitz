@@ -1,7 +1,7 @@
 import { Todo } from '@/pages';
 import React from 'react';
+import { RiCheckLine, RiDeleteBinLine } from 'react-icons/ri';
 import Button from '../ui/Button';
-import {RiDeleteBinLine, RiCheckLine} from "react-icons/ri"
 
 interface TodosDisplayProps {
   todos: Todo[];

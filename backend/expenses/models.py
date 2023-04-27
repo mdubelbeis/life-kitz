@@ -11,7 +11,7 @@ User = get_user_model()
 class Expense(models.Model):
     title = models.CharField(max_length=120)
     amount = models.FloatField()
-    date = models.DateField()
+    date = models.DateField(default=timezone.now)
     description = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
     author_id = models.ForeignKey(

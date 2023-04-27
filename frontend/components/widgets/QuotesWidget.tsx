@@ -56,7 +56,7 @@ const QuotesWidget: React.FC = () => {
             className="absolute -left-2 top-0 w-fit opacity-10 lg:-left-20"
             priority
           />
-          <div className="absolute top-[50%] flex -translate-y-[50%] flex-col gap-3 p-3 text-xl">
+          <div className="absolute top-[50%] flex -translate-y-[50%] flex-col gap-3 p-10 text-xl">
             <p>{quoteData.line}</p>
             <p className="mt-3 text-center font-cedarville text-2xl">
               {quoteData.author}
