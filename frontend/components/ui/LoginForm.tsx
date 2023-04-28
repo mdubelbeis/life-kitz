@@ -50,7 +50,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
   };
 
   return (
-    <form className="flex flex-col gap-3 text-tertiary" onSubmit={handleLogin}>
+    <form className="flex flex-col gap-3 text-black" onSubmit={handleLogin}>
       <label className="relative" htmlFor="email">
         <input
           type="email"

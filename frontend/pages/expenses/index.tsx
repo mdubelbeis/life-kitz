@@ -51,7 +51,6 @@ const ExpensesPage: React.FC = () => {
 
     const newExpense = {
       title: newExpenseTitle,
-      date: new Date().toISOString().slice(0, 10),
       amount: newExpenseAmount,
       description: newExpenseDescription,
     };
@@ -86,7 +85,7 @@ const ExpensesPage: React.FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {isAuthenticated ? (
-        <section className="mx-auto flex w-full h-screen flex-col gap-20">
+        <section className="mx-auto flex h-screen w-full flex-col gap-20">
           <h1 className="mt-10 text-center font-cedarville text-6xl text-quinary lg:text-left lg:text-7xl">
             EXPENSES
           </h1>

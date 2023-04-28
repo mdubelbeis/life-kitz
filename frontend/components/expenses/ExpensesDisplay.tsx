@@ -56,7 +56,7 @@ const ExpensesDisplay: React.FC<ExpensesDisplayProps> = ({ expenses }) => {
             <thead>
               <tr>
                 <th>Title</th>
-                <th>Description</th>
+                <th></th>
                 <th>Amount</th>
                 <th>Actions</th>
               </tr>
