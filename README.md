@@ -69,6 +69,42 @@ Life-Kitz will be your go to multi-tool from simple to advanced tasks!
 ![SQL SCHEMA](./dev-documents/whiteboarding/sql_schema.png)
 ![SQL SCHEMA (OG)](./dev-documents/whiteboarding/sql_schema_og.JPG)
 
+## PICTURES
+
+### PAGES
+
+![Login Page](./dev-documents/whiteboarding/login-complete.png)
+![Sign-up Page](./dev-documents/whiteboarding/sign-up-page.png)
+![User Dashboard](./dev-documents/whiteboarding/dashboard.png)
+![Todos Page](./dev-documents/whiteboarding/todos-page.png)
+![Expenses Page](./dev-documents/whiteboarding/expenses-page.png)
+![Notes Page](./dev-documents/whiteboarding/notes-page.png)
+
+### WIDGETS
+
+#### Exchange Widget
+
+![Exchange Widget - DEFAULT](./dev-documents/whiteboarding/exchange-widget.png)
+![Exchange Widget - ACTIVE](./dev-documents/whiteboarding/currency-exchanged.png)
+
+#### Weather Widget
+
+![Weather Widget - DEFAULT](./dev-documents/whiteboarding/weather-widget-active.png)
+![Weather Widget - ACTIVE](./dev-documents/whiteboarding/weather-widget-form.png)
+
+#### Wisdom Widget 
+
+![Wisdom Widget](./dev-documents/whiteboarding/wisdom-widget.png)
+
+
+
+
+
+
+
+
+
+
 ## STRETCH GOALS
 
 - Update the CP RUBRIC to proper url  :)
