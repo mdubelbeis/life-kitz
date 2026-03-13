@@ -33,9 +33,7 @@ Life-Kitz will be your go to multi-tool from simple to advanced tasks!
   - TailwindCSS (Utility Styles)
   - DaisyUI (Component Library)
   - React-Icons (Icons)
-  - ...
 - Django/DRF - BE
-  - ...
 
 ## WIRE-FRAMES AND BRAINSTORMING
 
